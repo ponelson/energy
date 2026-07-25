@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Architecture — From Fusion to Metabolism</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f5f7;
+  --panel:rgba(255,255,255,.62);
+  --panel-solid:#ffffff;
+  --line:rgba(0,0,0,.09);
+  --line-strong:rgba(0,0,0,.16);
+  --text:#1d1d1f;
+  --text-2:#5a5a5f;
+  --text-3:#8a8a8f;
+  --blue:#0071e3;
+  --green:#1f8f4e;
+  --orange:#b65f00;
+  --purple:#6b47d6;
+  --red:#bd2b28;
+  --amber:#c99700;
+  --slate:#6c7480;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  --nav-w:236px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:
+    radial-gradient(1100px 600px at 82% -8%,rgba(0,113,227,.10),transparent 60%),
+    radial-gradient(900px 520px at 4% 8%,rgba(201,151,0,.10),transparent 62%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+}
+a{color:inherit}
+::selection{background:rgba(0,113,227,.18)}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed;inset:0 0 auto 0;z-index:900;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;
+  background:rgba(245,245,247,.82);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand-mark{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--blue)}
+.brand-name{font-size:13px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{font-size:12px;color:var(--text-3);white-space:nowrap}
+.contacts{display:flex;gap:6px;flex:0 0 auto}
+.cbtn{
+  height:30px;padding:0 11px;border-radius:8px;border:1px solid var(--line);
+  background:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:500;text-decoration:none;color:var(--text-2);
+  transition:background .18s,border-color .18s,color .18s,transform .18s;
+}
+.cbtn:hover{background:#fff;border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+.cbtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cbtn svg{width:13px;height:13px;fill:currentColor}
+
+/* ---------- shell ---------- */
+.shell{display:flex;padding-top:52px}
+.sidenav{
+  position:fixed;top:52px;bottom:0;left:0;width:var(--nav-w);
+  overflow-y:auto;padding:22px 12px 40px;
+  border-right:1px solid var(--line);
+  background:rgba(255,255,255,.44);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  z-index:800;
+}
+.nav-group{margin-bottom:18px}
+.nav-title{
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text-3);padding:0 12px 7px;
+}
+.nav-link{
+  display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:7px;
+  font-size:13px;color:var(--text-2);text-decoration:none;
+  transition:background .15s,color .15s;
+}
+.nav-link:hover{background:rgba(0,113,227,.08);color:var(--blue)}
+.nav-link.on{background:rgba(0,113,227,.13);color:var(--blue);font-weight:550}
+.nav-link .lv{font-family:var(--mono);font-size:9.5px;color:var(--text-3);width:14px;flex:0 0 14px}
+.nav-link.on .lv{color:var(--blue)}
+.nav-foot{padding:14px 12px 0;border-top:1px solid var(--line);margin-top:6px;font-size:11px;color:var(--text-3);line-height:1.5}
+
+main{margin-left:var(--nav-w);width:calc(100% - var(--nav-w));padding:34px 46px 120px;max-width:1420px}
+
+/* ---------- type ---------- */
+.eyebrow{
+  font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:10px;
+}
+h1{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:600;letter-spacing:-.02em;line-height:1.08}
+h2{font-family:var(--serif);font-size:clamp(23px,2.4vw,31px);font-weight:600;letter-spacing:-.015em;line-height:1.15}
+h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.lede{font-size:16.5px;color:var(--text-2);max-width:74ch;margin-top:12px}
+.sec{padding-top:26px;margin-bottom:58px;scroll-margin-top:70px}
+.sec-head{margin-bottom:22px}
+.sec-head .lede{margin-top:10px;font-size:15px}
+p+p{margin-top:10px}
+.mono{font-family:var(--mono)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- panels ---------- */
+.panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--shadow);
+}
+.pad{padding:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;backdrop-filter:blur(12px)}
+.card h3{margin-bottom:4px}
+.card .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:9px}
+.card p,.card li{font-size:13px;color:var(--text-2)}
+.card strong{color:var(--text);font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stack>*+*{margin-top:14px}
+.tight li{margin-left:16px;margin-bottom:5px}
+
+.stat{border-left:2px solid var(--blue);padding:2px 0 2px 14px}
+.stat .v{font-family:var(--mono);font-size:21px;font-weight:700;letter-spacing:-.02em}
+.stat .k{font-size:11.5px;color:var(--text-3);text-transform:uppercase;letter-spacing:.08em}
+.stat .d{font-size:12.5px;color:var(--text-2);margin-top:6px}
+
+.tag{
+  display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;padding:2px 7px;border-radius:5px;border:1px solid currentColor;
+}
+.t-fossil{color:var(--orange)}
+.t-renew{color:var(--amber)}
+.t-nuclear{color:var(--red)}
+.t-elec{color:var(--blue)}
+.t-loss{color:var(--slate)}
+
+/* ---------- dial ---------- */
+.hero{display:grid;grid-template-columns:340px 1fr;gap:26px;align-items:stretch;margin:26px 0 12px}
+.dial-panel{padding:22px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.dial-wrap{position:relative;width:264px;height:264px}
+.dial-wrap svg{display:block}
+.dial-center{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  pointer-events:none;text-align:center;padding:0 46px;
+}
+.dial-power{font-family:var(--mono);font-size:27px;font-weight:700;letter-spacing:-.03em;color:var(--text)}
+.dial-unit{font-family:var(--mono);font-size:11px;color:var(--text-3);margin-top:1px;letter-spacing:.06em}
+.dial-name{font-family:var(--serif);font-size:15px;font-weight:600;margin-top:9px;line-height:1.2}
+.dial-slider{width:236px;margin-top:14px;accent-color:var(--blue)}
+.dial-ticks{display:flex;justify-content:space-between;width:236px;font-family:var(--mono);font-size:9px;color:var(--text-3);margin-top:2px}
+.dial-hint{font-size:11.5px;color:var(--text-3);margin-top:10px;text-align:center}
+
+.level-facts{padding:22px;display:flex;flex-direction:column}
+.lf-row{display:grid;grid-template-columns:132px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.lf-row:last-of-type{border-bottom:none}
+.lf-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--text-3);padding-top:2px}
+.lf-v{font-size:13.5px;color:var(--text)}
+.lf-v .sub{display:block;color:var(--text-2);font-size:12.5px;margin-top:3px}
+.lf-jump{margin-top:auto;padding-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.jump{
+  font-size:12px;font-weight:500;padding:6px 11px;border-radius:7px;
+  border:1px solid var(--line);background:rgba(255,255,255,.7);text-decoration:none;color:var(--text-2);
+}
+.jump:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ---------- controls ---------- */
+.seg{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.66)}
+.seg button{
+  border:0;background:transparent;cursor:pointer;font-family:var(--sans);
+  font-size:12.5px;font-weight:500;color:var(--text-2);padding:7px 13px;border-radius:6px;transition:background .15s,color .15s;
+}
+.seg button:hover{background:rgba(0,0,0,.04)}
+.seg button.on{background:rgba(0,113,227,.14);color:var(--blue)}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;color:var(--text-2)}
+.legend i{display:inline-block;width:16px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+.check{
+  display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--text-2);
+  padding:6px 11px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.66);cursor:pointer;
+}
+.check:hover{border-color:var(--line-strong)}
+.check input{accent-color:var(--blue);width:14px;height:14px;cursor:pointer}
+.check .sw{width:9px;height:9px;border-radius:50%}
+
+.slider-row{display:grid;grid-template-columns:1fr 62px;gap:12px;align-items:center;margin-bottom:9px}
+.slider-row label{font-size:12.5px;color:var(--text-2)}
+.slider-row input[type=range]{width:100%;accent-color:var(--blue)}
+.slider-row .out{font-family:var(--mono);font-size:12px;text-align:right;color:var(--text)}
+
+/* ---------- viz frames ---------- */
+.viz{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.5);backdrop-filter:blur(12px);padding:14px;overflow:hidden}
+.viz-scroll{overflow-x:auto}
+.viz svg{display:block}
+.cap{font-size:11.5px;color:var(--text-3);margin-top:10px;line-height:1.5}
+
+.sk-node rect{stroke:rgba(0,0,0,.14);stroke-width:.8;cursor:pointer;transition:opacity .18s}
+.sk-node text{pointer-events:none}
+.sk-lab{font-size:10.5px;fill:var(--text);font-weight:500}
+.sk-val{font-family:var(--mono);font-size:9.5px;fill:var(--text-3)}
+.sk-link{fill:none;transition:stroke-opacity .18s}
+.faded{opacity:.14}
+.sk-tip,.gl-tip{
+  position:absolute;pointer-events:none;z-index:60;max-width:250px;
+  background:rgba(28,28,30,.94);color:#fff;border-radius:9px;padding:9px 11px;
+  font-size:11.5px;line-height:1.45;box-shadow:0 8px 26px rgba(0,0,0,.24);opacity:0;transition:opacity .12s;
+}
+.sk-tip b,.gl-tip b{display:block;font-size:12.5px;margin-bottom:3px}
+.sk-tip .n,.gl-tip .n{font-family:var(--mono)}
+.rel{position:relative}
+
+.globe-grid{display:grid;grid-template-columns:1fr 306px;gap:14px}
+.globe-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.detail{border:1px solid var(--line);border-radius:12px;padding:15px;background:rgba(255,255,255,.7);min-height:190px}
+.detail .dt{font-family:var(--serif);font-size:16px;font-weight:600;margin-bottom:3px}
+.detail .dm{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
+.detail .drow{display:grid;grid-template-columns:82px 1fr;gap:9px;font-size:12px;padding:5px 0;border-bottom:1px solid var(--line)}
+.detail .drow:last-child{border-bottom:none}
+.detail .dk{color:var(--text-3);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
+.detail .dv{color:var(--text-2)}
+.globe-empty{font-size:12.5px;color:var(--text-3)}
+.spin{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2)}
+
+/* ---------- chain diagrams ---------- */
+.chain{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.55)}
+.chain .step{padding:15px 16px;border-right:1px solid var(--line);position:relative}
+.chain .step:last-child{border-right:none}
+.chain .st-n{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.12em;color:var(--blue);margin-bottom:6px}
+.chain .st-t{font-size:13px;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
+.chain .st-b{font-size:11.5px;color:var(--text-2);line-height:1.5}
+.chain .st-m{font-family:var(--mono);font-size:10.5px;color:var(--text-3);margin-top:7px}
+.chain .risk{margin-top:8px;font-size:10.5px;font-weight:600;color:var(--red)}
+.chain .step.hot{background:rgba(189,43,40,.05)}
+
+.rule{height:1px;background:var(--line);margin:26px 0}
+.foot{font-size:12px;color:var(--text-3);line-height:1.6;border-top:1px solid var(--line);padding-top:18px}
+
+@media (max-width:1180px){
+  .hero{grid-template-columns:1fr}
+  .globe-grid{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  :root{--nav-w:0px}
+  .sidenav{display:none}
+  main{margin-left:0;width:100%;padding:24px 18px 90px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .chain{grid-template-columns:1fr}
+  .chain .step{border-right:none;border-bottom:1px solid var(--line)}
+  .brand-sub{display:none}
+  .lf-row{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">
+    <span class="brand-mark">EA/01</span>
+    <span class="brand-name">Energy Architecture</span>
+    <span class="brand-sub">fusion &rarr; metabolism, in eight orders of magnitude</span>
+  </div>
+  <div class="contacts">
+    <a class="cbtn" href="mailto:pnelson@qumulo.com">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.4l-8 5-8-5V6l8 5 8-5v2.4z"/></svg>Email</a>
+    <a class="cbtn" href="https://linkedin.com/in/ponelson/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>LinkedIn</a>
+    <a class="cbtn" href="https://github.com/ponelson" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 00.5 12a11.5 11.5 0 007.86 10.92c.58.1.79-.25.79-.55v-2c-3.2.7-3.88-1.4-3.88-1.4-.53-1.32-1.29-1.67-1.29-1.67-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.97.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.2.66.8.55A11.5 11.5 0 0023.5 12A11.5 11.5 0 0012 .5z"/></svg>GitHub</a>
+  </div>
+</div>
+
+<div class="shell">
+<nav class="sidenav" aria-label="Sections">
+  <div class="nav-group">
+    <div class="nav-title">Instruments</div>
+    <a class="nav-link" href="#dial"><span class="lv">00</span>Energy dial</a>
+    <a class="nav-link" href="#flow"><span class="lv">01</span>Flow &amp; rejected energy</a>
+    <a class="nav-link" href="#map"><span class="lv">02</span>Infrastructure globe</a>
+    <a class="nav-link" href="#models"><span class="lv">03</span>Grid &amp; cost models</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">Hydrocarbons</div>
+    <a class="nav-link" href="#extraction"><span class="lv">04</span>Extraction</a>
+    <a class="nav-link" href="#refining"><span class="lv">05</span>Refining</a>
+    <a class="nav-link" href="#logistics"><span class="lv">06</span>Logistics &amp; pricing</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">Clean hardware</div>
+    <a class="nav-link" href="#solar"><span class="lv">07</span>Solar PV chain</a>
+    <a class="nav-link" href="#nuclear"><span class="lv">08</span>Nuclear fuel cycle</a>
+    <a class="nav-link" href="#wind"><span class="lv">09</span>Wind chain</a>
+    <a class="nav-link" href="#hydrogen"><span class="lv">10</span>Hydrogen</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">Inputs</div>
+    <a class="nav-link" href="#minerals"><span class="lv">11</span>Critical minerals</a>
+    <a class="nav-link" href="#cascades"><span class="lv">12</span>Risk cascades</a>
+  </div>
+  <div class="nav-foot">Figures are order-of-magnitude, sourced from IEA WEO / EI Statistical Review / USGS ranges. Models are transparent heuristics, not forecasts.</div>
+</nav>
+
+<main>
+
+<!-- =============== HERO / DIAL =============== -->
+<section class="sec" id="dial" style="padding-top:6px">
+  <div class="eyebrow">A single system, eight scales</div>
+  <h1>Energy is one continuous chain from a fusion core<br>to the 100 watts you are running on right now.</h1>
+  <p class="lede">Everything between those two numbers is engineering: extraction, conversion, transmission, and loss. Drag the dial to pick a scale. The dial is the page's filter, it re-focuses the flow diagram, the globe, and the reading list below.</p>
+
+  <div class="hero">
+    <div class="panel dial-panel">
+      <div class="dial-wrap rel">
+        <svg id="dialSvg" viewBox="0 0 264 264" width="264" height="264" aria-hidden="true"></svg>
+        <div class="dial-center">
+          <div class="dial-power" id="dPower">3.8&times;10<sup style="font-size:.62em">26</sup></div>
+          <div class="dial-unit" id="dUnit">watts</div>
+          <div class="dial-name" id="dName">Stellar fusion</div>
+        </div>
+      </div>
+      <input class="dial-slider" id="dialInput" type="range" min="0" max="7" step="1" value="0"
+             aria-label="Energy scale level" aria-valuetext="Level 0, stellar fusion">
+      <div class="dial-ticks"><span>10²⁶</span><span>10¹⁷</span><span>10¹²</span><span>10²</span></div>
+      <div class="dial-hint">Arrow keys work. Each step is roughly three orders of magnitude.</div>
+    </div>
+
+    <div class="panel level-facts">
+      <div class="lf-row"><div class="lf-k">Level</div><div class="lf-v" id="lfLevel"></div></div>
+      <div class="lf-row"><div class="lf-k">Domain</div><div class="lf-v" id="lfDomain"></div></div>
+      <div class="lf-row"><div class="lf-k">Mechanism</div><div class="lf-v" id="lfMech"></div></div>
+      <div class="lf-row"><div class="lf-k">Where it fails</div><div class="lf-v" id="lfFail"></div></div>
+      <div class="lf-row"><div class="lf-k">Who controls it</div><div class="lf-v" id="lfWho"></div></div>
+      <div class="lf-jump" id="lfJump"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== SANKEY =============== -->
+<section class="sec" id="flow">
+  <div class="sec-head">
+    <div class="eyebrow">01 &nbsp;/&nbsp; Conversion and its price</div>
+    <h2>More than half of all primary energy never becomes a service</h2>
+    <p class="lede">Six hundred exajoules enter the system each year. Around 250 leave it as motion, heat, light, and computation. The rest is rejected as low-grade heat at turbines, engines, and transformers. Grey flows are that rejection. Switch scenarios to see what electrification does to the grey.</p>
+  </div>
+
+  <div class="bar">
+    <div class="seg" role="tablist" aria-label="Scenario">
+      <button id="scCurrent" class="on" data-sc="current" role="tab" aria-selected="true">Today &middot; ~617 EJ</button>
+      <button id="scNetzero" data-sc="netzero" role="tab" aria-selected="false">Net-zero 2050 &middot; ~417 EJ</button>
+    </div>
+    <div class="seg">
+      <button id="skFocusOff" class="on">Show all stages</button>
+      <button id="skFocusOn">Follow the dial</button>
+    </div>
+  </div>
+
+  <div class="legend" style="margin-bottom:12px">
+    <span><i style="background:#b65f00"></i>Fossil</span>
+    <span><i style="background:#c99700"></i>Renewable flow</span>
+    <span><i style="background:#bd2b28"></i>Nuclear</span>
+    <span><i style="background:#0071e3"></i>Electricity &amp; carriers</span>
+    <span><i style="background:#1f8f4e"></i>Useful energy &amp; materials</span>
+    <span><i style="background:#a6adb7"></i>Rejected energy</span>
+  </div>
+
+  <div class="viz viz-scroll rel">
+    <svg id="sankey" role="img" aria-label="Sankey diagram of global energy flow"></svg>
+    <div class="sk-tip" id="skTip"></div>
+  </div>
+  <div class="cap" id="skCap"></div>
+
+  <div class="g4" style="margin-top:14px">
+    <div class="card"><div class="stat"><div class="k">Primary in</div><div class="v" id="mPrimary">—</div><div class="d">All energy entering the system, including non-energy feedstock.</div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--green)"><div class="k">Useful out</div><div class="v" id="mUseful">—</div><div class="d">Delivered work, heat, light, and compute at the point of use.</div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--slate)"><div class="k">Rejected</div><div class="v" id="mRejected">—</div><div class="d">Conversion, transmission, and end-use losses combined.</div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--amber)"><div class="k">System efficiency</div><div class="v" id="mEff">—</div><div class="d">Useful energy as a share of primary. The single number that matters.</div></div></div>
+  </div>
+</section>
+
+<!-- =============== GLOBE =============== -->
+<section class="sec" id="map">
+  <div class="sec-head">
+    <div class="eyebrow">02 &nbsp;/&nbsp; Where the system is physically pinned</div>
+    <h2>Energy geography is a short list of narrow places</h2>
+    <p class="lede">Four layers, one sphere. Drag to rotate. Every arc and marker uses real coordinates, so the clustering you see is the actual clustering: refining on three coastlines, refining of minerals in one country, and a fifth of the world's crude through a strait 33 km wide.</p>
+  </div>
+
+  <div class="bar" id="layerBar">
+    <label class="check"><input type="checkbox" id="lyCable" checked><span class="sw" style="background:#0071e3"></span>Subsea cables</label>
+    <label class="check"><input type="checkbox" id="lyRefinery" checked><span class="sw" style="background:#b65f00"></span>Refineries &amp; LNG</label>
+    <label class="check"><input type="checkbox" id="lyMine" checked><span class="sw" style="background:#6b47d6"></span>Mines &amp; processing</label>
+    <label class="check"><input type="checkbox" id="lyChoke" checked><span class="sw" style="background:#bd2b28"></span>Chokepoints</label>
+    <label class="check"><input type="checkbox" id="lySpin" checked>Rotate</label>
+  </div>
+
+  <div class="globe-grid">
+    <div class="viz rel" style="padding:0">
+      <svg id="globe" role="img" aria-label="Rotatable globe of energy infrastructure"></svg>
+      <div class="gl-tip" id="glTip"></div>
+    </div>
+    <div class="globe-side">
+      <div class="detail" id="glDetail">
+        <div class="globe-empty">Click any marker or cable for operator, capacity, and exposure. Nothing selected yet.</div>
+      </div>
+      <div class="card">
+        <div class="kicker">Reading the map</div>
+        <p><strong>Cables</strong> carry two unrelated things on similar routes: intercontinental data and, increasingly, gigawatt power interconnection. A trawler board that cuts one can cut the other.</p>
+        <p><strong>Chokepoints</strong> are the reason a shipping-lane closure prices into fuel within days. Rerouting is possible; rerouting cheaply is not.</p>
+        <p><strong>Processing</strong> is more concentrated than mining. Ore comes from many places, refined output from very few.</p>
+      </div>
+    </div>
+  </div>
+  <div class="cap">Coastlines load from a public topology file; if offline, the globe falls back to graticule only and every marker still plots correctly. Positions are approximate to the nearest facility cluster.</div>
+</section>
+
+<!-- =============== MODELS =============== -->
+<section class="sec" id="models">
+  <div class="sec-head">
+    <div class="eyebrow">03 &nbsp;/&nbsp; Two calculators instead of two assertions</div>
+    <h2>Cost and firmness are the only arguments that decide a grid</h2>
+    <p class="lede">The first model prices energy: move capital cost, fuel, and the discount rate and watch the merit order reshuffle. The second one asks the harder question, what a chosen mix demands in storage, land, copper, and rare earth before it can be called reliable.</p>
+  </div>
+
+  <div class="g2" style="align-items:start">
+    <div class="panel pad">
+      <h3 style="margin-bottom:2px">Levelized cost of electricity</h3>
+      <p style="font-size:12.5px;color:var(--text-2);margin-bottom:14px">LCOE = (CapEx &times; CRF + fixed O&amp;M) / (8760 &times; CF) + variable O&amp;M + fuel/efficiency + carbon. CRF is the standard capital recovery factor.</p>
+      <div class="slider-row"><label for="rDisc">Discount rate</label><input id="rDisc" type="range" min="2" max="14" step="0.5" value="7"><span class="out" id="oDisc">7.0%</span></div>
+      <div class="slider-row"><label for="rGas">Gas price ($/MMBtu)</label><input id="rGas" type="range" min="1" max="20" step="0.5" value="4"><span class="out" id="oGas">4.0</span></div>
+      <div class="slider-row"><label for="rCoal">Coal price ($/t)</label><input id="rCoal" type="range" min="30" max="300" step="5" value="110"><span class="out" id="oCoal">110</span></div>
+      <div class="slider-row"><label for="rCarbon">Carbon price ($/tCO&#8322;)</label><input id="rCarbon" type="range" min="0" max="200" step="5" value="0"><span class="out" id="oCarbon">0</span></div>
+      <div class="slider-row"><label for="rSolarCap">Solar CapEx ($/kW)</label><input id="rSolarCap" type="range" min="400" max="2000" step="25" value="1000"><span class="out" id="oSolarCap">1000</span></div>
+      <div class="viz" style="padding:8px;margin-top:8px;background:transparent;border:none">
+        <svg id="lcoe" role="img" aria-label="Levelized cost of electricity by technology"></svg>
+      </div>
+      <div class="cap">Capacity factors are held at regional averages. Nuclear and offshore wind are the most discount-rate-sensitive technologies on the chart, which is why the same plant is cheap in one financing regime and unbuildable in another.</div>
+    </div>
+
+    <div class="panel pad">
+      <h3 style="margin-bottom:2px">Grid mix consequences</h3>
+      <p style="font-size:12.5px;color:var(--text-2);margin-bottom:14px">Set the generation share for a 1,000 TWh/yr system. Shares normalize to 100%. Outputs are engineering consequences, not a dispatch simulation.</p>
+      <div class="slider-row"><label for="mSolar">Solar</label><input id="mSolar" type="range" min="0" max="100" step="1" value="30"><span class="out" id="oSolar">30%</span></div>
+      <div class="slider-row"><label for="mWind">Wind</label><input id="mWind" type="range" min="0" max="100" step="1" value="30"><span class="out" id="oWind">30%</span></div>
+      <div class="slider-row"><label for="mNuclear">Nuclear</label><input id="mNuclear" type="range" min="0" max="100" step="1" value="15"><span class="out" id="oNuclear">15%</span></div>
+      <div class="slider-row"><label for="mHydro">Hydro &amp; geothermal</label><input id="mHydro" type="range" min="0" max="100" step="1" value="10"><span class="out" id="oHydro">10%</span></div>
+      <div class="slider-row"><label for="mGas">Gas</label><input id="mGas" type="range" min="0" max="100" step="1" value="15"><span class="out" id="oGas2">15%</span></div>
+      <div id="mixOut" style="margin-top:12px"></div>
+      <div class="cap" id="mixCap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============== EXTRACTION =============== -->
+<section class="sec" id="extraction">
+  <div class="sec-head">
+    <div class="eyebrow">04 &nbsp;/&nbsp; Hydrocarbons</div>
+    <h2>Extraction: four different businesses that happen to sell the same molecule</h2>
+    <p class="lede">A Ghawar production well and a Permian lateral both make crude oil, but they are opposite financial instruments. One is a bond with a 40-year tenor. The other is a manufacturing line with an 80% first-year decline that must be rebuilt every quarter.</p>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="kicker">Conventional onshore &middot; ~55% of supply</div>
+      <h3>Pressure-driven, long-lived, politically held</h3>
+      <p>Reservoir pressure or waterflood drives flow through perforations. Decline is 5&ndash;10% a year, so a field is a multi-decade annuity. CapEx $5&ndash;20M per well, lifting cost often under $10/bbl. This is the asset class OPEC+ quota discipline actually controls, and the reason a production cut is credible: the barrels can wait.</p>
+      <p class="mono" style="font-size:11px;color:var(--text-3);margin-top:8px">Ghawar &middot; Rumaila &middot; Samotlor &middot; Burgan</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Tight oil &middot; ~10% of global, ~65% of US</div>
+      <h3>Manufacturing, not exploration</h3>
+      <p>Hydraulic fracturing plus 2&ndash;4 km laterals in rock with millidarcy permeability. Per-well decline is 65&ndash;80% in year one, so output is a function of the current rig count, not the reserve base. Half-cycle breakeven $40&ndash;55/bbl. Consequence: US supply responds to price in months rather than years, which caps rallies and puts a soft floor under OPEC+ pricing power.</p>
+      <p class="mono" style="font-size:11px;color:var(--text-3);margin-top:8px">Permian &middot; Bakken &middot; Eagle Ford &middot; Vaca Muerta &middot; Montney</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Offshore and deepwater</div>
+      <h3>Long-cycle capital with political tail risk</h3>
+      <p>Tension-leg platforms, spars, and semi-submersibles over subsea trees, manifolds, and umbilicals. $10&ndash;50B per development, 5&ndash;8 years from final investment decision to first oil, and a break-even that usually needs $50&ndash;70/bbl sustained. Because the decision horizon exceeds the political horizon, this is the segment that transition risk actually shrinks first.</p>
+      <p class="mono" style="font-size:11px;color:var(--text-3);margin-top:8px">Gulf of Mexico &middot; Guyana Stabroek &middot; Campos &middot; Johan Sverdrup &middot; Angola block 17</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Enhanced recovery</div>
+      <h3>The only place CO&#8322; already has a market price</h3>
+      <p>Thermal (SAGD), chemical (polymer), and miscible CO&#8322; flooding lift recovery from roughly 30% of oil in place to 40&ndash;60%. CO&#8322;-EOR matters beyond production: it is the one carbon-capture use case with an established revenue stream, and a share of injected CO&#8322; stays put. That makes it both a decarbonization on-ramp and a fair target for accusations of greenwashing.</p>
+    </div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card"><div class="stat"><div class="k">Liquids supply</div><div class="v">~102 Mb/d</div><div class="d">Crude, condensate, and NGLs. Demand growth has flattened to well under 1%/yr.</div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--orange)"><div class="k">Reserve life</div><div class="v">~50 yr</div><div class="d">1.6&ndash;1.7 trillion bbl proven against current output. Scarcity is not the binding constraint; atmosphere is.</div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--red)"><div class="k">Upstream methane</div><div class="v">~1.5&ndash;3%</div><div class="d">Leakage as a share of gas produced. At 3% the climate case for coal-to-gas switching largely evaporates.</div></div></div>
+  </div>
+</section>
+
+<!-- =============== REFINING =============== -->
+<section class="sec" id="refining">
+  <div class="sec-head">
+    <div class="eyebrow">05 &nbsp;/&nbsp; Hydrocarbons</div>
+    <h2>Refining is a molecular sorting problem solved with heat, hydrogen, and catalyst</h2>
+    <p class="lede">Crude is a distribution of chain lengths. Demand is a distribution of products. Refinery margin is the cost of moving the first distribution onto the second, and the plants that can do it with heavy, sour, cheap crude earn the most.</p>
+  </div>
+
+  <div class="chain" style="grid-template-columns:repeat(5,1fr)">
+    <div class="step">
+      <div class="st-n">STAGE 01</div>
+      <div class="st-t">Desalting &amp; atmospheric distillation</div>
+      <div class="st-b">Heat to 350&#8451; and fractionate by boiling range. Everything downstream is a correction to this first cut.</div>
+      <div class="st-m">gases C&#8321;&ndash;C&#8324; &middot; naphtha 40&ndash;200&#8451; &middot; kero 150&ndash;300&#8451; &middot; gasoil 250&ndash;350&#8451;</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STAGE 02</div>
+      <div class="st-t">Vacuum distillation</div>
+      <div class="st-b">Reduced pressure lets the heavy end vaporize below its cracking temperature, producing feed for conversion instead of fuel oil.</div>
+      <div class="st-m">VGO C&#8322;&#8320;&ndash;C&#8323;&#8325; &middot; residuum &gt;550&#8451;</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STAGE 03</div>
+      <div class="st-t">Conversion: FCC and hydrocracking</div>
+      <div class="st-b">Zeolite catalyst at ~700&#8451; cracks VGO into gasoline. Hydrocracking saturates it instead, at 70&ndash;100 bar with Ni-Mo catalyst, giving stable middle distillate.</div>
+      <div class="st-m">FCC ~50% gasoline yield &middot; HCK ~600 m&sup3; H&#8322;/bbl</div>
+      <div class="risk">Margin lives here</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STAGE 04</div>
+      <div class="st-t">Treating &amp; reforming</div>
+      <div class="st-b">Hydrogen removes sulfur and nitrogen; catalytic reforming raises octane and produces the aromatics that feed petrochemicals.</div>
+      <div class="st-m">ULSD &lt;10 ppm S &middot; on-site SMR for H&#8322;</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STAGE 05</div>
+      <div class="st-t">Blending &amp; certification</div>
+      <div class="st-b">Products are assembled to spec against vapour pressure, cetane, cold flow, and seasonal rules, then released to pipeline or ship.</div>
+      <div class="st-m">Jet A-1 &middot; RON 91/95 &middot; ISO 8217 marine</div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Complexity as a business model</div>
+      <h3>Nelson index is the whole story</h3>
+      <p><strong>Topping (NCI 2&ndash;4):</strong> distillation only, sells fuel oil, dies first in any margin squeeze.<br>
+      <strong>Conversion (NCI 6&ndash;8):</strong> adds FCC, captures the gasoline spread.<br>
+      <strong>Full conversion (NCI 10&ndash;14+):</strong> adds hydrocracking, coking, alkylation. Buys the cheapest heavy sour crude and sells the most valuable light products. This is the US Gulf Coast, Jamnagar, and Jurong.<br>
+      <strong>Integrated refinery-petrochemical:</strong> a steam cracker on the fence turns naphtha into olefins, decoupling revenue from transport fuel demand entirely. Every new Asian and Middle Eastern build is this configuration.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Where the margin comes from</div>
+      <h3>Crack spreads and the closure logic</h3>
+      <p>The 3-2-1 crack, three barrels of crude against two of gasoline and one of distillate, typically runs $5&ndash;20/bbl and is the industry's clock. Cash costs of $3&ndash;6/bbl mean a plant keeps running well below its full-cost recovery, so closures happen late and then all at once.</p>
+      <p>Global capacity is roughly 103 Mb/d against ~83 Mb/d of refinery runs. The overhang sits in aging Atlantic-basin plants that would need $0.5&ndash;2B of environmental and hydrogen capital to stay compliant. That capital decision, not demand, is what closes European and Australian refineries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== LOGISTICS =============== -->
+<section class="sec" id="logistics">
+  <div class="sec-head">
+    <div class="eyebrow">06 &nbsp;/&nbsp; Hydrocarbons</div>
+    <h2>Logistics and pricing: the barrel is a location, not a substance</h2>
+    <p class="lede">Brent, WTI, Dubai, and Urals are the same commodity separated by sulfur, gravity, and a shipping route. Almost every energy crisis of the last five years has been a transport crisis wearing a commodity costume.</p>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="kicker">Benchmarks</div>
+      <h3>Four prices, one market</h3>
+      <p><strong>Brent</strong> ~38&deg;API, 0.4% S. Waterborne, prices roughly two thirds of world crude.<br>
+      <strong>WTI</strong> ~40&deg;API, 0.24% S. Landlocked at Cushing until the export ban lifted; now Midland-based cargoes tie it to Brent.<br>
+      <strong>Dubai/Oman</strong> the medium sour marker for Asian term contracts.<br>
+      <strong>Urals</strong> ~32&deg;API, 1.5% S. Its discount to Brent is now a sanctions instrument rather than a quality signal.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Gas is not one market</div>
+      <h3>Three prices, no arbitrage below LNG cost</h3>
+      <p>Henry Hub typically $2&ndash;5/MMBtu; European TTF and Asian JKM trade at a multiple of it because the link between them is a liquefaction train, not a pipeline. Liquefaction plus shipping plus regasification costs roughly $3&ndash;5/MMBtu, and that spread is the ceiling on convergence. 2022 proved the other direction: when the pipeline disappears, the spread goes to whatever scarcity demands, TTF touched the equivalent of $90/MMBtu.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Cost curve</div>
+      <h3>Who sets the marginal barrel</h3>
+      <p>Middle East conventional under $20/bbl &middot; Russian onshore $25&ndash;40 &middot; US tight oil $40&ndash;55 &middot; deepwater $45&ndash;70 &middot; oil sands mining $55&ndash;75 &middot; new Arctic $75+. Price is set at the right-hand side of the curve, and the left-hand side collects the rent. Every OPEC+ decision is an attempt to choose which part of the curve clears.</p>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Modes</div>
+      <h3>Pipeline, hull, rail, truck</h3>
+      <p>Trunk pipelines move 1&ndash;4 Mb/d at $1&ndash;3/bbl per thousand kilometres and are the cheapest and least flexible option. Tankers are the opposite: VLCCs at 2 Mbbl per hull turn the ocean into a re-routable, storable pipeline at $1&ndash;5/bbl depending on freight cycles. Product tankers carry segregated parcels so that jet fuel and gasoline never touch. Rail and truck exist for the last 200 km and for arbitrage that pipelines cannot reach.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Inventory as policy</div>
+      <h3>Reserves, contango, and floating storage</h3>
+      <p>The US SPR holds up to 714 Mbbl in salt caverns and released 180 Mbbl in 2022, the largest intervention in its history. China's state and commercial stocks are larger and far less transparent. Commercially, storage is a term structure trade: contango pays you to hold barrels, backwardation punishes it, and when the curve steepens enough, VLCCs stop moving and become tanks at $30&ndash;60k/day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== SOLAR =============== -->
+<section class="sec" id="solar">
+  <div class="sec-head">
+    <div class="eyebrow">07 &nbsp;/&nbsp; Clean hardware</div>
+    <h2>Solar PV: five industrial steps, one country</h2>
+    <p class="lede">A module is quartz that has been purified by a factor of a million, crystallized, sliced 150 microns thin, doped, and laminated behind glass. Each step is a separate capital-intensive industry, and China holds a commanding share of all five.</p>
+  </div>
+
+  <div class="chain" style="grid-template-columns:repeat(5,1fr)">
+    <div class="step">
+      <div class="st-n">STEP 01</div>
+      <div class="st-t">Quartzite &rarr; metallurgical silicon</div>
+      <div class="st-b">Carbothermic reduction in a submerged-arc furnace at 1,900&#8451;. Extremely power-hungry, so it follows cheap electricity.</div>
+      <div class="st-m">~98&ndash;99% Si &middot; 11&ndash;13 MWh/t</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 02</div>
+      <div class="st-t">Polysilicon</div>
+      <div class="st-b">Siemens process: trichlorosilane deposition to nine-nines purity. Capital-heavy, slow to build, historically the bottleneck.</div>
+      <div class="st-m">99.9999999% &middot; 40&ndash;60 kWh/kg</div>
+      <div class="risk">China ~90% &middot; Xinjiang exposure</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 03</div>
+      <div class="st-t">Ingot &amp; wafer</div>
+      <div class="st-b">Czochralski pulling then diamond-wire slicing to 130&ndash;160 &micro;m. Kerf loss and yield define cost more than material price.</div>
+      <div class="st-m">182 / 210 mm formats</div>
+      <div class="risk">China ~97% of wafers</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 04</div>
+      <div class="st-t">Cell</div>
+      <div class="st-b">Diffusion, passivation, and metallization. TOPCon has displaced PERC as the mainstream; back-contact and perovskite tandems are next.</div>
+      <div class="st-m">TOPCon 23&ndash;25% &middot; tandem 30%+ in lab</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 05</div>
+      <div class="st-t">Module</div>
+      <div class="st-b">Lamination between low-iron glass and encapsulant, framed and warranted for 25&ndash;30 years. Glass, aluminium, and silver are now the bill of materials that matters.</div>
+      <div class="st-m">~600 W &middot; 0.09&ndash;0.20 $/W</div>
+    </div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">The learning curve is the story</div>
+      <h3>Roughly 20% cost decline per doubling</h3>
+      <p>Modules fell from about $4/W in 2008 to under $0.15/W at the 2024 trough. Nothing in energy history has moved like this. The corollary is that module price is no longer the constraint on deployment: interconnection queues, permitting, inverters, transformers, and skilled labour are.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Overcapacity</div>
+      <h3>1,100+ GW/yr of nameplate against ~600 GW of demand</h3>
+      <p>The 2023&ndash;24 build-out pushed manufacturing capacity to nearly double annual installations. Result: prices below cash cost for tier-2 producers, write-downs across the sector, and cheap modules for buyers. Good for deployment, brutal for anyone financing a new non-Chinese fab without a tariff wall or subsidy.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Silver, not silicon</div>
+      <h3>The material to watch</h3>
+      <p>Each cell uses silver paste for contacts, roughly 10&ndash;15 mg/W. At terawatt scale that is a meaningful share of global silver supply, which is why copper metallization and thinner fingers are an active research front rather than an incremental optimization.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== NUCLEAR =============== -->
+<section class="sec" id="nuclear">
+  <div class="sec-head">
+    <div class="eyebrow">08 &nbsp;/&nbsp; Clean hardware</div>
+    <h2>Nuclear: the fuel is trivial, the cycle is everything</h2>
+    <p class="lede">Fuel is under 10% of a reactor's cost, which is why nuclear is insensitive to uranium price and acutely sensitive to interest rates and construction schedules. The chain's chokepoint is not the mine. It is enrichment, and it sits largely in Russia.</p>
+  </div>
+
+  <div class="chain" style="grid-template-columns:repeat(6,1fr)">
+    <div class="step">
+      <div class="st-n">STEP 01</div>
+      <div class="st-t">Mining</div>
+      <div class="st-b">In-situ leach or conventional ore, then milling to yellowcake.</div>
+      <div class="st-m">U&#8323;O&#8328; &middot; ~60 kt/yr</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 02</div>
+      <div class="st-t">Conversion</div>
+      <div class="st-b">Yellowcake to uranium hexafluoride, the only feed a centrifuge can take.</div>
+      <div class="st-m">UF&#8326; &middot; 4 suppliers</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 03</div>
+      <div class="st-t">Enrichment</div>
+      <div class="st-b">Cascaded centrifuges raise U-235 from 0.71% to 3&ndash;5%. Dual-use, treaty-controlled, and 8&ndash;10 years to add capacity.</div>
+      <div class="st-m">~60 M SWU/yr</div>
+      <div class="risk">Rosatom ~40% of world capacity</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 04</div>
+      <div class="st-t">Fabrication</div>
+      <div class="st-b">UO&#8322; pressed and sintered into pellets, stacked in zirconium alloy rods and assemblies.</div>
+      <div class="st-m">50&ndash;60 GWd/tU burnup</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 05</div>
+      <div class="st-t">Reactor</div>
+      <div class="st-b">PWR dominates, then BWR and CANDU. Thermal efficiency ~33%; capacity factor above 90% in mature fleets.</div>
+      <div class="st-m">~440 units &middot; ~395 GWe</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 06</div>
+      <div class="st-t">Spent fuel</div>
+      <div class="st-b">Pool cooling for 5&ndash;10 years, then dry cask. Reprocessing in France, Russia, and the UK; direct disposal elsewhere.</div>
+      <div class="st-m">~400 kt accumulated</div>
+      <div class="risk">Onkalo is the only licensed deep repository</div>
+    </div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Cost structure</div>
+      <h3>A financing product with a reactor attached</h3>
+      <p>Overnight capital of $5&ndash;12k/kW and 7&ndash;12 year builds mean interest during construction can rival the steel and concrete. Move the discount rate from 4% to 9% and LCOE roughly doubles, without a single engineering change. Vogtle and Hinkley Point C are schedule stories, not physics stories; Barakah and the Korean fleet show what serial construction does to the same design.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">SMRs</div>
+      <h3>Trading economies of scale for economies of number</h3>
+      <p>50&ndash;300 MWe units built in a factory, with passive decay-heat removal that removes the need for active cooling. The bet is that repetition beats size. Unproven until a fleet exists, and the first units carry first-of-a-kind cost. Real near-term markets: retiring coal sites with grid connections already built, remote mining loads, and industrial heat.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Enrichment as leverage</div>
+      <h3>The dependency nobody priced before 2022</h3>
+      <p>Western utilities bought Russian SWU because it was cheap and reliable. Spot enrichment prices roughly tripled after the invasion. Centrus, Orano, and Urenco expansions are underway but each takes most of a decade, so the exposure persists through the 2020s regardless of policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== WIND =============== -->
+<section class="sec" id="wind">
+  <div class="sec-head">
+    <div class="eyebrow">09 &nbsp;/&nbsp; Clean hardware</div>
+    <h2>Wind: a steel and composite problem with a rare-earth core</h2>
+    <p class="lede">A turbine is 85% commodity steel by mass and perhaps 0.1% neodymium by mass, and it is the neodymium that decides whether it ships on time. Offshore adds a second constraint that has nothing to do with the machine: the vessels that install it.</p>
+  </div>
+
+  <div class="chain" style="grid-template-columns:repeat(5,1fr)">
+    <div class="step">
+      <div class="st-n">STEP 01</div>
+      <div class="st-t">Steel: tower &amp; foundation</div>
+      <div class="st-b">Plate rolled and welded into tower sections; monopiles up to 2,000 t for offshore. Competes directly with shipbuilding for plate and welding capacity.</div>
+      <div class="st-m">120&ndash;160 t steel per MW</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 02</div>
+      <div class="st-t">Drivetrain</div>
+      <div class="st-b">Geared trains need Cr-Mo forgings and large-diameter bearings; direct-drive skips the gearbox and pays for it in magnet mass.</div>
+      <div class="st-m">bearings: 3 credible suppliers</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 03</div>
+      <div class="st-t">Permanent magnets</div>
+      <div class="st-b">Nd-Fe-B with dysprosium and terbium for high-temperature coercivity. Mining is spread across several countries; separation and sintering are not.</div>
+      <div class="st-m">~600 kg magnet/MW direct-drive</div>
+      <div class="risk">China ~90% of magnet output</div>
+    </div>
+    <div class="step">
+      <div class="st-n">STEP 04</div>
+      <div class="st-t">Blades</div>
+      <div class="st-b">Glass and carbon fibre in epoxy, vacuum-infused in moulds up to 115 m. Each new blade length is a new mould set and a new logistics problem.</div>
+      <div class="st-m">$50&ndash;100M per mould programme</div>
+    </div>
+    <div class="step hot">
+      <div class="st-n">STEP 05</div>
+      <div class="st-t">Installation</div>
+      <div class="st-b">Jack-ups and heavy-lift vessels working inside a 2&ndash;3 m wave window, plus cable-lay spreads. Next-generation turbines outgrew the existing fleet.</div>
+      <div class="st-m">$300&ndash;500M per new WTIV, 3&ndash;4 yr build</div>
+      <div class="risk">Vessel scarcity, not turbine supply, sets the schedule</div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Why offshore got more expensive while solar got cheaper</div>
+      <h3>Three curves collided</h3>
+      <p>Between 2021 and 2024 offshore wind absorbed a steel and resin cost shock, a rate shock that hit a highly levered asset class, and a vessel and port bottleneck at exactly the moment turbine ratings jumped from 8 MW to 15 MW. Fixed-price contracts signed before the shock became unbuildable, so developers wrote off deposits and walked, most visibly in the US Northeast. The physics never changed; the financing and the supply chain did.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Floating</div>
+      <h3>The unlock for deep water, still pre-industrial</h3>
+      <p>Beyond about 60 m depth, monopiles stop working and the turbine goes on a moored hull: semi-submersible, spar, or tension-leg. It opens the Pacific coast, Japan, and the Mediterranean, where fixed-bottom simply is not available. Today it costs 50&ndash;100% more per MWh, port infrastructure for assembly barely exists, and dynamic cables that flex for 25 years are their own materials programme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== HYDROGEN =============== -->
+<section class="sec" id="hydrogen">
+  <div class="sec-head">
+    <div class="eyebrow">10 &nbsp;/&nbsp; Clean hardware</div>
+    <h2>Hydrogen: an industrial feedstock being marketed as an energy system</h2>
+    <p class="lede">The world already makes about 95 Mt of hydrogen a year and burns fossil fuel to do it. The honest version of the hydrogen transition is decarbonizing that existing demand. Everything beyond it competes with direct electrification and usually loses on round-trip efficiency.</p>
+  </div>
+
+  <div class="g3">
+    <div class="card">
+      <div class="kicker">Production</div>
+      <h3>Grey, blue, green</h3>
+      <p><strong>Grey (SMR):</strong> methane and steam at 850&#8451;. $1&ndash;2.5/kg, 9&ndash;12 kg CO&#8322; per kg H&#8322;. Roughly all of today's supply.<br>
+      <strong>Blue:</strong> the same plant plus 85&ndash;95% capture. $2&ndash;4/kg. Its climate credential depends entirely on upstream methane leakage, which is the part nobody measures well.<br>
+      <strong>Green:</strong> electrolysis. Alkaline is cheap and slow; PEM is responsive and expensive; solid-oxide is efficient and fragile. 50&ndash;55 kWh/kg means power price dominates: at $30/MWh you are near $2/kg, at $80/MWh you are not close.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Moving it</div>
+      <h3>Every option has a tax</h3>
+      <p>Hydrogen has a third of methane's energy per cubic metre, embrittles high-strength steel, and liquefies only at &minus;253&#8451; while boiling off in transit. Pipelines work for blends and for short dedicated runs. Ammonia is the practical ocean carrier, but conversion and cracking cost 25&ndash;35% of the energy. Salt caverns are the only proven bulk storage. Power to hydrogen to power round-trips at 30&ndash;40%, against 85%+ for a battery, so hydrogen storage makes sense for seasonal depth, not daily cycling.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Where it actually wins</div>
+      <h3>Molecules that must be molecules</h3>
+      <p>Ammonia and fertilizer, methanol, refinery hydrotreating, direct-reduced iron for steel, and long-haul aviation and shipping fuels. These need a chemical reductant or a dense liquid fuel, not electrons. Trucks and building heat are contested and mostly losing to batteries and heat pumps. The projects that reach financial close are the ones with an offtaker who already buys hydrogen today.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">Policy shapes the entire cost curve</div>
+    <h3>Subsidy design, not chemistry, will decide the winners</h3>
+    <p>The US 45V credit pays up to $3/kg against a carbon-intensity ladder, with hourly matching and additionality rules that determine whether an electrolyzer can claim clean power. The EU's delegated act does something similar through additionality and temporal correlation. Japan and Korea buy on contracts-for-difference because they intend to import. Net effect: a $2/kg target that is achievable on paper anywhere the rules let cheap curtailed power count, and unreachable where they do not.</p>
+  </div>
+</section>
+
+<!-- =============== MINERALS =============== -->
+<section class="sec" id="minerals">
+  <div class="sec-head">
+    <div class="eyebrow">11 &nbsp;/&nbsp; Inputs</div>
+    <h2>Critical minerals: mining is diversified, refining is not</h2>
+    <p class="lede">The standard chart shows where minerals are dug up and concludes the risk is spread across many countries. The chart that matters shows where they are refined into usable chemicals and alloys, and it collapses onto one.</p>
+  </div>
+
+  <div class="g4">
+    <div class="card">
+      <div class="kicker">Lithium</div>
+      <h3>Cyclical, not scarce</h3>
+      <p>Australian spodumene and South American brine dominate extraction; conversion to battery-grade carbonate and hydroxide is roughly 60&ndash;70% China. Price went from about $80k/t at the 2022 peak to the low teens by 2024, halting projects that only worked at the peak. That whipsaw, not geology, is the supply risk.</p>
+      <p class="mono" style="font-size:10.5px;color:var(--text-3);margin-top:7px">~1.4 kg LCE per kWh &middot; AU 47% / CL 24% mined</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Cobalt</div>
+      <h3>Being engineered out</h3>
+      <p>DRC supplies roughly 70% of mined cobalt, much of it as a copper by-product, with artisanal production and governance exposure attached. Refining is 70%+ China. The response has been chemistry: LFP cathodes use no cobalt at all and now hold a large share of the global EV market. Demand growth is real but far below the 2018 projections.</p>
+      <p class="mono" style="font-size:10.5px;color:var(--text-3);margin-top:7px">NMC ~0.1 kg/kWh &middot; LFP 0</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Nickel &amp; copper</div>
+      <h3>Volume problems, not exotic ones</h3>
+      <p>Indonesia went from a minor producer to over half of world nickel supply in under a decade via laterite processing, much of it coal-powered, which puts a carbon footprint inside the battery. Copper is the deeper worry: no substitute in windings and cable, grades declining, and 10&ndash;15 years from discovery to production.</p>
+      <p class="mono" style="font-size:10.5px;color:var(--text-3);margin-top:7px">Grid + EV copper demand ~2&times; by 2040</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Rare earths</div>
+      <h3>The genuine single point of failure</h3>
+      <p>Neodymium, praseodymium, dysprosium, and terbium for permanent magnets. Mining is roughly 70% China, separation about 90%, and finished sintered magnets around 90%. Export licensing in 2010 and again in the 2020s showed the tool works. Mountain Pass, Lynas Malaysia, and new separation plants in the US, Australia, and Europe are the response, at a decade of lead time.</p>
+      <p class="mono" style="font-size:10.5px;color:var(--text-3);margin-top:7px">EV motor ~1&ndash;2 kg NdPr &middot; DD turbine ~200 kg/MW</p>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">The four real responses</div>
+      <h3>Substitute, recycle, stockpile, re-shore</h3>
+      <p><strong>Substitution</strong> works fastest and is already the biggest lever: LFP removed cobalt, sodium-ion targets lithium, ferrite and wound-rotor motors avoid rare earths at a modest efficiency cost.<br>
+      <strong>Recycling</strong> is technically strong, 90%+ recovery of nickel, cobalt, and lithium, but constrained by feedstock: the batteries have not aged out yet. It becomes material in the mid-2030s.<br>
+      <strong>Stockpiling</strong> is fast and cheap for magnets and metals and does nothing about the missing capability.<br>
+      <strong>Re-shoring</strong> is the only structural fix and the slowest: 5&ndash;8 years for exploration and permitting, plus a separation plant nobody wants to host.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Capital, not geology</div>
+      <h3>Why the supply response is late</h3>
+      <p>Mining spent 2013&ndash;2020 being punished for growth capex and rewarded for dividends. Boards learned the lesson. So the 2020s demand signal met an industry with disciplined balance sheets, longer permitting queues, and shareholders who remember the last cycle. Price spikes now get answered with buybacks first and mines second, and the IEA's estimate of the capital required through 2040 runs into the trillions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CASCADES =============== -->
+<section class="sec" id="cascades">
+  <div class="sec-head">
+    <div class="eyebrow">12 &nbsp;/&nbsp; Inputs</div>
+    <h2>How a shortage of one alloy delays a gigawatt</h2>
+    <p class="lede">Energy failures are rarely a failure of the headline technology. They are second- and third-order: a bearing, a forging, a vessel, a transformer.</p>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Case study &middot; offshore wind, 2021&ndash;2024</div>
+    <h3>Four independent constraints, one schedule</h3>
+    <p><strong>1. Magnets.</strong> Rare-earth separation capacity outside China stayed flat while direct-drive turbine ratings climbed, putting magnet supply on allocation.<br>
+    <strong>2. Forgings and bearings.</strong> Large-diameter bearings and Cr-Mo forgings have very few qualified suppliers, and EV and defence demand competed for the same furnaces. Lead times went past 18 months.<br>
+    <strong>3. Vessels.</strong> Turbines outgrew the installation fleet. A new wind turbine installation vessel is $300&ndash;500M and 3&ndash;4 years, so 2025 capacity was set by orders placed in 2021.<br>
+    <strong>4. Grid connection.</strong> HVDC converter stations and large power transformers ran to 3&ndash;5 year lead times, and interconnection queues in the US and Europe stretched past five years.<br><br>
+    <strong>Outcome:</strong> capital cost per kW rose 30&ndash;40%, and fixed-price offtake contracts signed pre-shock were cancelled or renegotiated across several US and UK auctions. Every individual constraint was fixable. They were not fixable simultaneously on the original schedule.</p>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Diagnostic</div>
+      <h3>Three questions per input</h3>
+      <p>How many qualified suppliers exist, and what share does the largest hold? What is the lead time, and is it longer than my financing commitment? Can I redesign around it, and how much performance does that cost? Anything above 30% single-source with a lead time longer than the funding window is where the schedule will actually break.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The under-discussed one</div>
+      <h3>Transformers and switchgear</h3>
+      <p>Large power transformers now run 3&ndash;5 years, and the queue is not about copper or steel but about grain-oriented electrical steel, skilled winding labour, and test bays. No amount of generation capex helps if the interconnection hardware is the constraint, and this bottleneck applies equally to solar, wind, nuclear, and data centres.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">And the new load</div>
+      <h3>Compute as an energy consumer</h3>
+      <p>Data centres are roughly 1.5% of global electricity and rising steeply, with individual campuses now requesting connections at hundreds of megawatts to gigawatts. That load is fast to build, credit-worthy, and willing to pay, which means it competes with electrification for the same interconnection capacity and the same transformers. It is the first genuinely new demand-side actor in decades.</p>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+<div class="foot">
+  <p><strong>Method.</strong> Energy quantities are in exajoules per year and are rounded so the flow diagram balances exactly at every node; treat them as order-of-magnitude, drawn from IEA World Energy Outlook, the Energy Institute Statistical Review, LLNL-style useful-versus-rejected accounting, and USGS mineral summaries. The net-zero column is an illustrative shape consistent with published net-zero pathways, not a forecast.</p>
+  <p style="margin-top:8px"><strong>Models.</strong> The LCOE calculator uses the standard capital recovery factor with published CapEx, O&amp;M, heat rate, and capacity factor ranges. The grid-mix calculator applies documented heuristics for storage depth, land use, and material intensity; the storage curve in particular is a simplification of a problem that properly requires hourly dispatch modelling. Both are shown with their formulas so you can disagree with them precisely.</p>
+  <p style="margin-top:8px"><strong>Peter Nelson</strong> &middot; <a href="mailto:pnelson@qumulo.com" style="color:var(--blue);text-decoration:none">pnelson@qumulo.com</a> &middot; <a href="https://linkedin.com/in/ponelson/" style="color:var(--blue);text-decoration:none">linkedin.com/in/ponelson</a> &middot; <a href="https://github.com/ponelson" style="color:var(--blue);text-decoration:none">github.com/ponelson</a></p>
+</div>
+
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   PALETTE
+   ============================================================ */
+var C = {
+  text:'#1d1d1f', t2:'#5a5a5f', t3:'#8a8a8f', line:'rgba(0,0,0,.10)',
+  fossil:'#b65f00', renew:'#c99700', nuclear:'#bd2b28', elec:'#0071e3',
+  useful:'#1f8f4e', loss:'#a6adb7', carrier:'#3d8ecc', sector:'#4a5568',
+  material:'#6b47d6'
+};
+function typeColor(t){
+  switch(t){
+    case 'fossil':   return C.fossil;
+    case 'renew':    return C.renew;
+    case 'nuclear':  return C.nuclear;
+    case 'convert':  return '#8a6d3b';
+    case 'elec':     return C.elec;
+    case 'carrier':  return C.carrier;
+    case 'sector':   return C.sector;
+    case 'useful':   return C.useful;
+    case 'material': return C.material;
+    case 'loss':     return C.loss;
+    default:         return '#999';
+  }
+}
+var svgNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, text){
+  var n = document.createElementNS(svgNS, tag);
+  if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
+  if (text != null) n.textContent = text;
+  return n;
+}
+function fmt(n, d){
+  if (d == null) d = 0;
+  return n.toLocaleString('en-US',{minimumFractionDigits:d, maximumFractionDigits:d});
+}
+
+/* ============================================================
+   1. DIAL DATA
+   ============================================================ */
+var LEVELS = [
+  { power:'3.8\u00D710', exp:'26', unit:'watts', name:'Stellar fusion',
+    domain:'The Sun\u2019s core',
+    mech:'Proton\u2013proton fusion at 15 million kelvin converts about 4 million tonnes of mass to energy every second.',
+    fail:'It does not fail on any timescale that concerns us. Everything downstream inherits its variability instead: day, season, weather.',
+    who:'No one. This is the only part of the energy system with no owner and no price.',
+    focus:['solar','wind','hydro','bio'], jump:[['Flow diagram','#flow']] },
+
+  { power:'1.7\u00D710', exp:'17', unit:'watts', name:'Planetary interception',
+    domain:'Earth\u2019s cross-section',
+    mech:'Earth intercepts roughly 174 petawatts. About 30% reflects, the rest drives temperature, wind, the water cycle, and photosynthesis.',
+    fail:'Nothing physical. The constraint is capture: land, materials, and the transmission to move power from where the resource is to where the load is.',
+    who:'Whoever controls land, permitting, and grid interconnection. Increasingly the binding authority in energy.',
+    focus:['solar','wind','hydro','bio','geo','oil','coal','gas','uranium'], jump:[['Globe','#map'],['Grid models','#models']] },
+
+  { power:'6\u00D710', exp:'14', unit:'watts equivalent',
+    unitOverride:'\u2248 617 EJ/yr', name:'Extraction',
+    domain:'Mines, wells, and mills',
+    mech:'About 617 exajoules a year is lifted out of the crust or harvested as flow: 15 Gt of coal-equivalent fossil fuel, 60 kt of uranium, and a growing share of hardware that captures flux directly.',
+    fail:'Geopolitics and capital discipline, not depletion. Reserves are ample; the willingness to spend a decade developing them is not.',
+    who:'OPEC+ for the marginal barrel, Kazakhstan and Canada for uranium, China for the refined minerals that clean hardware needs.',
+    focus:['oil','coal','gas','uranium'], jump:[['Extraction','#extraction'],['Critical minerals','#minerals']] },
+
+  { power:'\u224812', exp:'', unit:'terawatts of installed capacity', name:'Conversion',
+    domain:'Refineries, boilers, reactors, inverters',
+    mech:'Chemical or nuclear energy becomes heat becomes rotation becomes current. Thermal plants throw away 55\u201365% of their input at this step by thermodynamic necessity.',
+    fail:'This is where most of the world\u2019s energy is lost, and where the largest single decarbonization gain sits: an electric motor skips the heat engine entirely.',
+    who:'Utilities, national oil companies, and a handful of turbine and reactor vendors.',
+    focus:['refining','thermal','nuclear','hydrogen'], jump:[['Refining','#refining'],['Nuclear cycle','#nuclear']] },
+
+  { power:'\u2248110', exp:'', unit:'EJ/yr of electricity', name:'Transmission',
+    domain:'HVAC lines, HVDC links, subsea cable',
+    mech:'Step up to 345\u20131,100 kV to cut resistive loss, move the power, step back down. HVDC loses roughly 3% per 1,000 km against about 7% for AC and is the only option under water.',
+    fail:'Transformers and converter stations, on 3\u20135 year lead times, plus interconnection queues that now exceed five years in the US and Europe. This is the real bottleneck of the 2020s.',
+    who:'Transmission system operators and three cable manufacturers: Prysmian, Nexans, NKT.',
+    focus:['electricity','rejected'], jump:[['Globe','#map'],['Risk cascades','#cascades']] },
+
+  { power:'\u2248300', exp:'', unit:'EJ/yr of final energy', name:'Distribution and end use',
+    domain:'Pipelines, pumps, distribution networks, meters',
+    mech:'Final energy is delivered to four buyers: industry, buildings, transport, and, newly, compute. Each has a different efficiency at turning it into a service.',
+    fail:'End use is where the second great loss happens. An internal combustion drivetrain delivers about a quarter of the fuel\u2019s energy to the wheels.',
+    who:'Regulated distribution utilities and fuel retailers, roughly 200,000 filling stations worldwide.',
+    focus:['transport','industry','buildings','digital','other','feedstock'], jump:[['Logistics','#logistics'],['Flow diagram','#flow']] },
+
+  { power:'\u2248500', exp:'', unit:'megawatts per campus', name:'Technical infrastructure',
+    domain:'Data centres, EV fleets, electrified industry',
+    mech:'Roughly 1.5% of world electricity and rising fast, requested in single connections of hundreds of megawatts to gigawatts, with a willingness to pay well above industrial tariffs.',
+    fail:'Not generation. Interconnection, transformers, and water. Siting decisions now follow available grid capacity more than land or labour cost.',
+    who:'Four hyperscalers, and whichever grid operator can offer a connection date.',
+    focus:['digital','electricity'], jump:[['Risk cascades','#cascades'],['Grid models','#models']] },
+
+  { power:'\u2248100', exp:'', unit:'watts', name:'Human metabolism',
+    domain:'One person',
+    mech:'About 2,000 kilocalories a day oxidized to ATP: a continuous 100 watts, of which the brain takes a fifth. The entire system above exists to extend what this can do.',
+    fail:'It doesn\u2019t, until it does. Note the ratio: an average person in a wealthy economy commands roughly 100 times their own metabolic power in machinery.',
+    who:'You.',
+    focus:['useful'], jump:[['Flow diagram','#flow']] }
+];
+
+/* ============================================================
+   2. SANKEY DATA  (exajoules per year, balanced at every node)
+   ============================================================ */
+var SCENARIOS = {
+  current: {
+    label:'Today',
+    caption:'Global primary energy, approximately 617 EJ/yr. Useful energy delivered: 251 EJ. Rejected: 336 EJ, of which 147 EJ is lost in conversion and transmission and 189 EJ in end use. Thermal power generation alone rejects 112 EJ, more than the total electricity it delivers.',
+    nodes:[
+      {id:'oil',      col:0, t:'fossil',   n:'Crude oil',        note:'190 EJ. Transport fuel and 30 EJ of petrochemical feedstock.'},
+      {id:'coal',     col:0, t:'fossil',   n:'Coal',             note:'165 EJ. Two thirds to power, one third to steel and cement.'},
+      {id:'gas',      col:0, t:'fossil',   n:'Natural gas',      note:'145 EJ. The most evenly split fuel: power, industry, and heat.'},
+      {id:'uranium',  col:0, t:'nuclear',  n:'Uranium',          note:'25 EJ of heat. Counted as primary heat, not electricity.'},
+      {id:'bio',      col:0, t:'renew',    n:'Bioenergy',        note:'60 EJ. Mostly traditional cooking and heating fuel, and it is the least efficient use in the system.'},
+      {id:'hydro',    col:0, t:'renew',    n:'Hydro',            note:'15 EJ. The original firm renewable, and largely built out in OECD geographies.'},
+      {id:'wind',     col:0, t:'renew',    n:'Wind',             note:'8 EJ and compounding at roughly 15% a year.'},
+      {id:'solar',    col:0, t:'renew',    n:'Solar',            note:'6 EJ. Smallest column here, fastest growth rate ever recorded in energy.'},
+      {id:'geo',      col:0, t:'renew',    n:'Geothermal',       note:'3 EJ. Firm, dispatchable, and geographically constrained.'},
+
+      {id:'refining', col:1, t:'convert',  n:'Refining',         note:'185 EJ in. Own-use and flaring take about 10 EJ, roughly 5% of throughput.'},
+      {id:'thermal',  col:1, t:'convert',  n:'Thermal power',    note:'183 EJ of fuel in, 71 EJ of electricity out. Fleet-average efficiency near 39%.'},
+      {id:'nuclear',  col:1, t:'convert',  n:'Nuclear power',    note:'25 EJ of heat in, 9 EJ out. Steam-cycle efficiency near 33%, the same physics as a coal plant.'},
+
+      {id:'electricity', col:2, t:'elec',  n:'Electricity',      note:'110 EJ generated, about 30,000 TWh. Grid losses take 9 EJ before it reaches a meter.'},
+
+      {id:'transport', col:4, t:'sector',  n:'Transport',        note:'113 EJ in, roughly 28 EJ of motion out. The worst conversion ratio in the system.'},
+      {id:'industry',  col:4, t:'sector',  n:'Industry',         note:'165 EJ. High-temperature heat and mechanical drive; about 70% ends up useful.'},
+      {id:'buildings', col:4, t:'sector',  n:'Buildings',        note:'152 EJ for space heat, water heat, cooking, cooling, and light.'},
+      {id:'digital',   col:4, t:'sector',  n:'Digital & ICT',    note:'About 5 EJ across data centres, networks, and devices. Small share, steep slope.'},
+      {id:'other',     col:4, t:'sector',  n:'Agriculture & other', note:'5 EJ. Irrigation, machinery, and everything uncategorized.'},
+      {id:'feedstock', col:4, t:'sector',  n:'Non-energy use',   note:'30 EJ that becomes plastic, fertilizer, lubricant, and asphalt rather than energy.'},
+
+      {id:'useful',   col:5, t:'useful',   n:'Useful energy',    note:'251 EJ. Motion, heat at the temperature you wanted, light, and computation.'},
+      {id:'material', col:5, t:'material', n:'Materials',        note:'30 EJ of carbon locked into products instead of burned.'},
+      {id:'rejected', col:5, t:'loss',     n:'Rejected energy',  note:'336 EJ, or 54% of everything extracted, released as low-grade heat.'}
+    ],
+    links:[
+      ['oil','refining',185],['oil','thermal',5],
+      ['refining','rejected',10],['refining','transport',105],['refining','industry',30],
+      ['refining','feedstock',25],['refining','buildings',15],
+      ['coal','thermal',110],['coal','industry',50],['coal','buildings',5],
+      ['gas','thermal',60],['gas','industry',40],['gas','buildings',40],['gas','feedstock',5],
+      ['uranium','nuclear',25],
+      ['bio','thermal',8],['bio','buildings',45],['bio','transport',4],['bio','industry',3],
+      ['hydro','electricity',15],['wind','electricity',8],['solar','electricity',6],
+      ['geo','electricity',1],['geo','buildings',2],
+      ['thermal','electricity',71],['thermal','rejected',112],
+      ['nuclear','electricity',9],['nuclear','rejected',16],
+      ['electricity','rejected',9],['electricity','industry',42],['electricity','buildings',45],
+      ['electricity','transport',4],['electricity','digital',5],['electricity','other',5],
+      ['transport','useful',28],['transport','rejected',85],
+      ['industry','useful',116],['industry','rejected',49],
+      ['buildings','useful',99],['buildings','rejected',53],
+      ['digital','useful',4],['digital','rejected',1],
+      ['other','useful',4],['other','rejected',1],
+      ['feedstock','material',30]
+    ]
+  },
+
+  netzero: {
+    label:'Net-zero 2050',
+    caption:'An illustrative net-zero shape: 417 EJ of primary energy delivers 245 EJ of useful energy, essentially the same service as today from a third less input. Rejected energy falls from 336 to 138 EJ. The mechanism is not restraint, it is electrification, which deletes the heat engine from most of the chain.',
+    nodes:[
+      {id:'oil',      col:0, t:'fossil',  n:'Oil (residual)',   note:'25 EJ. Mostly feedstock plus aviation and shipping that could not be electrified.'},
+      {id:'coal',     col:0, t:'fossil',  n:'Coal (residual)',  note:'5 EJ, surviving only in a few industrial processes with capture attached.'},
+      {id:'gas',      col:0, t:'fossil',  n:'Natural gas',      note:'30 EJ, largely reformed into hydrogen with capture rather than burned for power.'},
+      {id:'uranium',  col:0, t:'nuclear', n:'Uranium',          note:'45 EJ of heat, roughly double today: firm output on existing grid connections.'},
+      {id:'bio',      col:0, t:'renew',   n:'Bioenergy',        note:'60 EJ, but redirected from open cooking fires to fuels, feedstock, and capture-equipped plants.'},
+      {id:'hydro',    col:0, t:'renew',   n:'Hydro',            note:'22 EJ. Modest growth, enormous value as storage and inertia.'},
+      {id:'wind',     col:0, t:'renew',   n:'Wind',             note:'100 EJ, over twelve times current output.'},
+      {id:'solar',    col:0, t:'renew',   n:'Solar',            note:'120 EJ, the largest single source in the system, about twenty times today.'},
+      {id:'geo',      col:0, t:'renew',   n:'Geothermal',       note:'10 EJ, with enhanced systems opening non-volcanic geology.'},
+
+      {id:'refining', col:1, t:'convert', n:'Refining',         note:'25 EJ in. A tenth of today\u2019s throughput, reoriented to chemicals.'},
+      {id:'thermal',  col:1, t:'convert', n:'Thermal + capture',note:'25 EJ of gas and biomass with CO\u2082 capture, kept for firm capacity rather than bulk energy.'},
+      {id:'nuclear',  col:1, t:'convert', n:'Nuclear power',    note:'45 EJ of heat, 16 EJ of electricity. Still a steam cycle, still about a third efficient.'},
+
+      {id:'electricity', col:2, t:'elec', n:'Electricity',      note:'275 EJ, roughly 2.5 times today\u2019s generation, and now the system\u2019s backbone rather than one product of it.'},
+      {id:'hydrogen',    col:3, t:'carrier', n:'Hydrogen',      note:'50 EJ in, 37 EJ out. The 13 EJ difference is the electrolysis and reforming penalty, which is why hydrogen is a last resort, not a default.'},
+
+      {id:'transport', col:4, t:'sector', n:'Transport',        note:'84 EJ in, 60 EJ of motion out. Electric drivetrains raise the ratio from a quarter to over two thirds.'},
+      {id:'industry',  col:4, t:'sector', n:'Industry',         note:'102 EJ. Electrified heat where possible, hydrogen where reduction chemistry is required.'},
+      {id:'buildings', col:4, t:'sector', n:'Buildings',        note:'95 EJ. Heat pumps move heat instead of making it, which is the single largest efficiency gain available.'},
+      {id:'digital',   col:4, t:'sector', n:'Digital & ICT',    note:'20 EJ, four times today. The only sector here that grows in absolute terms.'},
+      {id:'other',     col:4, t:'sector', n:'Agriculture & other', note:'12 EJ, electrified and expanded.'},
+      {id:'feedstock', col:4, t:'sector', n:'Non-energy use',   note:'34 EJ. Chemicals still need carbon atoms, sourced from oil, biomass, and captured CO\u2082.'},
+
+      {id:'useful',   col:5, t:'useful',  n:'Useful energy',    note:'245 EJ, about the same as today, from 200 EJ less primary energy.'},
+      {id:'material', col:5, t:'material',n:'Materials',        note:'34 EJ of carbon in products.'},
+      {id:'rejected', col:5, t:'loss',    n:'Rejected energy',  note:'138 EJ, down from 336. Efficiency at 59% against 41% today.'}
+    ],
+    links:[
+      ['oil','refining',25],
+      ['refining','rejected',2],['refining','feedstock',18],['refining','transport',5],
+      ['coal','industry',5],
+      ['gas','hydrogen',20],['gas','thermal',10],
+      ['uranium','nuclear',45],
+      ['bio','thermal',15],['bio','industry',10],['bio','transport',10],['bio','buildings',15],['bio','feedstock',10],
+      ['solar','electricity',120],['wind','electricity',100],['hydro','electricity',22],
+      ['geo','electricity',5],['geo','buildings',5],
+      ['thermal','electricity',12],['thermal','rejected',13],
+      ['nuclear','electricity',16],['nuclear','rejected',29],
+      ['electricity','hydrogen',30],['electricity','rejected',13],['electricity','industry',70],
+      ['electricity','buildings',75],['electricity','transport',55],['electricity','digital',20],['electricity','other',12],
+      ['hydrogen','rejected',13],['hydrogen','industry',17],['hydrogen','transport',14],['hydrogen','feedstock',6],
+      ['transport','useful',60],['transport','rejected',24],
+      ['industry','useful',78],['industry','rejected',24],
+      ['buildings','useful',81],['buildings','rejected',14],
+      ['digital','useful',16],['digital','rejected',4],
+      ['other','useful',10],['other','rejected',2],
+      ['feedstock','material',34]
+    ]
+  }
+};
+
+/* ============================================================
+   3. SANKEY ENGINE  (no plugin dependency)
+   ============================================================ */
+function layoutSankey(spec, opt){
+  var W = opt.width, H = opt.height, nodeW = opt.nodeWidth, pad = opt.pad;
+  var nodes = spec.nodes.map(function(d){
+    return {id:d.id, name:d.n, type:d.t, col:d.col, note:d.note||'', in:[], out:[], value:0};
+  });
+  var byId = {};
+  nodes.forEach(function(n){ byId[n.id] = n; });
+
+  var links = spec.links.map(function(L){
+    var s = byId[L[0]], t = byId[L[1]];
+    if (!s || !t) throw new Error('unknown node in link: ' + L[0] + '->' + L[1]);
+    var o = {source:s, target:t, value:L[2]};
+    s.out.push(o); t.in.push(o);
+    return o;
+  });
+
+  nodes.forEach(function(n){
+    var i = n.in.reduce(function(a,l){return a+l.value;},0);
+    var o = n.out.reduce(function(a,l){return a+l.value;},0);
+    n.value = Math.max(i,o);
+    n.inSum = i; n.outSum = o;
+  });
+
+  // compact column indices
+  var cols = nodes.map(function(n){return n.col;})
+    .filter(function(v,i,a){return a.indexOf(v)===i;}).sort(function(a,b){return a-b;});
+  var colIndex = {};
+  cols.forEach(function(c,i){ colIndex[c] = i; });
+  nodes.forEach(function(n){ n.ci = colIndex[n.col]; });
+  var nCols = cols.length;
+
+  var groups = [];
+  for (var i=0;i<nCols;i++) groups.push([]);
+  nodes.forEach(function(n){ groups[n.ci].push(n); });
+
+  // uniform value->pixel scale so thickness is comparable across columns
+  var k = Infinity;
+  groups.forEach(function(g){
+    var sum = g.reduce(function(a,n){return a+n.value;},0);
+    var avail = H - (g.length-1)*pad;
+    if (sum > 0) k = Math.min(k, avail/sum);
+  });
+  if (!isFinite(k) || k <= 0) k = 1;
+
+  function place(){
+    groups.forEach(function(g){
+      var sum = g.reduce(function(a,n){return a+n.value*k;},0) + (g.length-1)*pad;
+      var y = (H - sum)/2;
+      g.forEach(function(n){
+        n.h = Math.max(1.5, n.value*k);
+        n.y0 = y; n.y1 = y + n.h;
+        y += n.h + pad;
+      });
+    });
+  }
+  place();
+
+  // crossing reduction: barycentre passes
+  function bary(n, dir){
+    var arr = dir === 'in' ? n.in : n.out;
+    if (!arr.length) return (n.y0+n.y1)/2;
+    var w = 0, s = 0;
+    arr.forEach(function(l){
+      var o = dir === 'in' ? l.source : l.target;
+      s += ((o.y0+o.y1)/2) * l.value; w += l.value;
+    });
+    return w ? s/w : (n.y0+n.y1)/2;
+  }
+  for (var pass=0; pass<5; pass++){
+    for (var c=1;c<nCols;c++){
+      groups[c].sort(function(a,b){ return bary(a,'in') - bary(b,'in'); });
+    }
+    place();
+    for (var c2=nCols-2;c2>=0;c2--){
+      groups[c2].sort(function(a,b){ return bary(a,'out') - bary(b,'out'); });
+    }
+    place();
+  }
+
+  // x positions
+  var gap = nCols > 1 ? (W - nodeW) / (nCols - 1) : 0;
+  nodes.forEach(function(n){
+    n.x0 = n.ci * gap;
+    n.x1 = n.x0 + nodeW;
+  });
+
+  // stack link endpoints
+  nodes.forEach(function(n){
+    n.out.sort(function(a,b){ return (a.target.y0 - b.target.y0); });
+    var y = n.y0;
+    n.out.forEach(function(l){ l.w = Math.max(1, l.value*k); l.sy = y + l.w/2; y += l.w; });
+    n.in.sort(function(a,b){ return (a.source.y0 - b.source.y0); });
+    var y2 = n.y0;
+    n.in.forEach(function(l){ l.w = Math.max(1, l.value*k); l.ty = y2 + l.w/2; y2 += l.w; });
+  });
+
+  return {nodes:nodes, links:links, k:k, nCols:nCols};
+}
+
+var SK = {
+  svg: document.getElementById('sankey'),
+  tip: document.getElementById('skTip'),
+  cap: document.getElementById('skCap'),
+  scenario: 'current',
+  followDial: false,
+  graph: null
+};
+
+function renderSankey(){
+  var spec = SCENARIOS[SK.scenario];
+  var host = SK.svg.parentNode;
+  var width = Math.max(940, Math.min(1320, host.clientWidth - 30));
+  var height = 640;
+  var M = {t:28, r:112, b:26, l:96};
+  var g;
+
+  try {
+    g = layoutSankey(spec, {width:width - M.l - M.r, height:height - M.t - M.b, nodeWidth:15, pad:11});
+  } catch(e){
+    SK.cap.textContent = 'Flow diagram failed to build: ' + e.message;
+    return;
+  }
+  SK.graph = g;
+
+  while (SK.svg.firstChild) SK.svg.removeChild(SK.svg.firstChild);
+  SK.svg.setAttribute('width', width);
+  SK.svg.setAttribute('height', height);
+  SK.svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+
+  var root = el('g', {transform:'translate(' + M.l + ',' + M.t + ')'});
+  SK.svg.appendChild(root);
+
+  var gLinks = el('g'); root.appendChild(gLinks);
+  var gNodes = el('g'); root.appendChild(gNodes);
+
+  g.links.forEach(function(L){
+    var x0 = L.source.x1, x1 = L.target.x0;
+    var cx = (x0 + x1) / 2;
+    var d = 'M' + x0 + ',' + L.sy + 'C' + cx + ',' + L.sy + ' ' + cx + ',' + L.ty + ' ' + x1 + ',' + L.ty;
+    var color = L.target.type === 'loss' ? C.loss : typeColor(L.source.type);
+    var p = el('path', {
+      d:d, class:'sk-link', stroke:color, 'stroke-width':L.w,
+      'stroke-opacity': L.target.type === 'loss' ? 0.34 : 0.30
+    });
+    L.el = p;
+    gLinks.appendChild(p);
+  });
+
+  g.nodes.forEach(function(n){
+    var grp = el('g', {class:'sk-node'});
+    var r = el('rect', {
+      x:n.x0, y:n.y0, width:(n.x1-n.x0), height:n.h,
+      fill:typeColor(n.type), rx:2, tabindex:'0',
+      role:'button', 'aria-label':n.name + ', ' + n.value + ' exajoules'
+    });
+    grp.appendChild(r);
+
+    var right = n.ci >= g.nCols - 1;
+    var mid = n.ci > 0 && !right;
+    var lab, val, anchor, lx;
+    if (right){ anchor='start'; lx = n.x1 + 7; }
+    else if (n.ci === 0){ anchor='end'; lx = n.x0 - 7; }
+    else { anchor='start'; lx = n.x1 + 7; }
+
+    var cy = (n.y0 + n.y1)/2;
+    lab = el('text', {x:lx, y:cy - 1, class:'sk-lab', 'text-anchor':anchor}, n.name);
+    val = el('text', {x:lx, y:cy + 10, class:'sk-val', 'text-anchor':anchor}, n.value + ' EJ');
+    grp.appendChild(lab); grp.appendChild(val);
+    n.els = [r, lab, val];
+    n.el = grp;
+    gNodes.appendChild(grp);
+
+    function enter(ev){
+      highlight(n);
+      var box = host.getBoundingClientRect();
+      var px = (ev.clientX != null ? ev.clientX : box.left + n.x1) - box.left;
+      var py = (ev.clientY != null ? ev.clientY : box.top + cy) - box.top;
+      SK.tip.innerHTML = '<b>' + n.name + '</b><span class="n">' + n.value + ' EJ/yr</span> &middot; ' +
+        (n.value*100/totals(spec).primary).toFixed(1) + '% of primary<br>' + n.note;
+      SK.tip.style.opacity = 1;
+      SK.tip.style.left = Math.max(6, Math.min(px + 14, host.clientWidth - 264)) + 'px';
+      SK.tip.style.top  = Math.max(6, py - 10) + 'px';
+    }
+    function leave(){ SK.tip.style.opacity = 0; applyFocus(); }
+    r.addEventListener('mousemove', enter);
+    r.addEventListener('mouseleave', leave);
+    r.addEventListener('focus', enter);
+    r.addEventListener('blur', leave);
+  });
+
+  var t = totals(spec);
+  document.getElementById('mPrimary').textContent = fmt(t.primary) + ' EJ';
+  document.getElementById('mUseful').textContent  = fmt(t.useful) + ' EJ';
+  document.getElementById('mRejected').textContent= fmt(t.rejected) + ' EJ';
+  document.getElementById('mEff').textContent     = (t.useful/t.primary*100).toFixed(0) + '%';
+  SK.cap.textContent = spec.caption;
+  applyFocus();
+}
+
+function totals(spec){
+  var prim = 0;
+  spec.nodes.forEach(function(n){ if (n.col === 0) {
+    var out = 0;
+    spec.links.forEach(function(L){ if (L[0] === n.id) out += L[2]; });
+    prim += out;
+  }});
+  var find = function(id){
+    var v = 0;
+    spec.links.forEach(function(L){ if (L[1] === id) v += L[2]; });
+    return v;
+  };
+  return {primary:prim, useful:find('useful'), rejected:find('rejected'), material:find('material')};
+}
+
+function highlight(node){
+  if (!SK.graph) return;
+  var keepN = {}, keepL = [];
+  function walk(n, dir){
+    keepN[n.id] = 1;
+    var arr = dir > 0 ? n.out : n.in;
+    arr.forEach(function(l){
+      keepL.push(l);
+      walk(dir > 0 ? l.target : l.source, dir);
+    });
+  }
+  walk(node, 1); walk(node, -1);
+  SK.graph.links.forEach(function(l){
+    var on = keepL.indexOf(l) >= 0;
+    l.el.setAttribute('stroke-opacity', on ? 0.62 : 0.05);
+  });
+  SK.graph.nodes.forEach(function(n){
+    n.el.classList.toggle('faded', !keepN[n.id]);
+  });
+}
+
+function applyFocus(){
+  if (!SK.graph) return;
+  var lvl = LEVELS[state.level];
+  var focus = (SK.followDial && lvl.focus) ? lvl.focus : null;
+  SK.graph.nodes.forEach(function(n){
+    n.el.classList.toggle('faded', !!(focus && focus.indexOf(n.id) < 0));
+  });
+  SK.graph.links.forEach(function(l){
+    var base = l.target.type === 'loss' ? 0.34 : 0.30;
+    var on = !focus || focus.indexOf(l.source.id) >= 0 || focus.indexOf(l.target.id) >= 0;
+    l.el.setAttribute('stroke-opacity', on ? base : 0.05);
+  });
+}
+
+/* ============================================================
+   4. DIAL
+   ============================================================ */
+var state = { level:0 };
+
+function renderDialArc(){
+  var svg = document.getElementById('dialSvg');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  var cx = 132, cy = 132, rOut = 122, rIn = 100;
+  var start = -220, end = 40, n = LEVELS.length;
+  var span = (end - start) / n;
+
+  function pt(r, deg){
+    var a = deg * Math.PI / 180;
+    return [cx + r*Math.cos(a), cy + r*Math.sin(a)];
+  }
+  for (var i=0;i<n;i++){
+    var a0 = start + i*span + 1.6, a1 = start + (i+1)*span - 1.6;
+    var p0 = pt(rOut, a0), p1 = pt(rOut, a1), p2 = pt(rIn, a1), p3 = pt(rIn, a0);
+    var d = 'M'+p0[0]+','+p0[1]+
+            'A'+rOut+','+rOut+' 0 0 1 '+p1[0]+','+p1[1]+
+            'L'+p2[0]+','+p2[1]+
+            'A'+rIn+','+rIn+' 0 0 0 '+p3[0]+','+p3[1]+'Z';
+    var on = i === state.level;
+    var seg = el('path', {
+      d:d,
+      fill: on ? '#0071e3' : (i < state.level ? 'rgba(0,113,227,.20)' : 'rgba(0,0,0,.055)'),
+      stroke: on ? 'rgba(0,113,227,.35)' : 'transparent',
+      'stroke-width': on ? 1 : 0,
+      style:'cursor:pointer'
+    });
+    (function(idx){
+      seg.addEventListener('click', function(){ setLevel(idx); });
+    })(i);
+    svg.appendChild(seg);
+
+    var lp = pt((rOut+rIn)/2, (a0+a1)/2);
+    svg.appendChild(el('text', {
+      x:lp[0], y:lp[1]+3.5, 'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9.5px;pointer-events:none;fill:' + (on ? '#fff' : '#8a8a8f')
+    }, String(i)));
+  }
+  // needle
+  var na = start + (state.level + 0.5) * span;
+  var tipPt = pt(rIn - 8, na), basePt = pt(30, na);
+  svg.appendChild(el('line', {
+    x1:basePt[0], y1:basePt[1], x2:tipPt[0], y2:tipPt[1],
+    stroke:'#0071e3', 'stroke-width':2, 'stroke-linecap':'round', opacity:.85
+  }));
+  svg.appendChild(el('circle', {cx:cx, cy:cy, r:4.5, fill:'#0071e3'}));
+}
+
+function setLevel(i){
+  state.level = Math.max(0, Math.min(LEVELS.length-1, i));
+  var L = LEVELS[state.level];
+  document.getElementById('dialInput').value = state.level;
+  document.getElementById('dialInput').setAttribute('aria-valuetext', 'Level ' + state.level + ', ' + L.name);
+
+  var pw = document.getElementById('dPower');
+  pw.innerHTML = L.exp ? (L.power + '<sup style="font-size:.62em">' + L.exp + '</sup>') : L.power;
+  document.getElementById('dUnit').textContent = L.unitOverride || L.unit;
+  document.getElementById('dName').textContent = L.name;
+  document.getElementById('lfLevel').innerHTML = '<strong>' + state.level + ' &middot; ' + L.name + '</strong>';
+  document.getElementById('lfDomain').textContent = L.domain;
+  document.getElementById('lfMech').textContent = L.mech;
+  document.getElementById('lfFail').textContent = L.fail;
+  document.getElementById('lfWho').textContent = L.who;
+
+  var jump = document.getElementById('lfJump');
+  jump.innerHTML = '';
+  (L.jump||[]).forEach(function(j){
+    var a = document.createElement('a');
+    a.className = 'jump'; a.href = j[1]; a.textContent = j[0] + ' \u2192';
+    jump.appendChild(a);
+  });
+
+  renderDialArc();
+  applyFocus();
+  focusGlobeForLevel();
+}
+
+/* ============================================================
+   5. GLOBE
+   ============================================================ */
+var PLACES = [
+  // chokepoints
+  {k:'choke', n:'Strait of Hormuz', ll:[56.25,26.57], m:'~20 Mb/d of crude and 20% of LNG', d:[['Width','33 km at its narrowest, two 3 km shipping lanes'],['Exposure','No practical bypass for most Gulf output; the East-West pipeline covers a fraction'],['Effect','Insurance and freight reprice within days of any incident']]},
+  {k:'choke', n:'Suez Canal & SUMED', ll:[32.55,30.0], m:'~9% of seaborne oil, ~8% of LNG', d:[['Alternative','Cape of Good Hope, adding 9\u201314 days and roughly 5,000 km'],['Recent','Ever Given in 2021, then Red Sea attacks from late 2023 rerouted most container and much tanker traffic'],['Effect','Freight rates, not crude price, absorb the shock first']]},
+  {k:'choke', n:'Bab el-Mandeb', ll:[43.33,12.58], m:'Gateway between Suez and the Indian Ocean', d:[['Width','29 km'],['Exposure','Closing it strands the Suez route entirely'],['Effect','The 2023\u201324 attacks made this the binding constraint, not the canal itself']]},
+  {k:'choke', n:'Strait of Malacca', ll:[101.3,2.5], m:'~16 Mb/d, and a quarter of world LNG', d:[['Width','2.7 km at Phillips Channel'],['Exposure','The primary artery for Chinese, Japanese, and Korean imports'],['Alternative','Lombok and Sunda straits, longer and shallower']]},
+  {k:'choke', n:'Panama Canal', ll:[-79.68,9.08], m:'LPG and product movements, plus containers', d:[['Constraint','Fresh water. Gatun Lake drought cut daily transits sharply in 2023\u201324'],['Exposure','US Gulf to Asia LPG and LNG voyages'],['Effect','A climate constraint acting directly on an energy trade route']]},
+  {k:'choke', n:'Turkish Straits', ll:[29.07,41.12], m:'Black Sea crude and grain', d:[['Width','700 m at the narrowest point of the Bosphorus'],['Regime','Montreux Convention governs transit'],['Exposure','Russian and Kazakh barrels out of Novorossiysk']]},
+  {k:'choke', n:'Danish Straits', ll:[11.0,55.7], m:'Baltic exports, including most Russian seaborne crude', d:[['Depth','Shallow and pilot-dependent'],['Exposure','The route the shadow tanker fleet must use'],['Effect','A practical enforcement point for sanctions if anyone chooses to use it']]},
+
+  // refining & LNG
+  {k:'refinery', n:'Jamnagar, India', ll:[69.85,22.35], m:'~1.24 Mb/d, the largest refinery on Earth', d:[['Operator','Reliance Industries'],['Complexity','Very high; built to run heavy sour crude and export light products'],['Role','Swing supplier of diesel and jet to Europe and Africa']]},
+  {k:'refinery', n:'Jurong Island, Singapore', ll:[103.70,1.27], m:'~1.3 Mb/d across the cluster', d:[['Role','Asia\u2019s pricing and blending hub, tied to the Malacca route'],['Integration','Refining plus petrochemical crackers on reclaimed land'],['Exposure','Every barrel arrives by sea']]},
+  {k:'refinery', n:'US Gulf Coast', ll:[-93.93,29.87], m:'~9 Mb/d across Texas and Louisiana', d:[['Assets','Port Arthur, Baytown, Baton Rouge, Galveston Bay'],['Complexity','The world\u2019s deepest concentration of coking and hydrocracking'],['Exposure','Hurricane season takes multi-million-barrel bites out of global supply']]},
+  {k:'refinery', n:'Rotterdam / ARA', ll:[4.29,51.89], m:'~1.5 Mb/d plus Europe\u2019s main storage hub', d:[['Role','Sets the physical basis for European product pricing'],['Trend','Aging Atlantic-basin capacity facing hydrogen and compliance capital decisions'],['Also','Largest independent tank storage cluster in Europe']]},
+  {k:'refinery', n:'Ras Tanura, Saudi Arabia', ll:[50.16,26.65], m:'The largest crude export terminal in the world', d:[['Throughput','Historically 6\u20137 Mb/d of loadings'],['Operator','Saudi Aramco'],['Note','Abqaiq processing nearby was struck by drones in 2019, briefly removing 5% of world supply']]},
+  {k:'refinery', n:'Ras Laffan, Qatar', ll:[51.55,25.92], m:'~77 Mtpa LNG, expanding past 140', d:[['Field','North Field, the largest non-associated gas field known'],['Cost','Among the lowest-cost LNG in the world'],['Exposure','Every cargo transits Hormuz']]},
+  {k:'refinery', n:'Sabine Pass, USA', ll:[-93.87,29.73], m:'Anchor of US LNG export capacity', d:[['Operator','Cheniere'],['Significance','Turned Henry Hub into a global price reference after 2016'],['Role','The marginal supplier that replaced Russian pipeline gas in Europe']]},
+  {k:'refinery', n:'Curtis Island, Australia', ll:[151.20,-23.76], m:'Three LNG trains on coal-seam gas', d:[['Feed','Coal-seam methane, unusual among LNG projects'],['Market','North Asia'],['Note','Domestic gas price controversy is a direct result of export parity']]},
+  {k:'refinery', n:'Yamal, Russia', ll:[72.05,71.27], m:'Arctic LNG at 71\u00B0 north', d:[['Logistics','Ice-class carriers and the Northern Sea Route'],['Status','Sanctions have constrained expansion and vessel supply'],['Note','A demonstration that climate change opens routes as well as closing them']]},
+
+  // mines & processing
+  {k:'mine', n:'Baotou, Inner Mongolia', ll:[109.84,40.66], m:'The centre of world rare-earth separation', d:[['Feed','Bayan Obo, the largest REE deposit known'],['Share','Roughly 90% of global separation and magnet-grade oxide'],['Leverage','Export licensing here is the single most concentrated chokepoint in clean energy']]},
+  {k:'mine', n:'Mountain Pass, USA', ll:[-115.53,35.47], m:'The only US rare-earth mine at scale', d:[['Operator','MP Materials'],['Constraint','Separation and metal-making capacity, not ore'],['Timeline','Domestic magnet production is a decade-long build, now underway']]},
+  {k:'mine', n:'Mount Weld & Kuantan', ll:[122.55,-28.86], m:'Lynas: mined in Australia, cracked in Malaysia', d:[['Significance','The largest rare-earth supply chain outside China'],['Friction','Radioactive residue permitting in Malaysia is a recurring political issue'],['Expansion','New separation capacity in Western Australia and Texas']]},
+  {k:'mine', n:'Salar de Atacama, Chile', ll:[-68.20,-23.50], m:'Brine lithium, roughly a quarter of world supply', d:[['Method','Solar evaporation over 12\u201318 months'],['Operators','SQM and Albemarle under state concession'],['Tension','Water use in the driest desert on Earth, and a new state-participation model']]},
+  {k:'mine', n:'Greenbushes, Australia', ll:[116.06,-33.86], m:'The largest hard-rock lithium mine', d:[['Ore','Spodumene, shipped as concentrate'],['Destination','Mostly Chinese converters, though domestic hydroxide plants are being built'],['Cycle','Prices fell roughly 80% from the 2022 peak, halting marginal projects']]},
+  {k:'mine', n:'Kolwezi, DR Congo', ll:[25.47,-10.72], m:'~70% of world cobalt, mostly as a copper by-product', d:[['Structure','Industrial mines plus a large artisanal sector'],['Refining','70%+ of the output is refined in China'],['Response','LFP cathodes use no cobalt at all, which is the fastest de-risking lever available']]},
+  {k:'mine', n:'Morowali, Indonesia', ll:[121.90,-2.85], m:'Nickel processing that reshaped the market', d:[['Method','Laterite ore, HPAL and nickel pig iron'],['Share','Indonesia went from marginal to over half of world supply in a decade'],['Catch','Much of it is coal-powered, putting a carbon footprint inside the battery']]},
+  {k:'mine', n:'Escondida, Chile', ll:[-69.07,-24.27], m:'The largest copper mine in the world', d:[['Why copper matters','No substitute in windings, cable, and switchgear'],['Trend','Declining ore grades and 10\u201315 year development timelines'],['Demand','Grid and EV copper demand roughly doubles by 2040']]},
+  {k:'mine', n:'Norilsk, Russia', ll:[88.20,69.35], m:'Nickel, palladium, and platinum above the Arctic Circle', d:[['Operator','Nornickel'],['Share','A large share of world palladium and high-grade nickel'],['Exposure','Sanctions and a single rail-and-river logistics corridor']]},
+
+  // enrichment / nuclear
+  {k:'mine', n:'Seversk & Novouralsk', ll:[84.85,56.60], m:'Rosatom enrichment, ~40% of world SWU', d:[['Product','Enriched uranium hexafluoride'],['Dependency','Western utilities bought here because it was cheap and reliable'],['Since 2022','Spot enrichment roughly tripled; replacement capacity takes most of a decade']]},
+  {k:'mine', n:'Cigar Lake & McArthur River', ll:[-107.60,58.10], m:'The highest-grade uranium on Earth', d:[['Grade','Ore up to 20% uranium, orders of magnitude above typical'],['Operator','Cameco'],['Method','Remote jet-boring through frozen ground']]}
+];
+
+var CABLES = [
+  {k:'fiber', n:'Marea', a:[-75.98,36.85], b:[-2.93,43.26], m:'Virginia Beach to Bilbao', d:[['Owners','Microsoft, Meta, Telxius'],['Capacity','Upgraded past 200 Tbps'],['Point','Hyperscalers now build their own cable rather than lease it']]},
+  {k:'fiber', n:'Grace Hopper', a:[-73.90,40.60], b:[-4.55,50.83], m:'New York to Bude, Cornwall', d:[['Owner','Google'],['Design','Fibre switching for resilience'],['Context','About 99% of intercontinental data goes by cable, not satellite']]},
+  {k:'fiber', n:'SEA-ME-WE corridor', a:[5.37,43.29], b:[103.85,1.29], m:'Marseille to Singapore via Suez', d:[['Route','Follows the same chokepoints as the oil trade'],['Risk','Red Sea cable cuts in early 2024 degraded Europe\u2013Asia capacity'],['Point','Data and energy geography are the same geography']]},
+  {k:'fiber', n:'Trans-Pacific (JUPITER)', a:[-118.30,33.70], b:[139.90,34.98], m:'Los Angeles to Japan', d:[['Owners','A consortium including Amazon, Meta, NTT, PLDT'],['Length','~14,000 km'],['Repair','A cable ship costs roughly $1M per day on station']]},
+  {k:'fiber', n:'Equiano', a:[-9.14,38.70], b:[18.42,-33.92], m:'Lisbon to Cape Town', d:[['Owner','Google'],['Effect','Sharp reductions in African transit cost'],['Design','Space-division multiplexing, ~144 Tbps']]},
+  {k:'power', n:'IFA 2000', a:[1.17,51.08], b:[1.75,50.94], m:'2 GW HVDC, England to France', d:[['In service','1986, and still central to UK supply'],['Use','Arbitrage between French nuclear and UK gas-set prices'],['Note','A 2021 fire at the Sellindge converter cut capacity for months and moved UK power prices']]},
+  {k:'power', n:'North Sea Link', a:[6.70,59.50], b:[-1.50,55.13], m:'1.4 GW, Norway to England', d:[['Length','720 km, the longest subsea interconnector'],['Logic','Norwegian hydro as a battery for British wind'],['Manufacture','Cable from a very short list of suppliers']]},
+  {k:'power', n:'NordLink', a:[6.72,58.66], b:[9.37,53.92], m:'1.4 GW, Norway to Germany', d:[['Purpose','Balances German wind and solar against Norwegian reservoirs'],['Cost','Roughly \u20AC2B'],['Pattern','Interconnection is the cheapest form of storage where geography allows']]},
+  {k:'power', n:'Viking Link', a:[9.00,55.50], b:[-0.20,52.90], m:'1.4 GW, Denmark to England', d:[['Completed','2023\u201324'],['Cost','~\u00A31.7B'],['Trend','Each new link is longer and more expensive than the last']]},
+  {k:'power', n:'Xlinks (proposed)', a:[-10.06,29.00], b:[-4.15,51.00], m:'3.6 GW, Morocco to Devon', d:[['Length','~4,000 km of subsea cable'],['Thesis','Moroccan solar and wind are complementary to UK demand shape'],['Status','Proposed, and dependent on a contract-for-difference and cable factory capacity']]},
+  {k:'power', n:'Australia-Asia PowerLink (proposed)', a:[133.54,-17.55], b:[103.85,1.29], m:'Northern Territory solar to Singapore', d:[['Scale','Multi-gigawatt solar plus storage and ~4,300 km of cable'],['Question','Whether long-distance electron export beats shipping hydrogen or ammonia'],['Status','Proposed; the cable supply chain alone is a decade of capacity']]},
+  {k:'power', n:'EuroAsia Interconnector (proposed)', a:[34.90,32.50], b:[25.10,35.20], m:'Israel and Cyprus to Crete', d:[['Depth','Over 2,000 m in places, near the limit for HVDC cable'],['Purpose','Ends Cypriot grid isolation'],['Note','Depth, not distance, is what makes subsea cable hard']]}
+];
+
+var GL = {
+  svg:document.getElementById('globe'), tip:document.getElementById('glTip'),
+  detail:document.getElementById('glDetail'),
+  rot:[-20,-12], spin:true, land:null, sel:null, ok:false,
+  layers:{cable:true, refinery:true, mine:true, choke:true}
+};
+
+function initGlobe(){
+  if (typeof d3 === 'undefined' || !d3.geoOrthographic){
+    GL.detail.innerHTML = '<div class="globe-empty">The globe needs its mapping library, which did not load. Every other module on this page works without it.</div>';
+    return;
+  }
+  GL.ok = true;
+  var host = GL.svg.parentNode;
+  GL.size = Math.max(340, Math.min(620, host.clientWidth));
+  GL.svg.setAttribute('width', GL.size);
+  GL.svg.setAttribute('height', GL.size);
+  GL.svg.setAttribute('viewBox','0 0 ' + GL.size + ' ' + GL.size);
+  GL.proj = d3.geoOrthographic().translate([GL.size/2, GL.size/2]).scale(GL.size/2 - 14).clipAngle(90);
+  GL.path = d3.geoPath(GL.proj);
+
+  d3.select(GL.svg).call(d3.drag()
+    .on('start', function(){ GL.dragging = true; })
+    .on('drag', function(ev){
+      GL.rot[0] += ev.dx * 0.32;
+      GL.rot[1] = Math.max(-82, Math.min(82, GL.rot[1] - ev.dy * 0.32));
+      drawGlobe();
+    })
+    .on('end', function(){ GL.dragging = false; }));
+
+  fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json')
+    .then(function(r){ return r.json(); })
+    .then(function(topo){
+      if (typeof topojson !== 'undefined') GL.land = topojson.feature(topo, topo.objects.land);
+      drawGlobe();
+    })
+    .catch(function(){ drawGlobe(); });
+
+  focusGlobeForLevel();
+  var last = 0;
+  function tick(ts){
+    if (GL.spin && !GL.dragging && ts - last > 40){
+      GL.rot[0] += 0.16; last = ts; drawGlobe();
+    }
+    requestAnimationFrame(tick);
+  }
+  if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    requestAnimationFrame(tick);
+  }
+}
+
+function visible(ll){
+  var c = GL.proj.rotate();
+  return d3.geoDistance(ll, [-c[0], -c[1]]) < Math.PI/2 - 0.02;
+}
+
+function drawGlobe(){
+  if (!GL.ok) return;
+  var svg = GL.svg;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  GL.proj.rotate([GL.rot[0], GL.rot[1], 0]);
+  var S = GL.size;
+
+  var defs = el('defs');
+  var rg = el('radialGradient', {id:'oc', cx:'38%', cy:'32%', r:'78%'});
+  rg.appendChild(el('stop', {offset:'0%','stop-color':'#eaf3fb'}));
+  rg.appendChild(el('stop', {offset:'100%','stop-color':'#d7e3ee'}));
+  defs.appendChild(rg); svg.appendChild(defs);
+
+  svg.appendChild(el('circle', {cx:S/2, cy:S/2, r:S/2-14, fill:'url(#oc)', stroke:'rgba(0,0,0,.10)'}));
+
+  var grat = d3.geoGraticule10();
+  svg.appendChild(el('path', {d:GL.path(grat) || '', fill:'none', stroke:'rgba(0,0,0,.055)', 'stroke-width':.6}));
+
+  if (GL.land){
+    svg.appendChild(el('path', {d:GL.path(GL.land) || '', fill:'#fbfbfc', stroke:'rgba(0,0,0,.16)', 'stroke-width':.7}));
+    svg.appendChild(el('path', {d:GL.path(grat) || '', fill:'none', stroke:'rgba(0,0,0,.045)', 'stroke-width':.5}));
+  }
+
+  // cables as great-circle arcs
+  if (GL.layers.cable){
+    CABLES.forEach(function(cb){
+      var interp = d3.geoInterpolate(cb.a, cb.b), pts = [];
+      for (var i=0;i<=48;i++) pts.push(interp(i/48));
+      var d = GL.path({type:'LineString', coordinates:pts});
+      if (!d) return;
+      var color = cb.k === 'power' ? '#0071e3' : '#3d8ecc';
+      var hit = el('path', {d:d, fill:'none', stroke:'transparent', 'stroke-width':11, style:'cursor:pointer'});
+      var line = el('path', {d:d, fill:'none', stroke:color, 'stroke-width': cb.k === 'power' ? 2.1 : 1.3,
+        'stroke-dasharray': cb.k === 'power' ? '' : '4 3', opacity: GL.sel === cb ? 1 : .78, 'pointer-events':'none'});
+      bindFeature(hit, cb, cb.k === 'power' ? 'Subsea power link' : 'Subsea fibre');
+      svg.appendChild(line); svg.appendChild(hit);
+    });
+  }
+
+  var kindOn = {choke:GL.layers.choke, refinery:GL.layers.refinery, mine:GL.layers.mine};
+  var kindColor = {choke:'#bd2b28', refinery:'#b65f00', mine:'#6b47d6'};
+  var kindLabel = {choke:'Chokepoint', refinery:'Refining, export & LNG', mine:'Mining & processing'};
+
+  PLACES.forEach(function(p){
+    if (!kindOn[p.k]) return;
+    if (!visible(p.ll)) return;
+    var xy = GL.proj(p.ll);
+    if (!xy) return;
+    var on = GL.sel === p;
+    var g = el('g', {style:'cursor:pointer'});
+    if (on) g.appendChild(el('circle', {cx:xy[0], cy:xy[1], r:9, fill:kindColor[p.k], opacity:.20}));
+    g.appendChild(el('circle', {cx:xy[0], cy:xy[1], r:on?5.4:3.9, fill:kindColor[p.k], stroke:'#fff', 'stroke-width':1.3}));
+    bindFeature(g, p, kindLabel[p.k]);
+    svg.appendChild(g);
+  });
+}
+
+function bindFeature(node, f, kindLabel){
+  node.addEventListener('mousemove', function(ev){
+    var box = GL.svg.parentNode.getBoundingClientRect();
+    GL.tip.innerHTML = '<b>' + f.n + '</b>' + f.m;
+    GL.tip.style.opacity = 1;
+    GL.tip.style.left = Math.min(ev.clientX - box.left + 12, box.width - 258) + 'px';
+    GL.tip.style.top  = Math.max(6, ev.clientY - box.top - 8) + 'px';
+  });
+  node.addEventListener('mouseleave', function(){ GL.tip.style.opacity = 0; });
+  node.addEventListener('click', function(){
+    GL.sel = f;
+    var h = '<div class="dt">' + f.n + '</div><div class="dm">' + kindLabel + '</div>' +
+            '<div class="drow"><div class="dk">Scale</div><div class="dv">' + f.m + '</div></div>';
+    (f.d||[]).forEach(function(r){
+      h += '<div class="drow"><div class="dk">' + r[0] + '</div><div class="dv">' + r[1] + '</div></div>';
+    });
+    GL.detail.innerHTML = h;
+    drawGlobe();
+  });
+}
+
+function focusGlobeForLevel(){
+  if (!GL.ok) return;
+  var L = state.level;
+  GL.layers.cable    = (L === 0 || L === 1 || L === 4 || L === 6);
+  GL.layers.refinery = (L === 0 || L === 1 || L === 2 || L === 3 || L === 5);
+  GL.layers.mine     = (L === 0 || L === 1 || L === 2 || L === 3);
+  GL.layers.choke    = (L === 0 || L === 1 || L === 2 || L === 5);
+  if (L === 7){ GL.layers.cable = GL.layers.refinery = GL.layers.mine = GL.layers.choke = false; }
+  ['cable','refinery','mine','choke'].forEach(function(k){
+    var box = document.getElementById('ly' + k.charAt(0).toUpperCase() + k.slice(1));
+    if (box) box.checked = GL.layers[k];
+  });
+  drawGlobe();
+}
+
+/* ============================================================
+   6. LCOE MODEL
+   ============================================================ */
+var TECHS = [
+  {id:'solar',    n:'Solar PV, utility',  capex:1000, fom:12,  vom:0,   cf:0.24, life:30, hr:0,   fuel:'none', co2:0},
+  {id:'onshore',  n:'Wind, onshore',      capex:1500, fom:40,  vom:0,   cf:0.38, life:30, hr:0,   fuel:'none', co2:0},
+  {id:'offshore', n:'Wind, offshore',     capex:3800, fom:90,  vom:0,   cf:0.48, life:30, hr:0,   fuel:'none', co2:0},
+  {id:'pvstore',  n:'Solar + 4h storage', capex:1950, fom:28,  vom:0,   cf:0.29, life:25, hr:0,   fuel:'none', co2:0},
+  {id:'ccgt',     n:'Gas CCGT',           capex:1200, fom:25,  vom:2,   cf:0.55, life:30, hr:6.4, fuel:'gas',  co2:0.37},
+  {id:'ocgt',     n:'Gas peaker',         capex:800,  fom:18,  vom:5,   cf:0.12, life:30, hr:9.8, fuel:'gas',  co2:0.55},
+  {id:'coal',     n:'Coal, supercritical',capex:3500, fom:45,  vom:4,   cf:0.55, life:40, hr:9.0, fuel:'coal', co2:0.88},
+  {id:'nuclear',  n:'Nuclear, new build', capex:7000, fom:130, vom:2.5, cf:0.90, life:60, hr:0,   fuel:'uranium', co2:0},
+  {id:'geo',      n:'Geothermal',         capex:5000, fom:130, vom:1,   cf:0.85, life:30, hr:0,   fuel:'none', co2:0}
+];
+
+function crf(r, n){
+  if (r === 0) return 1/n;
+  return r*Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
+}
+
+function lcoe(t, p){
+  var capex = (t.id === 'solar') ? p.solarCapex
+            : (t.id === 'pvstore') ? p.solarCapex + 950
+            : t.capex;
+  var f = crf(p.disc, t.life);
+  var fixed = (capex*f + t.fom) / (8.76 * t.cf);
+  var fuel = 0;
+  if (t.fuel === 'gas')  fuel = p.gas * t.hr;
+  if (t.fuel === 'coal') fuel = (p.coal / 24) * t.hr;   // ~24 MMBtu per tonne
+  if (t.fuel === 'uranium') fuel = 7;                   // $/MWh, fuel cycle all-in
+  var carbon = t.co2 * p.carbon;
+  return {total:fixed + t.vom + fuel + carbon, capital:fixed, fuel:fuel, carbon:carbon, om:t.vom};
+}
+
+function readLcoeParams(){
+  return {
+    disc: +document.getElementById('rDisc').value / 100,
+    gas: +document.getElementById('rGas').value,
+    coal: +document.getElementById('rCoal').value,
+    carbon: +document.getElementById('rCarbon').value,
+    solarCapex: +document.getElementById('rSolarCap').value
+  };
+}
+
+function renderLcoe(){
+  var p = readLcoeParams();
+  document.getElementById('oDisc').textContent = (p.disc*100).toFixed(1) + '%';
+  document.getElementById('oGas').textContent = p.gas.toFixed(1);
+  document.getElementById('oCoal').textContent = p.coal;
+  document.getElementById('oCarbon').textContent = p.carbon;
+  document.getElementById('oSolarCap').textContent = p.solarCapex;
+
+  var rows = TECHS.map(function(t){
+    var r = lcoe(t, p); r.n = t.n; r.id = t.id; return r;
+  }).sort(function(a,b){ return a.total - b.total; });
+
+  var svg = document.getElementById('lcoe');
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  var host = svg.parentNode;
+  var W = Math.max(320, host.clientWidth), rowH = 27, padL = 132, padR = 54;
+  var H = rows.length * rowH + 26;
+  svg.setAttribute('width', W); svg.setAttribute('height', H);
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+  var max = Math.max(60, rows[rows.length-1].total) * 1.06;
+  var scale = function(v){ return (W - padL - padR) * v / max; };
+
+  [0, 50, 100, 150, 200, 250].forEach(function(g){
+    if (g > max) return;
+    var x = padL + scale(g);
+    svg.appendChild(el('line', {x1:x, y1:6, x2:x, y2:H-18, stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text', {x:x, y:H-6, 'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, String(g)));
+  });
+
+  rows.forEach(function(r, i){
+    var y = 10 + i*rowH;
+    svg.appendChild(el('text', {x:padL-8, y:y+13, 'text-anchor':'end',
+      style:'font-size:11.5px;fill:#1d1d1f'}, r.n));
+    var segs = [
+      ['#0071e3', r.capital, 'capital + fixed O&M'],
+      ['#8a8a8f', r.om,      'variable O&M'],
+      ['#b65f00', r.fuel,    'fuel'],
+      ['#bd2b28', r.carbon,  'carbon']
+    ];
+    var x = padL;
+    segs.forEach(function(s){
+      if (s[1] <= 0.01) return;
+      var w = scale(s[1]);
+      var rect = el('rect', {x:x, y:y+2, width:Math.max(1,w), height:15, fill:s[0], opacity:.86, rx:1.5});
+      rect.appendChild(el('title', null, r.n + ' \u2014 ' + s[2] + ': $' + s[1].toFixed(1) + '/MWh'));
+      svg.appendChild(rect);
+      x += w;
+    });
+    svg.appendChild(el('text', {x:x+6, y:y+14,
+      style:'font-family:JetBrains Mono,monospace;font-size:10.5px;fill:#1d1d1f'}, '$' + r.total.toFixed(0)));
+  });
+
+  svg.appendChild(el('text', {x:W-2, y:H-6, 'text-anchor':'end',
+    style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, '$/MWh, 2024 real'));
+}
+
+/* ============================================================
+   7. GRID MIX MODEL
+   ============================================================ */
+var MIX_TECH = {
+  solar:   {n:'Solar',            cf:0.24, mwPerKm2:45,  cu:2900, ndpr:0,   co2:40},
+  wind:    {n:'Wind',             cf:0.40, mwPerKm2:3.2, cu:4300, ndpr:45,  co2:12},
+  nuclear: {n:'Nuclear',          cf:0.90, mwPerKm2:400, cu:1200, ndpr:0,   co2:6},
+  hydro:   {n:'Hydro & geo',      cf:0.45, mwPerKm2:12,  cu:1100, ndpr:0,   co2:24},
+  gas:     {n:'Gas',              cf:0.50, mwPerKm2:900, cu:1100, ndpr:0,   co2:450}
+};
+
+function gridMix(shares){
+  var keys = Object.keys(MIX_TECH);
+  var raw = keys.reduce(function(a,k){ return a + (shares[k]||0); }, 0);
+  if (raw <= 0) raw = 1;
+  var norm = {}, out = {tech:{}, twh:1000};
+  keys.forEach(function(k){ norm[k] = (shares[k]||0)/raw; });
+
+  var avgLoadGW = 1000 * 1000 / 8760;   // TWh/yr -> average GW
+  var cu = 0, ndpr = 0, land = 0, co2 = 0, vre = 0, firm = 0;
+
+  keys.forEach(function(k){
+    var T = MIX_TECH[k], share = norm[k];
+    var gwh = share * 1000 * 1000;
+    var gw  = gwh / (8760 * T.cf);
+    out.tech[k] = {name:T.n, share:share, gw:gw, twh:share*1000};
+    cu   += gw * T.cu;
+    ndpr += gw * T.ndpr;
+    land += gw * 1000 / T.mwPerKm2;
+    co2  += share * T.co2;
+    if (k === 'solar' || k === 'wind') vre += share;
+    if (k === 'nuclear' || k === 'hydro' || k === 'gas') firm += share;
+  });
+
+  // storage depth heuristic: hours of average load, damped by firm capacity
+  var hours = 12*Math.pow(vre,2) + 200*Math.pow(Math.max(0, vre-0.5), 3);
+  hours *= Math.max(0.15, 1 - firm*0.8);
+  var storGWh = hours * avgLoadGW;
+  var lithium = storGWh * 1400;          // tonnes LCE, ~1.4 kg/kWh
+  var storCost = storGWh * 1000 * 250 / 1e9;  // $B at $250/kWh
+
+  out.vre = vre; out.firm = firm;
+  out.hours = hours; out.storGWh = storGWh; out.storCost = storCost;
+  out.copper = cu; out.ndpr = ndpr; out.lithium = lithium;
+  out.land = land; out.co2 = co2;
+  out.copperExtra = cu + storGWh * 900;
+  return out;
+}
+
+function renderMix(){
+  var ids = {solar:'mSolar', wind:'mWind', nuclear:'mNuclear', hydro:'mHydro', gas:'mGas'};
+  var outIds = {solar:'oSolar', wind:'oWind', nuclear:'oNuclear', hydro:'oHydro', gas:'oGas2'};
+  var shares = {};
+  Object.keys(ids).forEach(function(k){ shares[k] = +document.getElementById(ids[k]).value; });
+  var r = gridMix(shares);
+  Object.keys(outIds).forEach(function(k){
+    document.getElementById(outIds[k]).textContent = (r.tech[k].share*100).toFixed(0) + '%';
+  });
+
+  var warn = r.vre > 0.75
+    ? 'Above roughly 75% variable share, storage requirements grow faster than capacity, and the last few percent of firmness becomes the dominant cost in the system.'
+    : (r.firm < 0.2
+      ? 'With under 20% firm capacity, this mix depends on storage and interconnection for reliability rather than on dispatchable plant.'
+      : 'This mix retains enough dispatchable capacity that storage covers daily shaping rather than multi-day scarcity.');
+
+  var html = '<div class="g2" style="gap:10px">' +
+    card('Installed capacity', fmt(Object.keys(r.tech).reduce(function(a,k){return a + r.tech[k].gw;},0)) + ' GW',
+      'Nameplate needed to deliver 1,000 TWh. Low capacity factors mean more steel for the same energy.') +
+    card('Storage', fmt(r.storGWh) + ' GWh',
+      r.hours.toFixed(1) + ' hours of average load, roughly $' + r.storCost.toFixed(0) + 'B at $250/kWh.') +
+    card('Land footprint', fmt(r.land) + ' km\u00B2',
+      'Generation area only, excluding transmission corridors. Wind spacing dominates; the land between turbines stays farmable.') +
+    card('Copper', fmt(Math.round(r.copperExtra/1000)) + ' kt',
+      'Generation plus storage. World mine supply is roughly 22,000 kt a year, so this is the number to sanity-check first.') +
+    card('Neodymium & praseodymium', fmt(Math.round(r.ndpr)) + ' t',
+      'Direct-drive turbine magnets. Separation capacity, not ore, is the constraint.') +
+    card('Lithium', fmt(Math.round(r.lithium/1000)) + ' kt LCE',
+      'For the storage fleet above, at roughly 1.4 kg of lithium carbonate equivalent per kWh.') +
+    '</div>' +
+    '<div class="card" style="margin-top:10px"><div class="kicker">Carbon intensity</div>' +
+    '<div class="num" style="font-size:20px;font-weight:700;color:' + (r.co2 < 50 ? '#1f8f4e' : r.co2 < 200 ? '#c99700' : '#bd2b28') + '">' +
+    r.co2.toFixed(0) + ' gCO\u2082/kWh</div>' +
+    '<p style="margin-top:6px">' + warn + '</p></div>';
+
+  document.getElementById('mixOut').innerHTML = html;
+  document.getElementById('mixCap').textContent =
+    'Storage heuristic: hours = 12\u00B7v\u00B2 + 200\u00B7max(0, v\u22120.5)\u00B3, scaled by (1 \u2212 0.8\u00B7firm share), where v is the variable renewable share. It reproduces the shape of published resource-adequacy studies, roughly 4 hours at 60% variable and near 30 at 95%, but it is a curve fit, not a dispatch model.';
+}
+
+function card(k, v, d){
+  return '<div class="card" style="padding:14px"><div class="kicker">' + k + '</div>' +
+         '<div class="num" style="font-size:18px;font-weight:700;letter-spacing:-.02em">' + v + '</div>' +
+         '<p style="margin-top:5px;font-size:12px">' + d + '</p></div>';
+}
+
+/* ============================================================
+   8. WIRING
+   ============================================================ */
+function init(){
+  // dial
+  var dial = document.getElementById('dialInput');
+  dial.addEventListener('input', function(){ setLevel(+dial.value); });
+  setLevel(0);
+
+  // sankey
+  document.getElementById('scCurrent').addEventListener('click', function(){ switchScenario('current', this); });
+  document.getElementById('scNetzero').addEventListener('click', function(){ switchScenario('netzero', this); });
+  function switchScenario(name, btn){
+    SK.scenario = name;
+    ['scCurrent','scNetzero'].forEach(function(id){
+      var b = document.getElementById(id);
+      b.classList.toggle('on', b === btn);
+      b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+    });
+    renderSankey();
+  }
+  var fOff = document.getElementById('skFocusOff'), fOn = document.getElementById('skFocusOn');
+  fOff.addEventListener('click', function(){ SK.followDial = false; fOff.classList.add('on'); fOn.classList.remove('on'); applyFocus(); });
+  fOn.addEventListener('click', function(){ SK.followDial = true; fOn.classList.add('on'); fOff.classList.remove('on'); applyFocus(); });
+  renderSankey();
+
+  // globe
+  initGlobe();
+  [['lyCable','cable'],['lyRefinery','refinery'],['lyMine','mine'],['lyChoke','choke']].forEach(function(pair){
+    var box = document.getElementById(pair[0]);
+    box.addEventListener('change', function(){ GL.layers[pair[1]] = box.checked; drawGlobe(); });
+  });
+  document.getElementById('lySpin').addEventListener('change', function(){ GL.spin = this.checked; });
+
+  // models
+  ['rDisc','rGas','rCoal','rCarbon','rSolarCap'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', renderLcoe);
+  });
+  renderLcoe();
+  ['mSolar','mWind','mNuclear','mHydro','mGas'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', renderMix);
+  });
+  renderMix();
+
+  // scroll spy
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        if (i < 0) return;
+        links.forEach(function(l){ l.classList.remove('on'); });
+        links[i].classList.add('on');
+      });
+    }, {rootMargin:'-72px 0px -70% 0px'});
+    secs.forEach(function(s){ if (s) io.observe(s); });
+  }
+
+  // resize
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){
+      renderSankey(); renderLcoe();
+      if (GL.ok){
+        var host = GL.svg.parentNode;
+        GL.size = Math.max(340, Math.min(620, host.clientWidth));
+        GL.svg.setAttribute('width', GL.size); GL.svg.setAttribute('height', GL.size);
+        GL.svg.setAttribute('viewBox','0 0 ' + GL.size + ' ' + GL.size);
+        GL.proj.translate([GL.size/2, GL.size/2]).scale(GL.size/2 - 14);
+        drawGlobe();
+      }
+    }, 180);
+  });
+}
+
+if (typeof module !== 'undefined' && module.exports){
+  module.exports = {layoutSankey:layoutSankey, SCENARIOS:SCENARIOS, gridMix:gridMix, lcoe:lcoe, crf:crf, TECHS:TECHS, LEVELS:LEVELS, totals:totals};
+} else if (document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+})();
+</script>
+</body>
+</html>
