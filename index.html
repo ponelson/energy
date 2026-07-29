@@ -422,34 +422,53 @@ p+p{margin-top:10px}
   <div class="nav-group">
     <div class="nav-title">Instruments</div>
     <a class="nav-link" href="#dial"><span class="lv">00</span>Power ladder</a>
-    <a class="nav-link" href="#flow"><span class="lv">01</span>Flow &amp; rejected energy</a>
-    <a class="nav-link" href="#map"><span class="lv">02</span>Infrastructure globe</a>
-    <a class="nav-link" href="#models"><span class="lv">03</span>Screening models</a>
+    <a class="nav-link" href="#physics"><span class="lv">01</span>First principles</a>
+    <a class="nav-link" href="#flow"><span class="lv">02</span>Flow &amp; rejected energy</a>
+    <a class="nav-link" href="#map"><span class="lv">03</span>Infrastructure globe</a>
+    <a class="nav-link" href="#models"><span class="lv">04</span>Screening models</a>
   </div>
   <div class="nav-group">
     <div class="nav-title">Hydrocarbons</div>
-    <a class="nav-link" href="#extraction"><span class="lv">04</span>Extraction</a>
-    <a class="nav-link" href="#refining"><span class="lv">05</span>Refining</a>
-    <a class="nav-link" href="#logistics"><span class="lv">06</span>Logistics &amp; pricing</a>
+    <a class="nav-link" href="#extraction"><span class="lv">05</span>Extraction</a>
+    <a class="nav-link" href="#refining"><span class="lv">06</span>Refining</a>
+    <a class="nav-link" href="#logistics"><span class="lv">07</span>Logistics &amp; pricing</a>
+    <a class="nav-link" href="#coal"><span class="lv">08</span>Coal</a>
   </div>
   <div class="nav-group">
     <div class="nav-title">Clean hardware</div>
-    <a class="nav-link" href="#solar"><span class="lv">07</span>Solar PV chain</a>
-    <a class="nav-link" href="#nuclear"><span class="lv">08</span>Nuclear fuel cycle</a>
-    <a class="nav-link" href="#wind"><span class="lv">09</span>Wind chain</a>
-    <a class="nav-link" href="#hydrogen"><span class="lv">10</span>Hydrogen</a>
+    <a class="nav-link" href="#solar"><span class="lv">09</span>Solar PV chain</a>
+    <a class="nav-link" href="#nuclear"><span class="lv">10</span>Nuclear fuel cycle</a>
+    <a class="nav-link" href="#wind"><span class="lv">11</span>Wind chain</a>
+    <a class="nav-link" href="#hydrogen"><span class="lv">12</span>Hydrogen</a>
   </div>
   <div class="nav-group">
     <div class="nav-title">The electric system</div>
-    <a class="nav-link" href="#grid"><span class="lv">11</span>Grid &amp; power markets</a>
-    <a class="nav-link" href="#storage"><span class="lv">12</span>Storage &amp; flexibility</a>
-    <a class="nav-link" href="#efficiency"><span class="lv">13</span>Efficiency &amp; electrification</a>
+    <a class="nav-link" href="#grid"><span class="lv">13</span>Grid &amp; power markets</a>
+    <a class="nav-link" href="#custody"><span class="lv">14</span>Chain of custody</a>
+    <a class="nav-link" href="#history"><span class="lv">15</span>How it got this way</a>
+    <a class="nav-link" href="#storage"><span class="lv">16</span>Storage &amp; flexibility</a>
+    <a class="nav-link" href="#efficiency"><span class="lv">17</span>Efficiency &amp; electrification</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">The industry</div>
+    <a class="nav-link" href="#players"><span class="lv">18</span>Who actually does this</a>
+    <a class="nav-link" href="#china"><span class="lv">19</span>China</a>
+    <a class="nav-link" href="#desk"><span class="lv">20</span>The data desk</a>
   </div>
   <div class="nav-group">
     <div class="nav-title">Inputs</div>
-    <a class="nav-link" href="#minerals"><span class="lv">14</span>Critical minerals</a>
-    <a class="nav-link" href="#cascades"><span class="lv">15</span>Risk cascades</a>
-    <a class="nav-link" href="#sources"><span class="lv">16</span>Sources &amp; method</a>
+    <a class="nav-link" href="#minerals"><span class="lv">21</span>Critical minerals</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">What actually limits it</div>
+    <a class="nav-link" href="#capital"><span class="lv">22</span>The capital stack</a>
+    <a class="nav-link" href="#permits"><span class="lv">23</span>Permitting &amp; siting</a>
+    <a class="nav-link" href="#constraints"><span class="lv">24</span>Unpriced constraints</a>
+    <a class="nav-link" href="#cascades"><span class="lv">25</span>Risk cascades</a>
+  </div>
+  <div class="nav-group">
+    <div class="nav-title">Method</div>
+    <a class="nav-link" href="#sources"><span class="lv">26</span>Sources &amp; method</a>
   </div>
   <div class="nav-foot">Every number carries a provenance mark. Click any <span class="src">1</span> for the source, the data year, and the definition used.</div>
 </nav>
@@ -515,10 +534,100 @@ p+p{margin-top:10px}
   </div>
 </section>
 
+<!-- =============== PHYSICS =============== -->
+<section class="sec" id="physics">
+  <div class="eyebrow">01 &nbsp;/&nbsp; First principles</div>
+  <h2>What energy is, in six equations</h2>
+  <p class="lede">The rest of this page counts exajoules without ever saying what one is. Energy is a single quantity with dimensions of mass times length squared over time squared, and every form it takes on this page is the same quantity wearing different clothes. Work is energy transferred by a force. Power is the rate. Mass is energy at rest. And in general relativity energy is not a scalar you can simply add up, it is the source term that curves spacetime.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">How the quantities connect</div>
+      <button class="tbtn" id="btnPhysTable" aria-expanded="false" aria-controls="physTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="physWeb" role="img" aria-label="Diagram relating mass, length, time, force, energy, power, action and spacetime curvature through their defining equations"></svg></div>
+    <div id="physTable" hidden></div>
+    <div class="cap">Three base dimensions at the left, everything else derived. Each arrow is a definition, not an analogy. Hover any relation for the equation and a worked number.</div>
+  </div>
+
+  <div class="g2" style="margin-top:14px;align-items:start">
+    <div class="panel pad">
+      <h3 style="margin-bottom:2px">One quantity, sixteen units</h3>
+      <p style="font-size:12.5px;color:var(--text-2);margin-bottom:12px">Type any energy and see it in every unit this page uses, plus a few that put it in perspective. All conversions are exact definitions except where marked. <span class="v-model">model</span></p>
+      <div class="slider-row" style="grid-template-columns:1fr 96px">
+        <input id="eVal" type="number" value="1" step="any" aria-label="Energy value"
+          style="font-family:var(--mono);font-size:14px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);width:100%">
+        <select id="eUnit" class="tbtn" style="height:34px;padding:0 6px" aria-label="Energy unit"></select>
+      </div>
+      <div id="eOut" style="margin-top:12px" aria-live="polite"></div>
+    </div>
+
+    <div class="panel pad">
+      <h3 style="margin-bottom:2px">The solar budget</h3>
+      <p style="font-size:12.5px;color:var(--text-2);margin-bottom:12px">Earth intercepts a vanishing sliver of the Sun's output and it is still four orders of magnitude more than civilization uses. Set the assumptions and see what area that implies. <span class="v-model">model</span></p>
+      <div class="slider-row"><label for="sInsol">Insolation, kWh/m&sup2;/day</label><input id="sInsol" type="range" min="2.5" max="7" step="0.1" value="5"><span class="out" id="oInsol">5.0</span></div>
+      <div class="slider-row"><label for="sEff">Module efficiency</label><input id="sEff" type="range" min="10" max="30" step="0.5" value="21"><span class="out" id="oEff">21%</span></div>
+      <div class="slider-row"><label for="sPack">Land per module area</label><input id="sPack" type="range" min="1.5" max="5" step="0.1" value="3"><span class="out" id="oPack">3.0&times;</span></div>
+      <div class="seg" style="margin:8px 0 4px">
+        <button id="sDemPrim" class="on">All primary energy, 620 EJ</button>
+        <button id="sDemFinal">Electrified final energy, 300 EJ</button>
+      </div>
+      <div id="sOut" style="margin-top:10px" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="viz" style="margin-top:14px;padding:16px">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px">The chain of dilution, from fusion core to one rooftop</div>
+    <div class="durwrap"><svg id="solarChain" role="img" aria-label="Chart showing how solar power density falls by orders of magnitude from the Sun's surface to a rooftop"></svg></div>
+    <div class="cap">Each step is a real physical dilution: distance, geometry, atmosphere, rotation, latitude, then conversion. The last step, silicon, is the only one humans control, and it is the smallest loss on the chart. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Energy, work, heat, power</div>
+      <h3>Four words that are not synonyms</h3>
+      <p><strong>Energy</strong> is a state function: a system has it. Dimensions M L&sup2; T&#8315;&sup2;, unit the joule.<br>
+      <strong>Work</strong> is energy transferred by a force acting through a distance, W = F&middot;d. A process, not a possession.<br>
+      <strong>Heat</strong> is energy transferred by a temperature difference. Also a process. The first law is just bookkeeping over the two: &Delta;U = Q &minus; W.<br>
+      <strong>Power</strong> is the rate, P = dE/dt, unit the watt. This is the distinction that makes a battery's two numbers necessary: kilowatts is how fast, kilowatt-hours is how much.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Why energy is conserved</div>
+      <h3>Noether's theorem, which is the real answer</h3>
+      <p>Energy conservation is not an empirical accident. In 1918 Emmy Noether proved that every continuous symmetry of a physical system implies a conserved quantity, and the symmetry that gives energy is invariance under translation in time: the laws are the same today as tomorrow.</p>
+      <p>The uncomfortable corollary is that on cosmological scales, where the universe is expanding and time-translation symmetry does not hold globally, total energy is not well defined. Conservation of energy is a local theorem, not a universal accounting identity.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Mass</div>
+      <h3>E = mc&sup2;, and the number that follows from it</h3>
+      <p>Mass is energy in the rest frame. One kilogram is 8.99&times;10<sup>16</sup> joules, about 21.5 megatonnes of TNT, or roughly a tenth of what humanity uses in a day.</p>
+      <p>Fission converts about 0.09% of the mass of its fuel; chemical combustion converts on the order of 10<sup>&minus;10</sup>. That ratio, about a million to one, is the entire argument for nuclear energy density, and it is why a reactor's fuel cost is trivial and its capital cost is everything.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Relativity</div>
+      <h3>Energy is not invariant, and this matters more than it sounds</h3>
+      <p>Energy and momentum are components of one four-vector, related by E&sup2; = (pc)&sup2; + (mc&sup2;)&sup2;. Different observers measure different energies for the same object; what they agree on is the invariant mass. So "the energy of a system" is always implicitly "in this frame."</p>
+      <p>In general relativity the source of gravity is not mass but the full stress-energy tensor, through G<sub>&mu;&nu;</sub> = 8&pi;G/c&#8308; &middot; T<sub>&mu;&nu;</sub>. Pressure and energy flux gravitate too. Spacetime curvature is what energy does when there is enough of it in one place.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Quantum</div>
+      <h3>Energy comes in packets, and that sets the solar limit</h3>
+      <p>E = hf = hc/&lambda;. A green photon at 550 nm carries 3.6&times;10<sup>&minus;19</sup> J, or 2.25 eV. Silicon has a band gap of 1.1 eV, so every photon above that wastes the excess as heat and every photon below it passes through unabsorbed.</p>
+      <p>Those two losses are why a single-junction cell cannot exceed about 33% under one sun, the Shockley-Queisser limit, and why tandem cells that stack band gaps are the only route past it. The physics of the solar section is contained in this one equation.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Thermodynamics</div>
+      <h3>Where the grey flows on this page come from</h3>
+      <p>The second law says a heat engine between reservoirs at T<sub>h</sub> and T<sub>c</sub> cannot beat &eta; = 1 &minus; T<sub>c</sub>/T<sub>h</sub>. A supercritical steam plant at 600&#8451; rejecting to 27&#8451; has a ceiling of about 66%, and real fleets run near 39%.</p>
+      <p>So the 337 exajoules of rejected energy in the flow diagram are not incompetence, they are mostly Carnot. The better framing is <strong>exergy</strong>: the useful work available in a joule. Electricity is nearly pure exergy; 40&#8451; water is nearly none. Electrification wins because it stops converting high-exergy fuel into low-exergy heat on the way to a service that only needed the heat.</p>
+    </div>
+  </div>
+</section>
+
 <!-- =============== SANKEY =============== -->
 <section class="sec" id="flow">
   <div class="sec-head">
-    <div class="eyebrow">01 &nbsp;/&nbsp; Conversion and its price</div>
+    <div class="eyebrow">02 &nbsp;/&nbsp; Conversion and its price</div>
     <h2>More than half of all primary energy never becomes a service</h2>
     <p class="lede">Roughly 620 exajoules enter the system each year and about 250 leave it as motion, heat, light, and computation. The rest is rejected as low-grade heat at turbines, engines, and transformers. Grey flows are that rejection. Switch scenarios to see what electrification does to the grey.</p>
   </div>
@@ -567,7 +676,7 @@ p+p{margin-top:10px}
 <!-- =============== GLOBE =============== -->
 <section class="sec" id="map">
   <div class="sec-head">
-    <div class="eyebrow">02 &nbsp;/&nbsp; Where the system is physically pinned</div>
+    <div class="eyebrow">03 &nbsp;/&nbsp; Where the system is physically pinned</div>
     <h2>Energy geography is a short list of narrow places</h2>
     <p class="lede">Four layers, one sphere. Drag to rotate. Every arc and marker uses real coordinates, so the clustering you see is the actual clustering: refining on three coastlines, mineral separation in one country, and a fifth of the world's crude through a strait 33 km wide.</p>
   </div>
@@ -577,6 +686,8 @@ p+p{margin-top:10px}
     <label class="check"><input type="checkbox" id="lyRefinery" checked><span class="sw" style="background:#b65f00"></span>Refineries &amp; LNG</label>
     <label class="check"><input type="checkbox" id="lyMine" checked><span class="sw" style="background:#6b47d6"></span>Mines &amp; processing</label>
     <label class="check"><input type="checkbox" id="lyChoke" checked><span class="sw" style="background:#bd2b28"></span>Chokepoints</label>
+    <label class="check"><input type="checkbox" id="lyPipe" checked><span class="sw" style="background:#4a3728"></span>Oil &amp; gas pipelines</label>
+    <label class="check"><input type="checkbox" id="lyNuke" checked><span class="sw" style="background:#1f8f4e"></span>Nuclear stations</label>
     <button class="tbtn" id="btnSpin" aria-pressed="true">Pause rotation</button>
     <button class="tbtn" id="btnGlobeTable" aria-expanded="false" aria-controls="globeTable">Browse as list</button>
   </div>
@@ -605,7 +716,7 @@ p+p{margin-top:10px}
 <!-- =============== MODELS =============== -->
 <section class="sec" id="models">
   <div class="sec-head">
-    <div class="eyebrow">03 &nbsp;/&nbsp; Two screening models instead of two assertions</div>
+    <div class="eyebrow">04 &nbsp;/&nbsp; Two screening models instead of two assertions</div>
     <h2>Cost, adequacy, and deliverability decide what a grid can actually build</h2>
     <p class="lede">The first model prices energy and then prices firm energy, which is a different product. The second asks what a chosen mix demands in storage, land, copper, and rare earth before anyone can call it reliable. Both print their formulas so you can disagree with them precisely.</p>
   </div>
@@ -684,7 +795,7 @@ p+p{margin-top:10px}
 <!-- =============== EXTRACTION =============== -->
 <section class="sec" id="extraction">
   <div class="sec-head">
-    <div class="eyebrow">04 &nbsp;/&nbsp; Hydrocarbons</div>
+    <div class="eyebrow">05 &nbsp;/&nbsp; Hydrocarbons</div>
     <h2>Extraction: four different businesses that happen to sell the same molecule</h2>
     <p class="lede">A Ghawar production well and a Permian lateral both make crude oil, but they are opposite financial instruments. One is a bond with a 40-year tenor. The other is a manufacturing line with an 80% first-year decline that must be rebuilt every quarter.</p>
   </div>
@@ -725,7 +836,7 @@ p+p{margin-top:10px}
 <!-- =============== REFINING =============== -->
 <section class="sec" id="refining">
   <div class="sec-head">
-    <div class="eyebrow">05 &nbsp;/&nbsp; Hydrocarbons</div>
+    <div class="eyebrow">06 &nbsp;/&nbsp; Hydrocarbons</div>
     <h2>Refining is a molecular sorting problem solved with heat, hydrogen, and catalyst</h2>
     <p class="lede">Crude is a distribution of chain lengths. Demand is a distribution of products. Refinery margin is the cost of moving the first distribution onto the second, and the plants that can do it with heavy, sour, cheap crude earn the most.</p>
   </div>
@@ -785,7 +896,7 @@ p+p{margin-top:10px}
 <!-- =============== LOGISTICS =============== -->
 <section class="sec" id="logistics">
   <div class="sec-head">
-    <div class="eyebrow">06 &nbsp;/&nbsp; Hydrocarbons</div>
+    <div class="eyebrow">07 &nbsp;/&nbsp; Hydrocarbons</div>
     <h2>Logistics and pricing: the barrel is a location, not a substance</h2>
     <p class="lede">Brent, WTI, Dubai, and Urals are the same commodity separated by sulfur, gravity, and a shipping route. Almost every energy crisis of the last five years has been a transport crisis wearing a commodity costume.</p>
   </div>
@@ -825,10 +936,61 @@ p+p{margin-top:10px}
   </div>
 </section>
 
+<!-- =============== COAL =============== -->
+<section class="sec" id="coal">
+  <div class="eyebrow">08 &nbsp;/&nbsp; Hydrocarbons</div>
+  <h2>Coal: the largest quantity on this page, and the one that keeps setting records</h2>
+  <p class="lede">Every argument about the energy transition is, arithmetically, an argument about this one line item. Coal is roughly 166 exajoules a year and about 28% of world primary energy, it emits more carbon per unit of energy than anything else in commercial use, and in 2025 it set another record. Any account of energy that treats it as a legacy fuel being phased out has the arithmetic backwards.</p>
+
+  <div class="g3" style="margin-top:20px">
+    <div class="card"><div class="stat"><div class="k">Consumption, 2025</div><div class="v">166.0 EJ</div><div class="d">A record, up 0.7% on 2024, on the Energy Institute's revised basis.<button class="src" data-src="ei2026">22</button> <span class="v-fact">fact</span></div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--green)"><div class="k">Coal-fired generation</div><div class="v">10,511 TWh</div><div class="d">Down 0.3% in 2025, from a record 10,766 TWh in 2024.<button class="src" data-src="ei2026">22</button> <span class="v-fact">fact</span></div></div></div>
+    <div class="card"><div class="stat" style="border-color:var(--red)"><div class="k">China's share</div><div class="v">~56%</div><div class="d">More coal than the rest of the world combined, and its power sector alone is about a third of global use.<button class="src" data-src="ieaCoal">23</button> <span class="v-fact">fact</span></div></div></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">The divergence that matters</div>
+    <h3>Coal power is falling while coal use is rising</h3>
+    <p>Those two facts sit in the table above and they are not contradictory. Two thirds of coal goes to electricity, and that portion has plateaued and begun to slip as renewables take load growth: coal's share of world electricity is now around 35%, the lowest since the IEA was founded in 1974.<button class="src" data-src="ieaCoal">23</button> The other third goes into steel, cement, chemicals, and, increasingly, Indonesian nickel smelting for batteries, and that portion is still growing.</p>
+    <p>So the decarbonization story is real in the power sector and largely absent in the industrial one. The uncomfortable corollary is that some coal growth is now downstream of the energy transition itself: nickel pig iron for cathodes is smelted with coal, which puts a coal footprint inside a battery. <span class="v-thesis">thesis</span></p>
+  </div>
+
+  <div class="viz" style="margin-top:14px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Where the coal is burned, share of world consumption</div>
+      <button class="tbtn" id="btnCoalTable" aria-expanded="false" aria-controls="coalTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="coalSplit" role="img" aria-label="Chart of coal consumption share by region, with the direction of travel in each"></svg></div>
+    <div id="coalTable" hidden></div>
+    <div class="cap">Asia is now over 83% of global coal use, roughly double its share at the start of the century. Every region shown in green is falling and every region in orange is rising, and the falling ones are collectively too small to offset the rising ones. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Trade and the seaborne market</div>
+      <h3>China imports more coal than any country ever has</h3>
+      <p>International coal trade hit a record 1,544 Mt in 2024, of which China took 548 Mt, the largest figure any country has ever imported of anything comparable.<button class="src" data-src="ieaCoal">23</button> Indonesia is the largest exporter at 555 Mt, then Australia at 363 Mt and Russia at 198 Mt, and those three are roughly three quarters of world exports.</p>
+      <p>This matters because it makes Chinese domestic policy a global price signal. When Beijing raises domestic production or draws down stockpiles, seaborne thermal coal prices fall worldwide, and the marginal Indonesian or Australian cargo is the one that clears. Chinese imports fell about 58 Mt in 2025 on high stocks and weak demand, and that single decision moved the whole market.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The forecast, and why to distrust it</div>
+      <h3>A plateau, then a very gradual decline</h3>
+      <p>The IEA has coal demand effectively flat through the late 2020s and about 3% below the 2025 level by 2030.<button class="src" data-src="ieaCoal">23</button> That is a materially less aggressive decline than most climate pathways require, and it is the projection of an agency that has historically underestimated renewable growth and, in coal, has been closer to right than its critics.</p>
+      <p>Two things would break the plateau in either direction. Chinese electricity demand growth outpacing its own enormous clean build would push coal up; a faster than expected Chinese structural slowdown in steel and cement would push it down hard. Both are decisions made in one country, which is why the next section exists.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">A note on this page's own numbers</div>
+    <h3>The flow diagram is a 2024 model</h3>
+    <p>The Sankey earlier on this page is built on 2024 data at 620 EJ on the substitution convention, and it is balanced to the exajoule so that it renders honestly. The 2025 figures are now published: total energy supply rose to <span class="q">600.3 EJ</span><button class="src" data-src="ei2026">22</button> on the Energy Institute's direct basis, from 592.2 EJ, and coal reached 166.0 EJ while its share slipped from 27.9% to 27.7%. Rebuilding the diagram for one year of change would break a balanced model to move several flows by about a percent, so I have not. The 2025 numbers are here instead, which is the honest way to carry a vintage.</p>
+  </div>
+</section>
+
 <!-- =============== SOLAR =============== -->
 <section class="sec" id="solar">
   <div class="sec-head">
-    <div class="eyebrow">07 &nbsp;/&nbsp; Clean hardware</div>
+    <div class="eyebrow">09 &nbsp;/&nbsp; Clean hardware</div>
     <h2>Solar PV: five industrial steps, one country</h2>
     <p class="lede">A module is quartz that has been purified by a factor of a million, crystallized, sliced 150 microns thin, doped, and laminated behind glass. Each step is a separate capital-intensive industry, and China holds a commanding share of all five.</p>
   </div>
@@ -890,7 +1052,7 @@ p+p{margin-top:10px}
 <!-- =============== NUCLEAR =============== -->
 <section class="sec" id="nuclear">
   <div class="sec-head">
-    <div class="eyebrow">08 &nbsp;/&nbsp; Clean hardware</div>
+    <div class="eyebrow">10 &nbsp;/&nbsp; Clean hardware</div>
     <h2>Nuclear: the fuel is trivial, the cycle is everything</h2>
     <p class="lede">Fuel is under 10% of a reactor's cost, which is why nuclear is insensitive to uranium price and acutely sensitive to interest rates and construction schedules. The chain's chokepoint is not the mine. It is enrichment, and it sits largely in Russia.</p>
   </div>
@@ -953,12 +1115,40 @@ p+p{margin-top:10px}
       <p>Western utilities bought Russian SWU because it was cheap and reliable. Spot enrichment prices roughly tripled after the invasion. Centrus, Orano, and Urenco expansions are underway but each takes most of a decade, so the exposure persists through the 2020s regardless of policy.</p>
     </div>
   </div>
+  <div class="rule" style="margin:26px 0 18px"></div>
+  <div class="eyebrow" style="margin-bottom:8px">The uranium market</div>
+  <div class="g2">
+    <div class="card">
+      <div class="kicker">Concentration</div>
+      <h3>Three countries, and one swing producer</h3>
+      <p>Kazakhstan supplies roughly <span class="q">40%</span><button class="src" data-src="uranium">26</button> of world mine production, Canada about 15% and Namibia about 12%; Kazakhstan, Canada and Australia together are near three quarters. Kazakhstan\u2019s advantage is in-situ recovery, which pumps a leach solution through the orebody rather than digging it, at an all-in sustaining cost of roughly $15 to $25 a pound.</p>
+      <p>That makes Kazatomprom the market\u2019s swing producer, and it behaves like one. It cut 2026 guidance by around 10%, removing several million pounds, and said plainly that the purpose was to support price rather than to maximise volume. Mine supply covers about 90% of demand; the rest comes from reprocessed material and military stockpiles that are finite and depleting.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Two prices</div>
+      <h3>The spot market is a sideshow and the term market is the signal</h3>
+      <p>Uranium has no meaningful exchange-traded futures market, so it is priced two ways. Spot traded from about $18 a pound in 2016 to over $100 in early 2024, back into the $80s, and above $100 again in early 2026. Term contracts, which is how utilities actually buy, moved to around <span class="q">$90</span><button class="src" data-src="uranium">26</button> and reportedly higher in some deals.</p>
+      <p>A term price above spot is the unusual condition, and it says utilities under-contracted for a decade and are now securing supply into the 2030s. Because fuel is under a tenth of a reactor\u2019s cost, a utility will pay almost any uranium price rather than risk not having fuel, which is exactly why the demand curve is close to vertical.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The real bottleneck</div>
+      <h3>Enrichment, not mining</h3>
+      <p>The United States produces under 1% of world enrichment capacity and depended on Russian supply for a fifth of its reactor fuel. A US ban on Russian enriched uranium is in force with waivers narrowing toward the end of the decade, and Russia has at times restricted exports in the other direction.</p>
+      <p>In January 2026 the Department of Energy awarded about <span class="q">$2.7B</span><button class="src" data-src="uranium">26</button> to American Centrifuge Operating, General Matter and Orano Federal Services to rebuild domestic enrichment, including high-assay low-enriched uranium. Centrus holds the only US licence to produce HALEU today, which every advanced reactor design requires. Capacity takes most of a decade to build, so the exposure persists whatever the policy.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The awkward arithmetic</div>
+      <h3>Mining is the weakest link and the least valuable one</h3>
+      <p>US domestic uranium concentrate production fell 44% in the third quarter of 2025 to about 330,000 pounds from six operating facilities. That is a rounding error against roughly 60,000 tonnes of world demand, which tells you how little of the fuel cycle\u2019s value sits in the rock.</p>
+      <p>The strategic asset is not the deposit, it is conversion, enrichment and fabrication: the industrial steps that take eight to ten years and a treaty framework to replicate. A country can buy uranium from many places. It can buy enrichment from very few, and that asymmetry is the entire geopolitics of nuclear fuel. <span class="v-thesis">thesis</span></p>
+    </div>
+  </div>
 </section>
 
 <!-- =============== WIND =============== -->
 <section class="sec" id="wind">
   <div class="sec-head">
-    <div class="eyebrow">09 &nbsp;/&nbsp; Clean hardware</div>
+    <div class="eyebrow">11 &nbsp;/&nbsp; Clean hardware</div>
     <h2>Wind: a steel and composite problem with a rare-earth core</h2>
     <p class="lede">A turbine is 85% commodity steel by mass and perhaps 0.1% neodymium by mass, and it is the neodymium that decides whether it ships on time. Offshore adds a second constraint that has nothing to do with the machine: the vessels that install it.</p>
   </div>
@@ -1015,7 +1205,7 @@ p+p{margin-top:10px}
 <!-- =============== HYDROGEN =============== -->
 <section class="sec" id="hydrogen">
   <div class="sec-head">
-    <div class="eyebrow">10 &nbsp;/&nbsp; Clean hardware</div>
+    <div class="eyebrow">12 &nbsp;/&nbsp; Clean hardware</div>
     <h2>Hydrogen: an industrial feedstock being marketed as an energy system</h2>
     <p class="lede">The world already makes about 95 Mt of hydrogen a year and burns fossil fuel to do it. The honest version of the hydrogen transition is decarbonizing that existing demand. Everything beyond it competes with direct electrification and usually loses on round-trip efficiency.</p>
   </div>
@@ -1050,7 +1240,7 @@ p+p{margin-top:10px}
 <!-- =============== GRID =============== -->
 <section class="sec" id="grid">
   <div class="sec-head">
-    <div class="eyebrow">11 &nbsp;/&nbsp; The electric system</div>
+    <div class="eyebrow">13 &nbsp;/&nbsp; The electric system</div>
     <h2>The grid is a machine that must balance every second, and a market that clears every five minutes</h2>
     <p class="lede">Generation gets the headlines and the subsidies. The wires, the market design, and the queue decide what actually gets built. A power system has to hold frequency and voltage continuously, with no meaningful inventory, which is a constraint no other commodity system faces.</p>
   </div>
@@ -1097,10 +1287,111 @@ p+p{margin-top:10px}
   </div>
 </section>
 
+<!-- =============== CUSTODY & OWNERSHIP =============== -->
+<section class="sec" id="custody">
+  <div class="sec-head">
+    <div class="eyebrow">14 &nbsp;/&nbsp; The electric system</div>
+    <h2>Chain of custody: who owns each step between the turbine and the socket</h2>
+    <p class="lede">An electron's journey crosses four or five ownership regimes in about a hundredth of a second. Each handoff is also a jurisdictional boundary, and every argument about energy policy is really an argument about one of these boundaries.</p>
+  </div>
+
+  <div class="viz" style="padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Voltage staircase and who owns each tread</div>
+      <button class="tbtn" id="btnCustodyTable" aria-expanded="false" aria-controls="custodyTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="custodyChart" role="img" aria-label="Diagram of voltage transformation from generator to meter, with the owning entity at each stage"></svg></div>
+    <div id="custodyTable" hidden></div>
+    <div class="cap">Voltages are typical US values and vary widely by region; the shape is what matters. Every step up or down is a transformer, and every transformer is a three-to-five-year lead item. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">The premise worth correcting</div>
+    <h3>It is not six companies. It is about 2,900, and that is the more interesting fact</h3>
+    <p>The United States has roughly <span class="q">2,900 electric distribution utilities</span><button class="src" data-src="eiaOwn">18</button> in three ownership classes. About 168 are investor-owned and they serve <span class="q">72% of customers</span><button class="src" data-src="eiaOwn">18</button>. Around 1,960 are municipal or public utility districts, and roughly 810 are member-owned rural cooperatives. Nebraska has no investor-owned utility at all: the entire state is public power. The largest cooperative in the country, Pedernales, is in Texas.</p>
+    <p>So the system is not an oligopoly of six. It is a patchwork of thousands of geographic monopolies, most of them small and publicly or member-owned, with a few very large listed holding companies sitting on top of the customer-heavy territories. The concentration is real but it lives at the holding-company level, in the capital markets, not in the count of utilities. <span class="v-thesis">thesis</span></p>
+  </div>
+
+  <div class="viz" style="margin-top:14px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Largest listed utility holding companies, market capitalization</div>
+      <button class="tbtn" id="btnCapTable" aria-expanded="false" aria-controls="capTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="caps" role="img" aria-label="Bar chart of the largest listed utility holding companies by market capitalization"></svg></div>
+    <div id="capTable" hidden></div>
+    <div class="cap">Market data as of 30 June 2026.<button class="src" data-src="mktcap">19</button> These move daily and some of them move violently: Constellation traded between $240 and $413 over the preceding year, almost entirely on the strength of nuclear power purchase agreements with hyperscalers. <span class="v-fact">fact</span></div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Scale check</div>
+      <h3>The whole sector is smaller than one customer</h3>
+      <p>The five largest listed US utilities are worth roughly $560B combined. That is under a fifth of Microsoft, and a smaller number than several individual technology companies that are now queuing for gigawatt connections from these same utilities.</p>
+      <p>This is the strange asymmetry of the moment: the industry that owns the wires is a fraction of the size of the industry that suddenly needs them, and it is the smaller party that carries the 40-year assets and the obligation to serve. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The monopoly bargain</div>
+      <h3>Exclusive territory in exchange for an obligation</h3>
+      <p>A distribution utility gets a franchise: no competitor may string wire in its territory. In exchange it must serve everyone who asks, at a price a state commission approves, and it earns a regulated return on the capital it puts into the ground. That is the deal Samuel Insull proposed in 1898 and it is still the deal.</p>
+      <p>The consequence is that a utility is compensated for spending capital rather than for selling kilowatt-hours, which explains a great deal of otherwise puzzling behaviour, including why efficiency programmes need a separate incentive to exist at all.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Who coordinates</div>
+      <h3>Three interconnections, seven markets, sixty-six balancing areas</h3>
+      <p>Physically the lower 48 is three asynchronous machines: the Eastern Interconnection, the Western Interconnection, and Texas. Commercially, about two thirds of US load sits inside an RTO or ISO, of which there are seven, and the rest is dispatched by vertically integrated utilities in bilateral markets, mostly across the Southeast and the West outside California.</p>
+      <p>Roughly 66 balancing authorities hold frequency in their own footprints. That fragmentation is why a transmission line benefiting two regions is so hard to build: nobody's rate base spans the benefit.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">Texas</div>
+    <h3>An island by choice, and the choice was jurisdictional</h3>
+    <p>The Federal Power Act of 1935 gave federal regulators authority over electricity sold across state lines.<button class="src" data-src="ercot">20</button> Texas utilities responded by not crossing any. The wartime Texas Interconnected System proved a statewide grid could work inside one state's borders, and in 1970, after the 1965 Northeast blackout pushed the industry toward formal reliability organizations, it became ERCOT.</p>
+    <p>The independence was tested in May 1976, when a Central and South West subsidiary deliberately closed a switch and pushed Texas power into Oklahoma for a few hours, an episode known as the Midnight Connection, specifically to trigger federal jurisdiction. The litigation went on for years and Texas kept its independence. ERCOT today carries about 90% of Texas load and connects to the outside world only through direct-current ties to the Eastern Interconnection and Mexico, which move power without synchronizing the grids or, crucially, without making the sale interstate. El Paso, the upper Panhandle, and part of East Texas are not in ERCOT at all.</p>
+    <p>What that buys and what it costs are both visible. Texas built more wind and solar faster than any other state, partly because ERCOT's single-jurisdiction transmission planning produced the CREZ lines while other regions were still litigating. It is also an energy-only market with no capacity payment, so generators earn from scarcity pricing rather than from being available, and there is no neighbour to lean on when the whole state is cold at once. In February 2021 Winter Storm Uri took the system within minutes of an uncontrolled collapse that would have taken weeks to restore. The design and the outcome are the same decision viewed from two ends.</p>
+  </div>
+</section>
+
+<!-- =============== HISTORY =============== -->
+<section class="sec" id="history">
+  <div class="sec-head">
+    <div class="eyebrow">15 &nbsp;/&nbsp; The electric system</div>
+    <h2>How it got this way: 1882 to now</h2>
+    <p class="lede">None of this structure was designed. It accreted, in four regimes, each one a response to the failure of the last. Invention, then the monopoly compact, then unbundling, then the reliability and reconnection era we are in now. Select any marker for what happened and why it still matters.</p>
+  </div>
+
+  <div class="viz" style="padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Four regulatory regimes, one continuous machine</div>
+      <button class="tbtn" id="btnTimeTable" aria-expanded="false" aria-controls="timeTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="timeline" role="img" aria-label="Timeline of the electricity industry from 1882 to the present, grouped into four regulatory eras"></svg></div>
+    <div class="detail" id="tlDetail" style="margin-top:12px" aria-live="polite">
+      <div class="globe-empty">Select a marker on the timeline, or tab to one, for the event and its consequence.</div>
+    </div>
+    <div id="timeTable" hidden></div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">The pattern</div>
+      <h3>Every regime was written by a disaster</h3>
+      <p>State regulation in 1907 followed municipal franchise corruption. The 1935 Public Utility Holding Company Act followed the collapse of Insull's pyramid, which wiped out something like a billion dollars of small investors' money and made him a national villain. Mandatory reliability standards followed the 2003 blackout, twenty-eight years after the voluntary version had been judged sufficient. Texas weatherization rules followed Uri.</p>
+      <p>The corollary is uncomfortable: the interconnection queue and the transformer shortage are currently being managed by voluntary and incremental means, and on this record the binding fix arrives after the failure rather than before it. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The reversal nobody planned for</div>
+      <h3>Load growth came back</h3>
+      <p>From roughly 2005 to 2020, US electricity demand was flat. Efficiency gains offset economic growth almost exactly, and an entire generation of utility planning, regulatory practice, and investment doctrine was built on the assumption that the load curve would never move again.</p>
+      <p>It moved. Data centres, electrified transport and heat, and reshored manufacturing arrived at the same moment, into a system whose queues, transformer supply, and workforce had all been sized for a flat future. That is the single most important fact about the present era, and the institutions have not caught up with it.</p>
+    </div>
+  </div>
+</section>
+
 <!-- =============== STORAGE =============== -->
 <section class="sec" id="storage">
   <div class="sec-head">
-    <div class="eyebrow">12 &nbsp;/&nbsp; The electric system</div>
+    <div class="eyebrow">16 &nbsp;/&nbsp; The electric system</div>
     <h2>Storage is not one technology, it is a duration ladder</h2>
     <p class="lede">Nothing competes across the whole range. Flywheels and lithium cells are useless for a February in Germany; hydrogen caverns and reservoirs are absurd for a frequency excursion. Choosing storage means choosing a duration first and a chemistry second.</p>
   </div>
@@ -1142,7 +1433,7 @@ p+p{margin-top:10px}
 <!-- =============== EFFICIENCY =============== -->
 <section class="sec" id="efficiency">
   <div class="sec-head">
-    <div class="eyebrow">13 &nbsp;/&nbsp; The electric system</div>
+    <div class="eyebrow">17 &nbsp;/&nbsp; The electric system</div>
     <h2>Electrification is not a fuel switch, it is the deletion of a heat engine</h2>
     <p class="lede">This is the bridge between the flow diagram and everything else. The reason net-zero pathways deliver the same service from a third less primary energy is not restraint. It is that combustion throws away most of what you feed it, and motors and heat pumps do not.</p>
   </div>
@@ -1195,10 +1486,142 @@ p+p{margin-top:10px}
   </div>
 </section>
 
+<!-- =============== PLAYERS =============== -->
+<section class="sec" id="players">
+  <div class="eyebrow">18 &nbsp;/&nbsp; The industry</div>
+  <h2>Who actually does this</h2>
+  <p class="lede">Everything above describes processes. This is the roster. It matters because the interesting question is never how many firms exist in a segment, it is how few you could remove before the segment stops working. In four or five places on this list that number is one.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Supplier concentration by segment</div>
+      <button class="tbtn" id="btnConcTable" aria-expanded="false" aria-controls="concTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="conc" role="img" aria-label="Chart of supplier concentration by industry segment, showing the largest supplier and the top three combined"></svg></div>
+    <div id="concTable" hidden></div>
+    <div class="cap">Dark bar is the largest single supplier; light extension is the top three combined. Each row states whether it is measured by firm or by country, because those are different questions and conflating them is the most common error in this subject. Red markers flag segments where losing one supplier would halt the segment. Shares are assembled from trade data and company disclosure and should be read as approximate. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="bar" style="margin-top:18px" id="segBar" role="group" aria-label="Filter the roster by segment"></div>
+  <div class="viz" style="padding:16px">
+    <div id="roster" aria-live="polite"></div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">The blind spot</div>
+      <h3>The traders are the least visible and most consequential firms in energy</h3>
+      <p>Vitol, Trafigura, Glencore, Mercuria and Gunvor move a large share of the world's seaborne crude and refined product between them. They are private, disclose almost nothing, and own the optionality that connects a cargo to a price. When a sanctions regime changes, a strait closes, or a refinery trips, they are the mechanism by which the physical system reprices.</p>
+      <p>No public dataset captures them properly. Any account of energy that lists producers and consumers but not the intermediaries has left out the part that clears. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The counter-intuitive one</div>
+      <h3>Three companies make heavy-duty gas turbines</h3>
+      <p>GE Vernova, Siemens Energy and Mitsubishi Power. That is the list. Their order books for large frame machines are effectively sold out into the early 2030s, which means that a data centre developer who decides today to build gas generation is choosing a delivery date, not a technology.</p>
+      <p>This is the quiet reason so many AI-driven power announcements involve nuclear uprates, existing plant purchases, or reciprocating engines instead of new combined cycle. The turbine queue, not the fuel, is the binding constraint. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The largest of all</div>
+      <h3>State Grid Corporation of China</h3>
+      <p>By revenue and headcount, the biggest electric utility on earth by a wide margin, serving over a billion people, and the only organization that has built ultra-high-voltage DC at continental scale. It is also the counterparty that has demonstrated what single-jurisdiction transmission planning can do when nobody has to allocate costs across states.</p>
+      <p>It appears in no market-capitalization league table because it is not listed, which is a good illustration of how much the listed-company view of this industry leaves out.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CHINA =============== -->
+<section class="sec" id="china">
+  <div class="eyebrow">19 &nbsp;/&nbsp; The industry</div>
+  <h2>China is not a concentration statistic, it is the system's largest actor</h2>
+  <p class="lede">Elsewhere on this page China appears as a share: 90% of this, 97% of that. Assembled in one place those shares stop looking like a supply-chain risk register and start looking like an industrial policy that worked. China is simultaneously the largest emitter, the largest coal consumer, the largest manufacturer of every clean technology, and the fastest decarbonizer by absolute installed capacity. All four at once, which is why single-adjective descriptions of it are always wrong.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">China's share of the world, by measure</div>
+      <button class="tbtn" id="btnChinaTable" aria-expanded="false" aria-controls="chinaTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="chinaShare" role="img" aria-label="Chart of China's share of world totals across energy, manufacturing and emissions measures"></svg></div>
+    <div id="chinaTable" hidden></div>
+    <div class="cap">Manufacturing shares in blue, consumption and emissions in orange, deployment in green. The pattern is the argument: China's manufacturing dominance is more extreme than its consumption dominance, which is more extreme than its per-capita position. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Both things are true</div>
+      <h3>The largest coal fleet and the largest clean build</h3>
+      <p>China approved and began construction on more coal capacity in the early 2020s than the rest of the world combined, and in the same years installed more solar in single years than the entire United States has cumulatively. Its 2024 generation was <span class="q">10,087 TWh</span><button class="src" data-src="gen2024">3</button>, about a third of the world total.</p>
+      <p>The reconciliation is that coal in China is increasingly a capacity asset rather than an energy one: plants built for reliability and local employment, running at falling load factors behind renewables. Whether that is a bridge or a lock-in depends on decisions that have not been made yet. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">How the manufacturing happened</div>
+      <h3>Not a subsidy story, a scale-and-iteration story</h3>
+      <p>The standard Western account is state subsidy, and subsidy was real. But the mechanism that produced 97% of wafer capacity was industrial: enormous domestic demand created by deployment mandates, brutal internal competition that killed weak firms rather than protecting them, vertical integration from polysilicon to module, and iteration cycles measured in months because the equipment makers were next door.</p>
+      <p>That is why tariffs alone have not reproduced the capability elsewhere. The thing being competed against is not a price, it is a learning rate. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The grid nobody discusses</div>
+      <h3>Ultra-high-voltage as national policy</h3>
+      <p>China built the only continental-scale ultra-high-voltage DC network in existence, up to <span class="q">±1,100 kV</span><button class="src" data-src="uhv">4</button> over three thousand kilometres, moving power from western deserts and hydro basins to eastern load centres. Roughly forty such lines exist.</p>
+      <p>It is the clearest natural experiment in what single-jurisdiction planning buys you. There was no interstate cost allocation fight because there are no states with that power. Whatever one thinks of the political economy, the engineering result is the thing every Western transmission planner is implicitly measured against.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">What to watch</div>
+    <h3>Four Chinese variables that dominate everyone else's forecast</h3>
+    <p><strong>Electricity demand growth.</strong> If it outpaces the clean build, coal runs harder and global emissions rise regardless of what any other country does.<br>
+    <strong>Steel and cement output.</strong> Structural decline here is worth more emissions reduction than most national pledges combined, and it is a property-market question rather than an energy one.<br>
+    <strong>Export policy on refined minerals and magnets.</strong> The licensing lever has been used before. Each use accelerates substitution and re-shoring elsewhere, which makes it a depreciating asset that is still very valuable today.<br>
+    <strong>Manufacturing overcapacity.</strong> Roughly double the world's annual solar demand sits in Chinese nameplate capacity. How that resolves, through consolidation or continued below-cost export, sets the module price everyone else builds against.</p>
+  </div>
+</section>
+
+<!-- =============== DATA DESK =============== -->
+<section class="sec" id="desk">
+  <div class="eyebrow">20 &nbsp;/&nbsp; The industry</div>
+  <h2>The data desk: where the numbers on this page come from next</h2>
+  <p class="lede">A document like this is a snapshot, and a snapshot decays. Rather than pretend otherwise, here is the primary-source apparatus behind it: what to read, how often it updates, and which specific question each source answers. Everything here is a primary or near-primary publisher. Ordered by how fast it moves.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Update cadence, fastest first</div>
+      <label class="check"><input type="checkbox" id="deskFree" checked>Free access only</label>
+    </div>
+    <div id="deskList" aria-live="polite"></div>
+    <div class="cap">Staleness is measured against this page's data vintage of mid-2026. A source that updates weekly and was last incorporated a year ago is the first place to look for something that has changed.</div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">How to read a claim critically</div>
+      <h3>Four questions that catch most errors</h3>
+      <p><strong>1. Which convention?</strong> Primary energy on a substitution basis and on a direct basis differ by 30 EJ for the same year. Capacity and generation are different quantities. So are nameplate and firm capacity.</p>
+      <p><strong>2. Which year, and is it an estimate?</strong> Most 2024 energy statistics were provisional until late 2025. Chinese and Indian figures revise more than most.</p>
+      <p><strong>3. Whose share?</strong> Mining share, refining share, and finished-component share are three different numbers, and the gap between them is usually the whole story.</p>
+      <p><strong>4. Does the source have a position?</strong> Trade associations, developers, and incumbents all publish good data with a thumb on one variable. That does not make it wrong, it makes it directional.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">What would change the conclusions here</div>
+      <h3>The five things I am watching</h3>
+      <p><strong>Transformer and turbine lead times.</strong> If these shorten, the queue argument weakens and a lot of the pessimism about 2030 build rates is wrong.</p>
+      <p><strong>Sodium-ion at scale.</strong> Real deployment would take lithium out of the critical list, which changes the mineral section materially.</p>
+      <p><strong>Rare-earth separation outside China.</strong> Watch commissioned capacity, not announcements. Announcements have exceeded delivery by an order of magnitude for a decade.</p>
+      <p><strong>Data centre load realization.</strong> The gap between announced connection requests and energized load is enormous, and the announced figure is what most forecasts use.</p>
+      <p><strong>Chinese coal consumption.</strong> At roughly 165 EJ globally with China at over half, this single line item outweighs almost everything else on this page for emissions. <span class="v-thesis">thesis</span></p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">Live feeds</div>
+    <h3>Deliberately not embedded</h3>
+    <p>A news panel was the obvious thing to add here and I have left it out on purpose. This file bundles its own projection, topology and models so that it works with no network at all, and almost none of the authoritative energy feeds permit direct browser access, so a live panel would require routing through a third-party proxy. That would mean a hard runtime dependency, an unverifiable data path, and a page that shows an error box when the proxy is down. The reading desk above is the honest version of that feature. If you want the live variant it is straightforward to add against a proxy you control.</p>
+  </div>
+</section>
+
 <!-- =============== MINERALS =============== -->
 <section class="sec" id="minerals">
   <div class="sec-head">
-    <div class="eyebrow">14 &nbsp;/&nbsp; Inputs</div>
+    <div class="eyebrow">21 &nbsp;/&nbsp; Inputs</div>
     <h2>Critical minerals: mining is diversified, refining is not</h2>
     <p class="lede">The standard chart shows where minerals are dug up and concludes the risk is spread across many countries. The chart that matters shows where they are refined into usable chemicals and alloys, and it collapses onto one.</p>
   </div>
@@ -1247,10 +1670,169 @@ p+p{margin-top:10px}
   </div>
 </section>
 
+<!-- =============== CAPITAL =============== -->
+<section class="sec" id="capital">
+  <div class="eyebrow">22 &nbsp;/&nbsp; What actually limits it</div>
+  <h2>The capital stack: why the same machine costs different amounts depending on who owns it</h2>
+  <p class="lede">The cost model earlier on this page has a discount-rate slider, and moving it does more than any technology change on the chart. That is not an artefact of the model, it is the central fact of capital-intensive energy. A wind farm is a financial instrument with blades attached, and the identity of the owner is a larger input than the wind resource.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Same plant, six owners, live from the cost model above</div>
+      <button class="tbtn" id="btnWaccTable" aria-expanded="false" aria-controls="waccTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="wacc" role="img" aria-label="Chart of levelized cost for the same technologies under six different ownership and financing regimes"></svg></div>
+    <div id="waccTable" hidden></div>
+    <div class="cap">Computed by the same function that drives the cost model in section 03, with only the discount rate changed. Nuclear more than doubles between the cheapest and most expensive regime without a single engineering difference. Gas moves too, by roughly 1.7 times, but far less, because most of its cost is fuel rather than capital. The ratio between those two sensitivities is the whole argument. <span class="v-model">model</span></div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">The American structure</div>
+      <h3>Tax equity, and why a solar farm needs a bank</h3>
+      <p>US clean energy credits are non-refundable, and developers rarely have enough tax liability to use them. So for two decades the industry sold them: a bank or corporate takes an ownership interest, absorbs the credits and depreciation, and exits after the recapture period. Tax equity was roughly a $20B-a-year market and the reason a handful of large banks were structural gatekeepers to renewable deployment.</p>
+      <p>The 2022 Inflation Reduction Act added <strong>transferability</strong> under section 6418, letting developers simply sell credits for cash, and <strong>direct pay</strong> under 6417 for tax-exempt entities including municipal utilities and cooperatives. Both survived the 2025 rewrite.<button class="src" data-src="obbba">24</button> That collapsed a specialist financing bottleneck into something closer to a commodity market, and it is the single most consequential structural change in US energy finance in a generation. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">The current cliff</div>
+      <h3>Three weeks ago, the rules changed</h3>
+      <p>The One Big Beautiful Bill Act, signed 4 July 2025, terminates the technology-neutral 45Y production and 48E investment credits for wind and solar unless construction began by <strong>4 July 2026</strong> or the project is in service by 31 December 2027.<button class="src" data-src="obbba">24</button> That begin-construction date fell three weeks before this page's data vintage, which makes the current moment an unusually sharp discontinuity: a safe-harboured pipeline racing to build, and very little visibility past it.</p>
+      <p>Storage was treated differently and keeps its credits until a phase-down starting in 2034. Nuclear under 45U, carbon capture under 45Q and non-wind manufacturing under 45X survived; hydrogen under 45V was cut short. New foreign-entity rules restrict who may claim or receive credits from 2026. And in June 2026 a court vacated Treasury guidance narrowing the 5% begin-construction safe harbour, on the grounds that the agency had not reasoned its way there.<button class="src" data-src="obbba">24</button> Read all of this as live rather than settled.</p>
+    </div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Regulated</div>
+      <h3>Rate base, and the incentive it creates</h3>
+      <p>A regulated utility earns an approved return on prudently incurred capital. Its cost of capital is low because its revenue is nearly certain, which is why the cheapest nuclear plant in the world is one inside a rate base with a supportive commission. It also means the utility is rewarded for spending, not for saving, so efficiency and third-party generation both need to be mandated or separately compensated rather than merely permitted.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Contracted</div>
+      <h3>The power purchase agreement as the actual product</h3>
+      <p>An independent developer's asset is not the plant, it is a twenty-year contract with a creditworthy offtaker. That contract is what allows 70 to 80% debt at reasonable spreads. It is also why hyperscaler PPAs repriced the sector so violently: an investment-grade technology company signing for two decades is a better counterparty than most utilities, and the cost of capital moves accordingly.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Merchant</div>
+      <h3>Where the returns and the graveyards are</h3>
+      <p>Uncontracted generation earns the market price and carries all the risk, so it demands double-digit equity returns. It is where the money is made when scarcity arrives and where developers die when it does not. Most of the offshore wind write-offs of 2023 and 2024 were contracted assets whose fixed prices met an unexpected cost of capital, which is the same failure from the other direction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== PERMITTING =============== -->
+<section class="sec" id="permits">
+  <div class="eyebrow">23 &nbsp;/&nbsp; What actually limits it</div>
+  <h2>Permitting and siting: the actual reason things do not get built</h2>
+  <p class="lede">Nothing on this page is constrained by physics in the way that public argument implies. The binding constraints are a queue, a transformer, and a permit, and of those three the permit is the one that has been the subject of a genuine legal revolution in the last eighteen months, in a direction almost nobody predicted.</p>
+
+  <div class="viz" style="margin-top:20px;padding:16px">
+    <div class="bar" style="margin-bottom:6px">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)">Typical time from decision to operation, months</div>
+      <button class="tbtn" id="btnPermitTable" aria-expanded="false" aria-controls="permitTable">Show as table</button>
+    </div>
+    <div class="durwrap"><svg id="permitChart" role="img" aria-label="Chart of typical permitting, queue and construction durations by project type"></svg></div>
+    <div id="permitTable" hidden></div>
+    <div class="cap">Blue is development, siting and environmental review; amber is the interconnection queue where one applies; grey is construction. Ranges are typical rather than best or worst case, and US-centric. Note how rarely construction is the long pole. <span class="v-est">est</span></div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">What changed</div>
+      <h3>NEPA was substantially rewritten by all three branches in about a year</h3>
+      <p><strong>Congress,</strong> in the 2023 Fiscal Responsibility Act, codified page limits, a one-year deadline for environmental assessments and two years for impact statements, and let project sponsors prepare documents.</p>
+      <p><strong>The Supreme Court,</strong> in <em>Seven County Infrastructure Coalition v. Eagle County</em> on 29 May 2025, held 8-0 that agencies need not analyse the environmental effects of separate upstream or downstream projects outside their authority, and instructed courts to give agencies substantial deference on scope.<button class="src" data-src="nepa">25</button></p>
+      <p><strong>The executive,</strong> through Executive Order 14154, directed the Council on Environmental Quality to rescind its government-wide NEPA regulations, which it did by interim rule effective 11 April 2025 and finalised on 8 January 2026.<button class="src" data-src="nepa">25</button> Seven federal agencies issued their own replacement procedures in July 2025, and the OBBBA added a mechanism for sponsors to pay a fee for an expedited review.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">What did not change</div>
+      <h3>The permit was never only NEPA</h3>
+      <p>NEPA is a procedural statute: it requires the agency to look, not to decide any particular way. Faster looking does not touch the substantive statutes that actually stop projects. Clean Water Act section 404 dredge-and-fill permits, Endangered Species Act consultation, National Historic Preservation Act section 106 review, and Clean Air Act permitting all remain, and all remain litigable.</p>
+      <p>More importantly, for the constraint this page keeps returning to, <strong>interstate transmission is sited by states.</strong> A single county or state commission can stop a multi-state line, federal backstop authority under Federal Power Act section 216 has been narrow and repeatedly litigated, and no amount of NEPA streamlining addresses it. The most consequential permitting problem in American energy is not federal. <span class="v-thesis">thesis</span></p>
+    </div>
+  </div>
+
+  <div class="g3" style="margin-top:14px">
+    <div class="card">
+      <div class="kicker">Gas has a federal path</div>
+      <h3>FERC section 7(c) and eminent domain</h3>
+      <p>An interstate gas pipeline applies to FERC for a certificate of public convenience and necessity under Natural Gas Act section 7(c). A certificate carries federal eminent domain. This is why gas pipelines are built across many states and electricity transmission usually is not: one statute created a federal siting route for molecules in 1938 and no equivalent was ever created for electrons.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The asymmetry nobody designed</div>
+      <h3>Same wire, different regime</h3>
+      <p>A transmission line inside one state faces one commission. The same line crossing three states faces three, each weighing local cost against benefits that accrue elsewhere, which is a structurally losing argument. This is the precise mechanism by which the highest-value interregional projects fail, and it is a cost-allocation problem wearing a permitting costume.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">The honest counter-argument</div>
+      <h3>Review exists for reasons</h3>
+      <p>NEPA and its state analogues were written because agencies built things through neighbourhoods and wetlands without looking. Streamlining transfers power from objectors to sponsors, and the people who lose most often have the least ability to litigate. A serious permitting position has to say which projects it wants built faster and who bears the cost, rather than treating process as pure friction. <span class="v-thesis">thesis</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- =============== CONSTRAINTS =============== -->
+<section class="sec" id="constraints">
+  <div class="eyebrow">24 &nbsp;/&nbsp; What actually limits it</div>
+  <h2>Four constraints that never appear in a cost model</h2>
+  <p class="lede">Levelized cost is a per-megawatt-hour number and these are not. They are the things that decide whether a system is acceptable, survivable, affordable to the person paying the bill, and permitted to keep emitting. None of them shows up in the calculators above, which is a limitation of calculators rather than of the constraints.</p>
+
+  <div class="g2" style="margin-top:20px">
+    <div class="card">
+      <div class="kicker">Security &middot; physical</div>
+      <h3>A grid is the least defended critical system in a country</h3>
+      <p>There are tens of thousands of substations, mostly behind a chain-link fence. In April 2013 a small group shot up Metcalf substation south of San Jose with rifles and came within a plausible margin of taking out power to Silicon Valley. In December 2022 gunfire at two Moore County, North Carolina substations blacked out 45,000 customers for days. Neither required sophistication.</p>
+      <p>The specific vulnerability is that large power transformers are bespoke, unmonitored, and on a three-to-five year lead time. Destroying a handful in one region is a materially different event from a storm outage, because there is nothing to install afterward. The mandatory NERC CIP standards that followed the 2003 blackout are largely about cyber and about information, not about steel and fences.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Security &middot; cyber</div>
+      <h3>The 2015 Ukraine attack is the reference case, and it was fifteen years ago in technique</h3>
+      <p>In December 2015 attackers opened breakers at Ukrainian distribution utilities and left roughly 230,000 people without power, then returned in 2016 with a purpose-built tool for grid protocols. Both were recoverable in hours because the operators could switch manually. A more automated grid would have recovered more slowly, which is an uncomfortable feature of modernization.</p>
+      <p>The current concern is not sabotage but pre-positioning: US agencies have publicly described state actors establishing persistent access in critical infrastructure networks without acting on it, which is a capability held in reserve rather than a incident. The defensive asymmetry is stark, since an attacker needs one path and a utility with thousands of substations and a decades-old operational technology estate must hold all of them. <span class="v-est">est</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Water</div>
+      <h3>Thermal power is the largest water user in most industrial economies</h3>
+      <p>Thermal generation, coal, gas and nuclear alike, is a steam cycle, and steam cycles reject heat into water or air. In the United States thermoelectric cooling has historically been roughly 40% of all freshwater withdrawals, comparable to agriculture. Withdrawal is not consumption, since most returns warmer, but the warmth is itself the regulated harm and the reason plants derate or shut in heatwaves, exactly when load peaks.</p>
+      <p>The transition changes this favourably and unevenly. Solar and wind use almost no water in operation. Hydrogen electrolysis uses about nine litres per kilogram, which is trivial next to the power it consumes. Data centre cooling is the new contested draw, concentrated in specific counties rather than spread nationally, and it is now a siting constraint in the American Southwest and in Ireland. <span class="v-est">est</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Water &middot; the other direction</div>
+      <h3>Energy is also the largest user of water infrastructure</h3>
+      <p>The dependency runs both ways. Pumping, treating, desalinating and heating water is a large and rising electricity load, on the order of a few percent of national consumption in water-stressed economies and far more where desalination dominates. Gulf states effectively co-produce power and water in the same plants, which couples two systems that then fail together.</p>
+      <p>Hydropower sits at the intersection and is the visible casualty: drought reduced hydro output sharply across China, the western United States and Latin America in recent years, and every one of those shortfalls was made up with coal or gas. Climate risk to hydro is a fossil demand risk, which is not how it is usually filed.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Energy poverty &middot; global</div>
+      <h3>Roughly 700 million people have no electricity and about 2 billion cook over fire</h3>
+      <p>The access gap is now overwhelmingly sub-Saharan African and rural, and the clean-cooking gap is larger, more lethal, and receives a fraction of the attention. Household air pollution from solid cooking fuels kills on the order of millions annually, mostly women and children.</p>
+      <p>What that implies for everything above is a matter of scale rather than sentiment: bringing the entire unserved population to a basic modern standard would add a few percent to world electricity demand. Energy poverty is a very large moral problem and a very small emissions problem, and conflating the two has produced bad arguments on both sides for thirty years. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Energy poverty &middot; domestic</div>
+      <h3>The retail bill is where all of this is finally settled</h3>
+      <p>Every capital decision on this page eventually arrives as a line on a household bill, and the fixed-cost share of that bill is rising while the commodity share falls. That is a distributional machine: rooftop solar and efficiency reduce a customer's volumetric charges but not the network they still rely on, so the remaining fixed costs concentrate on customers who cannot install anything.</p>
+      <p>Energy burden, the share of household income spent on energy, runs into double digits for low-income households in wealthy countries, and millions of American households carry utility arrears at any time. Rate design is therefore not an accounting detail. It decides who pays for the transition, and it is decided in venues almost nobody attends. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Capture &middot; the honest case</div>
+      <h3>CCS works, is expensive, and has a narrow set of real uses</h3>
+      <p>Post-combustion capture is proven chemistry, roughly amine scrubbing of a flue gas, and the engineering is not in doubt. The problems are that capture costs $50&ndash;120 a tonne depending on stream concentration, that it imposes an energy penalty of 15 to 25% on the host plant, and that the capital is only justified where there is no cheaper alternative.</p>
+      <p>Which is exactly where it belongs: cement, where more than half the CO&#8322; comes from the chemistry of calcining limestone and no fuel switch touches it; steel where hydrogen reduction is not yet available; refinery hydrogen; and gas processing, where the CO&#8322; is already concentrated and separation is nearly free. In those applications it is the only known answer. <span class="v-thesis">thesis</span></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Capture &middot; the skeptical case</div>
+      <h3>Scale, incentives, and what the tonnes have been used for</h3>
+      <p>Operating capture capacity worldwide is on the order of 50 million tonnes a year against roughly 38 billion tonnes of energy CO&#8322;, which is about a thousandth. Most of that capacity is gas processing and most of the captured CO&#8322; has historically been sold for enhanced oil recovery, producing more oil. The US 45Q credit, which survived the 2025 tax rewrite,<button class="src" data-src="obbba">24</button> pays more for dedicated storage than for EOR, which is the correct direction and recent.</p>
+      <p>The fair summary: capture is indispensable for a small number of industrial processes and has repeatedly been used to argue for prolonging combustion where cheaper alternatives existed. Both halves of that sentence are true and most public argument picks one. <span class="v-thesis">thesis</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- =============== CASCADES =============== -->
 <section class="sec" id="cascades">
   <div class="sec-head">
-    <div class="eyebrow">15 &nbsp;/&nbsp; Inputs</div>
+    <div class="eyebrow">25 &nbsp;/&nbsp; Inputs</div>
     <h2>How a shortage of one alloy delays a gigawatt</h2>
     <p class="lede">Energy failures are rarely a failure of the headline technology. They are second- and third-order: a bearing, a forging, a vessel, a transformer.</p>
   </div>
@@ -1287,7 +1869,7 @@ p+p{margin-top:10px}
 <!-- =============== SOURCES =============== -->
 <section class="sec" id="sources">
   <div class="sec-head">
-    <div class="eyebrow">16 &nbsp;/&nbsp; Sources &amp; method</div>
+    <div class="eyebrow">26 &nbsp;/&nbsp; Sources &amp; method</div>
     <h2>What each number is, and how much weight it will bear</h2>
     <p class="lede">Every quantitative claim on this page carries one of five marks. The distinction matters more than the digits: a published statistic, an estimate assembled from ranges, an output of a model on this page, an editorial judgement, and a scenario are five different kinds of thing, and treating them alike is how confident-sounding analysis goes wrong.</p>
   </div>
@@ -1328,6 +1910,7 @@ p+p{margin-top:10px}
 <div class="foot">
   <p><strong>Method.</strong> See <a href="#sources" style="color:var(--blue);text-decoration:none">Sources &amp; method</a> for the full register, the confidence marks, and the model assumptions in full. In short: energy quantities are exajoules per year on the substitution convention, rounded so the flow diagram balances exactly at every node, and the 2050 column is an illustrative scenario rather than a forecast.</p>
   <p style="margin-top:8px"><strong>Offline.</strong> The projection, the coastline topology, and every model are bundled into this single file. It needs no network connection; only the web fonts load remotely, and it degrades to system fonts without them.</p>
+  <p style="margin-top:8px"><strong>Bundled third-party work.</strong> This file embeds d3-geo and topojson-client by Mike Bostock and contributors, both under the ISC licence, and coastline geometry derived from Natural Earth via the world-atlas package, which is public domain. Fonts are served from Google Fonts under the SIL Open Font Licence. Everything else is original.</p>
   <p style="margin-top:8px"><strong>Peter Nelson</strong> &middot; <a href="mailto:pnelson@qumulo.com" style="color:var(--blue);text-decoration:none">pnelson@qumulo.com</a> &middot; <a href="https://linkedin.com/in/ponelson/" style="color:var(--blue);text-decoration:none">linkedin.com/in/ponelson</a> &middot; <a href="https://github.com/ponelson" style="color:var(--blue);text-decoration:none">github.com/ponelson</a></p>
 </div>
 
@@ -1409,6 +1992,33 @@ var SOURCES = {
   lazard:{n:16, org:'Lazard', pub:'Levelized Cost of Energy+', year:2025, data:'2024-2025',
     ref:'LCOE and capital cost ranges', def:'The published CapEx, fixed and variable O&M, capacity factor, and heat rate ranges that the cost model on this page is calibrated against.',
     tr:'Defaults here sit near the midpoint of published unsubsidized ranges. Tax credits are excluded.', conf:'estimated', url:''},
+  eiaOwn:{n:18, org:'US Energy Information Administration', pub:'Annual Electric Power Industry Report', year:2019, data:'2017',
+    ref:'Electric utilities by ownership type', def:'Almost 3,000 electric distribution utilities: 168 investor-owned serving 72% of customers, 1,958 publicly owned averaging 12,100 customers each, and 812 cooperatives averaging 24,500. The largest cooperative, Pedernales, is in Texas.',
+    tr:'The 2017 vintage is the last full ownership breakdown EIA published in this form. Counts have shifted by a few percent since; the structural picture has not.', conf:'measured', url:'https://www.eia.gov/todayinenergy/detail.php?id=40913'},
+  mktcap:{n:19, org:'Public market data', pub:'Exchange quotes via Motley Fool market data', year:2026, data:'30 June 2026',
+    ref:'Utility sector market capitalization', def:'NextEra $185B, Iberdrola $166B, Enel $114B, Southern $109B, Duke $100B, Constellation $93B, National Grid $83B, Engie $81B, American Electric Power $75B. Constellation traded between $240 and $413 over the preceding 52 weeks.',
+    tr:'Rounded to the nearest billion. These figures move daily and should be treated as a snapshot, not a standing fact.', conf:'measured on the stated date', url:'https://www.fool.com/research/largest-utilities-companies/'},
+  ercot:{n:20, org:'Texas Tribune, Baker Institute, and Cudahy (1995)', pub:'Histories of the Texas Interconnection; \u201cThe Second Battle of the Alamo: The Midnight Connection\u201d', year:2022, data:'1935 onward',
+    ref:'ERCOT independence and the Midnight Connection', def:'The Federal Power Act of 1935 gave federal regulators authority over interstate electricity sales, and Texas utilities avoided it by not crossing state lines. ERCOT formed in 1970 after the 1965 Northeast blackout. In May 1976 a Central and South West subsidiary deliberately sent power to Oklahoma to force federal jurisdiction; Texas independence survived the litigation. ERCOT connects outward only through DC ties to the Eastern Interconnection and Mexico.',
+    tr:'Synthesized from several accounts that agree on the substance. The 90% of Texas load figure is approximate; El Paso, the upper Panhandle and part of East Texas are outside ERCOT.', conf:'measured', url:'https://www.bakerinstitute.org/research/connecting-past-and-future-history-texas-isolated-power-grid'},
+  ferc:{n:21, org:'Federal Energy Regulatory Commission', pub:'Orders 888, 889, 2000, 2023 and 1920', year:2024, data:'1996-2024',
+    ref:'Open access, RTO formation, interconnection and transmission planning', def:'Order 888 and 889 (1996) required open access transmission service. Order 2000 (1999) encouraged regional transmission organizations. Order 2023 (2023) replaced serial interconnection studies with first-ready-first-served clusters. Order 1920 (2024) required long-term regional transmission planning on a twenty-year horizon with cost allocation.',
+    tr:'Dates are of final order issuance, not compliance deadlines, which run years later.', conf:'measured', url:'https://www.ferc.gov'},
+  ei2026:{n:22, org:'Energy Institute', pub:'Statistical Review of World Energy, 75th edition', year:2026, data:'2025',
+    ref:'Coal consumption, production and generation; total energy supply', def:'Global coal consumption reached a record 166.0 EJ in 2025, up 0.7%. Production was 180.8 EJ, essentially flat, with China supplying 52.4%. Coal-fired generation fell 0.3% to 10,511 TWh. Total energy supply rose from 592.2 EJ in 2024 to 600.3 EJ in 2025, so coal\u2019s share slipped from 27.9% to 27.7%.',
+    tr:'Figures are on the Institute\u2019s direct total-energy-supply basis, not the substitution basis used by the flow diagram on this page. The two differ by roughly 30 EJ.', conf:'measured', url:'https://www.energyinst.org/statistical-review'},
+  ieaCoal:{n:23, org:'International Energy Agency', pub:'Coal 2025; Coal Mid-Year Update 2025; Global Energy Review 2025', year:2025, data:'2024-2025',
+    ref:'Coal demand, trade and outlook', def:'2024 demand 8.79 Bt, a record, rising to about 8.85 Bt in 2025. Coal-fired generation reached a record 10,766 TWh in 2024 while coal\u2019s share of world electricity fell to about 35%, the lowest since 1974. China consumes more coal than the rest of the world combined and its power sector alone is about a third of world use. Trade hit a record 1,544 Mt in 2024 with Chinese imports of 548 Mt. Demand is forecast to plateau and fall about 3% by 2030.',
+    tr:'Tonnage and energy figures are not interchangeable; coal quality varies by a factor of two in energy per tonne.', conf:'measured for history, modeled for the outlook', url:'https://www.iea.org/reports/coal-2025'},
+  obbba:{n:24, org:'US Congress and Treasury; law firm analyses', pub:'One Big Beautiful Bill Act, Pub. L. 119-21; Executive Order of 7 July 2025; subsequent litigation', year:2026, data:'July 2025 to June 2026',
+    ref:'Sections 45Y, 48E, 45Q, 45U, 45V, 45X, 6417 and 6418', def:'Signed 4 July 2025. Terminates the 45Y production and 48E investment credits for wind and solar unless construction began by 4 July 2026 or the facility is in service by 31 December 2027. Storage retains credits with a phase-down from 2034. 45Q carbon sequestration, 45U nuclear and non-wind 45X manufacturing survive; 45V hydrogen is cut short. Transferability under 6418 and direct pay under 6417 are preserved, but transfers to specified foreign entities are prohibited from 2026. In June 2026 a court held that Treasury and IRS guidance narrowing the 5% begin-construction safe harbour failed the Administrative Procedure Act.',
+    tr:'This is live law under active litigation and guidance revision. Treat every date as subject to change and verify before relying on it.', conf:'measured as of the stated date', url:'https://www.congress.gov'},
+  nepa:{n:25, org:'US Supreme Court; Council on Environmental Quality; Congressional Research Service', pub:'Seven County Infrastructure Coalition v. Eagle County, 145 S. Ct. 1497 (2025); EO 14154; CEQ final rule of 8 January 2026', year:2026, data:'2023-2026',
+    ref:'NEPA scope, CEQ regulations, agency procedures', def:'The 2023 Fiscal Responsibility Act codified page limits and one- and two-year review deadlines. Seven County, decided 8-0 on 29 May 2025, held that agencies need not analyse effects of separate projects outside their authority and directed substantial judicial deference. EO 14154 rescinded EO 11991; CEQ removed all government-wide NEPA regulations by interim rule effective 11 April 2025, finalised 8 January 2026. Seven federal agencies issued their own procedures in July 2025.',
+    tr:'None of this alters the Clean Water Act, Endangered Species Act, National Historic Preservation Act or state siting authority.', conf:'measured', url:'https://www.congress.gov/crs-product/LSB11333'},
+  uranium:{n:26, org:'Kazatomprom; US DOE; EIA; Sprott and market trackers', pub:'Quarterly operations updates; DOE enrichment awards; EIA domestic production', year:2026, data:'2024-2026',
+    ref:'Uranium supply, pricing and enrichment capacity', def:'Kazakhstan is roughly 38 to 43% of world mine supply, Canada about 15%, Namibia about 12%, at Kazatomprom all-in sustaining cost near $15-25/lb. Kazatomprom cut 2026 guidance about 10%, explicitly to support price. Mine supply is about 90% of demand. Spot ranged from about $18/lb in 2016 to above $100 in early 2024 and again in early 2026; term prices moved to roughly $90/lb with some deals reported higher. The US produces under 1% of world enrichment capacity; DOE awarded about $2.7B in January 2026 to American Centrifuge Operating, General Matter and Orano Federal Services. Centrus holds the only US HALEU licence. US concentrate output fell 44% in Q3 2025 to about 330,000 lb.',
+    tr:'Price figures are point-in-time from a market with no liquid futures curve, and published spot and term assessments differ between providers. Kazakh share estimates range from 38 to 43% depending on year and whether attributable or total JV output is counted.', conf:'measured, with wide provider variance on price', url:'https://www.kazatomprom.kz'},
   ldes:{n:17, org:'IEA / industry surveys', pub:'Grid-scale storage tracking', year:2025, data:'2024',
     ref:'Deployed storage by technology', def:'Pumped hydro remains over 90% of installed storage energy. Grid-scale lithium-ion passed roughly 400 GWh of installed energy capacity.',
     tr:'Deployed-scale positions on the duration chart are order-of-magnitude only.', conf:'estimated', url:''}
@@ -2317,12 +2927,13 @@ function applyFocus(){
    ============================================================ */
 var GL = {
   svg:null, tip:null, detail:null, rot:[-20,-12], spin:true, land:null, sel:null, ok:false,
-  layers:{cable:true, refinery:true, mine:true, choke:true}, size:520, features:[]
+  layers:{cable:true, refinery:true, mine:true, choke:true, pipe:true, nuke:true}, size:520, features:[]
 };
 var KIND = {
   choke:{c:'#bd2b28', label:'Chokepoint'},
   refinery:{c:'#b65f00', label:'Refining, export & LNG'},
-  mine:{c:'#6b47d6', label:'Mining & processing'}
+  mine:{c:'#6b47d6', label:'Mining & processing'},
+  nuke:{c:'#1f8f4e', label:'Nuclear power station'}
 };
 
 function initGlobe(){
@@ -2418,6 +3029,44 @@ function drawGlobe(){
     });
   }
 
+  if(GL.layers.pipe && typeof PIPES!=='undefined'){
+    PIPES.forEach(function(pp){
+      var pts=[];
+      for(var i=0;i<pp.pts.length-1;i++){
+        var interp=GEO.geoInterpolate(pp.pts[i], pp.pts[i+1]);
+        for(var j=0;j<12;j++) pts.push(interp(j/12));
+      }
+      pts.push(pp.pts[pp.pts.length-1]);
+      var d=GL.path({type:'LineString',coordinates:pts});
+      if(!d) return;
+      var color = pp.k==='oil' ? '#4a3728' : '#8a6d3b';
+      var line=el('path',{d:d,fill:'none',stroke:color,'stroke-width':GL.sel===pp?3:2,
+        opacity:GL.sel===pp?1:.8,'pointer-events':'none','stroke-linecap':'round'});
+      var hit=el('path',{d:d,fill:'none',stroke:'transparent','stroke-width':14,style:'cursor:pointer'});
+      bindFeature(hit, pp, pp.k==='oil'?'Crude oil pipeline':'Natural gas pipeline');
+      svg.appendChild(line); svg.appendChild(hit);
+    });
+  }
+
+  if(GL.layers.nuke && typeof NUKES!=='undefined'){
+    NUKES.forEach(function(nk){
+      if(!visible(nk.ll)) return;
+      var xy=GL.proj(nk.ll); if(!xy) return;
+      var on=GL.sel===nk;
+      var r=nk.mw>0 ? 3+Math.sqrt(nk.mw)/28 : 3;
+      var g=el('g',{style:'cursor:pointer'});
+      if(on) g.appendChild(el('circle',{cx:xy[0],cy:xy[1],r:r+5,fill:'#1f8f4e',opacity:.2}));
+      g.appendChild(el('circle',{cx:xy[0],cy:xy[1],r:14,fill:'transparent'}));
+      g.appendChild(el('circle',{cx:xy[0],cy:xy[1],r:r,
+        fill:nk.mw>0?'#1f8f4e':'#fff',stroke:nk.mw>0?'#fff':'#1f8f4e','stroke-width':1.4,
+        'stroke-dasharray':nk.mw>0?'':'2 2'}));
+      nk.m = nk.mw>0 ? fmt(nk.mw)+' MW net, '+nk.c : 'Destroyed, '+nk.c;
+      nk.d = [['Country',nk.c],['Capacity', nk.mw>0?fmt(nk.mw)+' MW':'none, permanently shut'],['Note',nk.note]];
+      bindFeature(g, nk, 'Nuclear power station');
+      svg.appendChild(g);
+    });
+  }
+
   PLACES.forEach(function(p){
     if(!GL.layers[p.k]) return;
     if(!visible(p.ll)) return;
@@ -2469,6 +3118,16 @@ function buildGlobeTable(){
     rows+='<tr><td>'+KIND[p.k].label+'</td><td><button class="ent" data-place="'+p.n+'">'+p.n+'</button></td>'+
       '<td>'+p.m+'</td><td class="n">'+p.ll[1].toFixed(1)+', '+p.ll[0].toFixed(1)+'</td></tr>';
   });
+  if(typeof PIPES!=='undefined') PIPES.forEach(function(pp){
+    rows+='<tr><td>'+(pp.k==='oil'?'Crude oil pipeline':'Natural gas pipeline')+'</td>'+
+      '<td><button class="ent" data-place="'+pp.n+'">'+pp.n+'</button></td><td>'+pp.m+'</td>'+
+      '<td class="n">'+pp.pts.length+' waypoints</td></tr>';
+  });
+  if(typeof NUKES!=='undefined') NUKES.forEach(function(nk){
+    rows+='<tr><td>Nuclear power station</td><td><button class="ent" data-place="'+nk.n+'">'+nk.n+'</button></td>'+
+      '<td>'+(nk.mw>0?fmt(nk.mw)+' MW net, '+nk.c:'Destroyed, '+nk.c)+'</td>'+
+      '<td class="n">'+nk.ll[1].toFixed(1)+', '+nk.ll[0].toFixed(1)+'</td></tr>';
+  });
   CABLES.forEach(function(cb){
     rows+='<tr><td>'+(cb.k==='power'?'Subsea power link':'Subsea fibre')+'</td>'+
       '<td><button class="ent" data-place="'+cb.n+'">'+cb.n+'</button></td><td>'+cb.m+'</td>'+
@@ -2482,7 +3141,11 @@ function buildGlobeTable(){
     var f=PLACES.filter(function(p){return p.n===nm;})[0];
     if(f){ selectFeature(f, KIND[f.k].label); return; }
     f=CABLES.filter(function(c){return c.n===nm;})[0];
-    if(f) selectFeature(f, f.k==='power'?'Subsea power link':'Subsea fibre');
+    if(f){ selectFeature(f, f.k==='power'?'Subsea power link':'Subsea fibre'); return; }
+    f=(typeof PIPES!=='undefined'?PIPES:[]).filter(function(c){return c.n===nm;})[0];
+    if(f){ selectFeature(f, f.k==='oil'?'Crude oil pipeline':'Natural gas pipeline'); return; }
+    f=(typeof NUKES!=='undefined'?NUKES:[]).filter(function(c){return c.n===nm;})[0];
+    if(f) selectFeature(f, 'Nuclear power station');
   });
 }
 
@@ -2490,16 +3153,16 @@ function focusGlobeForLevel(){
   if(!GL.ok) return;
   var L=state.level;
   var map=[
-    {cable:1,refinery:1,mine:1,choke:1},
-    {cable:1,refinery:1,mine:1,choke:1},
-    {cable:0,refinery:1,mine:1,choke:1},
-    {cable:0,refinery:1,mine:0,choke:1},
-    {cable:1,refinery:0,mine:0,choke:0},
-    {cable:1,refinery:0,mine:0,choke:0},
-    {cable:1,refinery:0,mine:0,choke:0},
-    {cable:0,refinery:0,mine:0,choke:0}
+    {cable:1,refinery:1,mine:1,choke:1,pipe:1,nuke:1},
+    {cable:1,refinery:1,mine:1,choke:1,pipe:1,nuke:1},
+    {cable:0,refinery:1,mine:1,choke:1,pipe:1,nuke:0},
+    {cable:0,refinery:1,mine:0,choke:1,pipe:1,nuke:1},
+    {cable:1,refinery:0,mine:0,choke:0,pipe:0,nuke:1},
+    {cable:1,refinery:0,mine:0,choke:0,pipe:0,nuke:1},
+    {cable:1,refinery:0,mine:0,choke:0,pipe:0,nuke:0},
+    {cable:0,refinery:0,mine:0,choke:0,pipe:0,nuke:0}
   ][L];
-  ['cable','refinery','mine','choke'].forEach(function(k){
+  ['cable','refinery','mine','choke','pipe','nuke'].forEach(function(k){
     GL.layers[k]=!!map[k];
     var box=$('ly'+k.charAt(0).toUpperCase()+k.slice(1));
     if(box) box.checked=GL.layers[k];
@@ -2513,6 +3176,1131 @@ function setSpinButton(){
   b.textContent = GL.spin ? 'Pause rotation' : 'Resume rotation';
   b.setAttribute('aria-pressed', GL.spin ? 'true' : 'false');
 }
+
+/* ============================================================
+   CUSTODY CHAIN: voltage staircase and ownership
+   ============================================================ */
+var CUSTODY = [
+  {n:'Resource',            kv:null,  own:'varies',    o:'Fuel supplier, mine, well, or the wind itself',
+   note:'Coal and gas arrive by rail, barge, or pipeline under contracts that are not regulated as electricity at all. Sun and wind arrive free and unowned, which is why their cost is entirely capital.'},
+  {n:'Generator terminals', kv:20,    own:'generation',o:'Competitive independent power producer, or a regulated utility',
+   note:'In restructured states the plant is merchant and earns from the market. In vertically integrated states it sits in the utility rate base and earns an approved return.'},
+  {n:'Step-up transformer', kv:345,   own:'transmission', o:'Transmission owner',
+   note:'Voltage goes up by a factor of seventeen so that current, and therefore resistive loss, goes down. This is the single most consequential piece of equipment in the chain and now runs to three to five year lead times.'},
+  {n:'Transmission',        kv:345,   own:'transmission', o:'Transmission owner, dispatched by an RTO where one exists',
+   note:'Federally regulated under the Federal Power Act because the power crosses state lines. Except in Texas, where it deliberately does not.'},
+  {n:'Transmission substation', kv:138, own:'transmission', o:'Transmission owner',
+   note:'Steps down to subtransmission, adds switching and protection, and is where most of the interconnection queue physically terminates.'},
+  {n:'Distribution substation', kv:12.47, own:'distribution', o:'Distribution utility',
+   note:'The boundary between federal and state jurisdiction, and between wholesale and retail. Almost every regulatory fight is about which side of this line something falls on.'},
+  {n:'Distribution feeder', kv:12.47, own:'distribution', o:'Distribution utility, a legal monopoly in its franchise territory',
+   note:'No competitor may string wire here. In exchange the utility must serve everyone who asks at a commission-approved price.'},
+  {n:'Service transformer', kv:0.24,  own:'distribution', o:'Distribution utility',
+   note:'The can on the pole or the pad in the yard. There are tens of millions of them and they are also on allocation.'},
+  {n:'Meter and premises',  kv:0.24,  own:'customer',   o:'Customer, and increasingly a generator too',
+   note:'The meter used to be the end of the system. Rooftop solar, batteries, and electric vehicles made it a two-way boundary, which is what most retail rate design arguments are now about.'}
+];
+var OWN_COLOR = {generation:'#b65f00', transmission:'#0071e3', distribution:'#6b47d6', customer:'#1f8f4e', varies:'#8a8a8f'};
+var OWN_LABEL = {generation:'Generation', transmission:'Transmission', distribution:'Distribution', customer:'Customer', varies:'Upstream supply'};
+
+var CAPS = [
+  {n:'NextEra Energy',    t:'NEE', v:185, us:true,  note:'Florida Power & Light plus the largest wind and solar developer in the country.'},
+  {n:'Iberdrola',         t:'IBE', v:166, us:false, note:'Spain. Owns Avangrid in the US northeast.'},
+  {n:'Enel',              t:'ENEL',v:114, us:false, note:'Italy. Among the largest distribution networks in the world by customers.'},
+  {n:'Southern Company',  t:'SO',  v:109, us:true,  note:'Georgia Power and Alabama Power. Built Vogtle 3 and 4, the only new US reactors this century.'},
+  {n:'Duke Energy',       t:'DUK', v:100, us:true,  note:'The Carolinas, Indiana, Florida. Among the largest customer bases in the country.'},
+  {n:'Constellation',     t:'CEG', v:93,  us:true,  note:'The largest US nuclear operator, spun out of Exelon in 2022. Traded between $240 and $413 in the last year on data centre power agreements.'},
+  {n:'National Grid',     t:'NGG', v:83,  us:false, note:'UK transmission, plus networks in New York and Massachusetts.'},
+  {n:'Engie',             t:'ENGI',v:81,  us:false, note:'France. Generation, networks, and energy services across Europe and Latin America.'},
+  {n:'American Electric Power', t:'AEP', v:75, us:true, note:'The largest transmission network in the US by circuit miles, across eleven states.'}
+];
+
+function renderCustody(){
+  var svg=$('custodyChart'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(700, Math.min(1180, host.clientWidth-6)), H=330;
+  var M={l:52,r:16,t:26,b:112};
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+
+  var n=CUSTODY.length;
+  var step=(W-M.l-M.r)/n;
+  function X(i){ return M.l + step*i; }
+  var ylo=-1.0, yhi=3.0;                          // log10 kV
+  function Y(kv){ return H-M.b-(H-M.t-M.b)*(Math.log(kv)/Math.LN10-ylo)/(yhi-ylo); }
+
+  [0.24,12.47,138,345].forEach(function(kv){
+    var y=Y(kv);
+    svg.appendChild(el('line',{x1:M.l,y1:y,x2:W-M.r,y2:y,stroke:'rgba(0,0,0,.06)'}));
+    svg.appendChild(el('text',{x:M.l-7,y:y+3,'text-anchor':'end',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, kv<1?(kv*1000)+' V':kv+' kV'));
+  });
+
+  // staircase
+  var d='', prev=null;
+  CUSTODY.forEach(function(c,i){
+    if(c.kv==null) return;
+    var x0=X(i)+step*0.12, x1=X(i)+step*0.88, y=Y(c.kv);
+    if(prev===null) d+='M'+x0+','+y;
+    else d+='L'+x0+','+y;
+    d+='L'+x1+','+y;
+    prev=y;
+  });
+  svg.appendChild(el('path',{d:d,fill:'none',stroke:'#0071e3','stroke-width':2.2,'stroke-linejoin':'round'}));
+
+  CUSTODY.forEach(function(c,i){
+    var x=X(i)+step*0.5;
+    if(c.kv!=null){
+      var y=Y(c.kv);
+      svg.appendChild(el('circle',{cx:x,cy:y,r:3.4,fill:'#fff',stroke:'#0071e3','stroke-width':1.8}));
+      svg.appendChild(el('text',{x:x,y:y-9,'text-anchor':'middle',
+        style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#0071e3'}, c.kv<1?(c.kv*1000)+' V':c.kv+' kV'));
+    }
+    // ownership band
+    var by=H-M.b+16, bh=15;
+    var g=el('g',{style:'cursor:pointer',tabindex:'0',role:'button',
+      'aria-label':c.n+'. Owned by '+c.o+'. '+c.note});
+    g.appendChild(el('rect',{x:X(i)+1.5,y:by,width:step-3,height:bh,rx:3,
+      fill:OWN_COLOR[c.own],opacity:.16,stroke:OWN_COLOR[c.own],'stroke-opacity':.4}));
+    g.appendChild(el('rect',{x:X(i),y:M.t-14,width:step,height:H-M.t-M.b+30,fill:'transparent'}));
+    var words=c.n.split(' ');
+    var line1=words.length>1 && c.n.length>13 ? words.slice(0,-1).join(' ') : c.n;
+    var line2=words.length>1 && c.n.length>13 ? words[words.length-1] : '';
+    g.appendChild(el('text',{x:X(i)+step*0.5,y:by+bh+15,'text-anchor':'middle',
+      style:'font-size:10px;fill:#1d1d1f'}, line1));
+    if(line2) g.appendChild(el('text',{x:X(i)+step*0.5,y:by+bh+26,'text-anchor':'middle',
+      style:'font-size:10px;fill:#1d1d1f'}, line2));
+    g.appendChild(el('text',{x:X(i)+step*0.5,y:by+bh+(line2?39:28),'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:'+OWN_COLOR[c.own]}, OWN_LABEL[c.own]));
+    g.appendChild(el('title',null, c.o+' \u2014 '+c.note));
+    svg.appendChild(g);
+  });
+
+  // jurisdictional boundary
+  var bx=X(5);
+  svg.appendChild(el('line',{x1:bx,y1:M.t-10,x2:bx,y2:H-M.b+8,stroke:'#bd2b28','stroke-width':1.2,'stroke-dasharray':'4 3'}));
+  svg.appendChild(el('text',{x:bx-6,y:M.t-14,'text-anchor':'end',
+    style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#bd2b28'},'FEDERAL / WHOLESALE'));
+  svg.appendChild(el('text',{x:bx+6,y:M.t-14,'text-anchor':'start',
+    style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#bd2b28'},'STATE / RETAIL'));
+
+  $('custodyTable').innerHTML='<table class="dtable"><caption>Each stage of the chain, its typical voltage, and who owns it.</caption>'+
+    '<thead><tr><th>Stage</th><th class="n">Voltage</th><th>Owner</th><th>Why it matters</th></tr></thead><tbody>'+
+    CUSTODY.map(function(c){
+      return '<tr><td>'+c.n+'</td><td class="n">'+(c.kv==null?'\u2014':(c.kv<1?(c.kv*1000)+' V':c.kv+' kV'))+
+        '</td><td>'+c.o+'</td><td>'+c.note+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+
+function renderCaps(){
+  var svg=$('caps'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(560, Math.min(1180, host.clientWidth-6)), rowH=26, padL=168, padR=124;
+  var H=CAPS.length*rowH+22;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var max=200;
+  function sc(v){ return (W-padL-padR)*v/max; }
+  [0,50,100,150,200].forEach(function(g){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:4,x2:x,y2:H-16,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'},'$'+g+'B'));
+  });
+  CAPS.forEach(function(c,i){
+    var y=8+i*rowH;
+    svg.appendChild(el('text',{x:padL-8,y:y+13,'text-anchor':'end',
+      style:'font-size:11.5px;fill:'+(c.us?'#1d1d1f':'#8a8a8f')}, c.n));
+    var r=el('rect',{x:padL,y:y+3,width:Math.max(1,sc(c.v)),height:14,rx:2,
+      fill:c.us?'#0071e3':'#a6adb7',opacity:.86});
+    r.appendChild(el('title',null,c.n+' ('+c.t+') \u2014 $'+c.v+'B. '+c.note));
+    svg.appendChild(r);
+    svg.appendChild(el('text',{x:padL+sc(c.v)+6,y:y+14,
+      style:'font-family:JetBrains Mono,monospace;font-size:10.5px;fill:#1d1d1f'},'$'+c.v+'B'));
+  });
+  svg.appendChild(el('text',{x:W-2,y:H-4,'text-anchor':'end',
+    style:'font-size:9px;fill:#8a8a8f'},'blue = United States'));
+
+  $('capTable').innerHTML='<table class="dtable"><caption>Largest listed utility holding companies, market capitalization as of 30 June 2026.</caption>'+
+    '<thead><tr><th>Company</th><th>Ticker</th><th class="n">Market cap</th><th>Note</th></tr></thead><tbody>'+
+    CAPS.map(function(c){ return '<tr><td>'+c.n+'</td><td class="n">'+c.t+'</td><td class="n">$'+c.v+'B</td><td>'+c.note+'</td></tr>'; }).join('')+
+    '</tbody></table>';
+}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+var ERAS = [
+  {a:1878, b:1907, n:'Invention and franchise scramble', c:'#c99700'},
+  {a:1907, b:1978, n:'The regulated monopoly compact',    c:'#0071e3'},
+  {a:1978, b:2005, n:'Unbundling and competition',        c:'#6b47d6'},
+  {a:2005, b:2030, n:'Reliability, and reconnection',     c:'#1f8f4e'}
+];
+var TIMELINE = [
+  {y:1882, n:'Pearl Street Station', w:'Edison lights 59 customers in lower Manhattan from a direct-current plant serving about a square mile.',
+   so:'Direct current could not be transformed, so it could not travel. The whole subsequent architecture, including the voltage staircase above, exists because of that limitation.'},
+  {y:1886, n:'Great Barrington', w:'Westinghouse demonstrates alternating current with transformers, and the War of the Currents begins.',
+   so:'AC won because transformers let you raise voltage for transport and lower it for use. Every grid on earth is a consequence of this one decision.'},
+  {y:1895, n:'Niagara Falls', w:'Adams Station sends AC power 26 miles to Buffalo.',
+   so:'Proved that generation could be sited at the resource rather than at the load, which is the premise of every remote wind farm and every HVDC line since.'},
+  {y:1898, n:'Insull\u2019s bargain', w:'Samuel Insull tells the industry it should accept regulation as a monopoly in exchange for exclusive territory and a guaranteed return.',
+   so:'The single most consequential proposal in the industry\u2019s history. He also invented load diversity pricing and the demand meter, which is why your bill has two components.'},
+  {y:1907, n:'First state commissions', w:'Wisconsin and New York create regulatory commissions with authority over utility rates.',
+   so:'Insull\u2019s bargain becomes law, and the geographic monopoly with an obligation to serve becomes the default American structure.'},
+  {y:1932, n:'The Insull collapse', w:'The holding-company pyramid built on Commonwealth Edison fails, wiping out a vast number of small investors.',
+   so:'Turned utility finance into a national scandal and made federal structural regulation politically inevitable within three years.'},
+  {y:1933, n:'Tennessee Valley Authority', w:'The federal government becomes a generator and a yardstick for private rates.',
+   so:'Public power as deliberate policy. TVA and Bonneville still shape prices and politics across two regions.'},
+  {y:1935, n:'Federal Power Act and PUHCA', w:'Federal jurisdiction over interstate wholesale sales, and the breakup of holding-company pyramids.',
+   so:'Drew the federal-state line that still runs through the distribution substation, and gave Texas the specific reason to never cross a state line.'},
+  {y:1936, n:'Rural Electrification Act', w:'Federal loans let farmers form cooperatives and build their own lines.',
+   so:'About one farm in ten had power in 1935; roughly nine in ten did by 1950. This is why 810 member-owned utilities still exist.'},
+  {y:1965, n:'Northeast blackout', w:'A misconfigured relay near Niagara cascades and darkens 30 million people across eight states and Ontario.',
+   so:'Produced the North American Electric Reliability Council in 1968, on a voluntary basis. That word matters for what happens in 2003.'},
+  {y:1970, n:'ERCOT formed', w:'The wartime Texas Interconnected System becomes a formal reliability council, still deliberately inside one state.',
+   so:'Texas gets a reliability organization without getting a federal regulator.'},
+  {y:1976, n:'The Midnight Connection', w:'A Central and South West subsidiary closes a switch and sends Texas power into Oklahoma for a few hours.',
+   so:'A deliberate attempt to force ERCOT into interstate commerce and federal jurisdiction. Years of litigation later, Texas independence held.'},
+  {y:1978, n:'PURPA', w:'Utilities are forced to buy power from qualifying independent facilities at avoided cost.',
+   so:'The birth of the independent power producer, and the first crack in vertical integration. Nearly every merchant generator traces to this statute.'},
+  {y:1992, n:'Energy Policy Act', w:'Creates exempt wholesale generators and opens wholesale competition.',
+   so:'Generation starts separating from wires as a business, which is the precondition for everything that follows.'},
+  {y:1996, n:'FERC Orders 888 and 889', w:'Open access transmission: a utility must offer competitors the same terms it gives itself.',
+   so:'Turned the transmission network from a private asset into a common carrier, and made competitive wholesale markets physically possible.'},
+  {y:1999, n:'FERC Order 2000', w:'Encourages the formation of regional transmission organizations.',
+   so:'Produced PJM, MISO, ISO-NE, NYISO, SPP and CAISO as we know them, and left the Southeast and much of the West outside.'},
+  {y:2001, n:'California crisis', w:'A badly designed restructuring plus market manipulation produces rolling blackouts and tens of billions in costs.',
+   so:'Stopped the restructuring wave dead. Roughly half the states never deregulated retail, and several reversed course.'},
+  {y:2003, n:'Northeast blackout', w:'An untrimmed tree in Ohio and a race condition in alarm software cascade across 50 million people.',
+   so:'Ended the voluntary reliability era. Two years later NERC standards became mandatory and enforceable with penalties.'},
+  {y:2005, n:'Energy Policy Act', w:'Repeals PUHCA, makes reliability standards mandatory, and opens the door to holding-company consolidation.',
+   so:'The current shape of the industry, a few large listed holding companies over many operating utilities, dates from here.'},
+  {y:2014, n:'Shale gas and the cost collapse', w:'Cheap gas plus collapsing solar and wind costs push coal into structural retirement.',
+   so:'The generation mix changed faster than the transmission network planned for it, which is the origin of today\u2019s queue.'},
+  {y:2021, n:'Winter Storm Uri', w:'ERCOT comes within minutes of an uncontrolled collapse; millions lose power for days in freezing conditions.',
+   so:'Demonstrated that an energy-only market with no neighbours prices scarcity brilliantly right up until scarcity becomes catastrophe.'},
+  {y:2023, n:'FERC Order 2023', w:'Interconnection queue reform: first-ready-first-served clusters instead of first-come-first-served serial studies.',
+   so:'An attempt to fix a queue that had grown longer than the assets waiting in it. Implementation is still working through.'},
+  {y:2024, n:'FERC Order 1920', w:'Long-term regional transmission planning on a twenty-year horizon, with cost allocation.',
+   so:'The first serious federal attempt at the interregional planning problem in a generation. Whether it survives contact with state cost allocation is open.'},
+  {y:2026, n:'Load growth returns', w:'After roughly fifteen flat years, demand grows again on data centres, electrification, and reshored industry.',
+   so:'Every institution in this timeline was tuned for a flat load curve. That assumption is now the industry\u2019s largest liability.'}
+];
+
+function renderTimeline(){
+  var svg=$('timeline'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(700, Math.min(1180, host.clientWidth-6)), H=250;
+  var M={l:14,r:14,t:44,b:34};
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var y0=1878, y1=2030;
+  function X(y){ return M.l+(W-M.l-M.r)*(y-y0)/(y1-y0); }
+  var axis=H-M.b;
+
+  ERAS.forEach(function(e){
+    var x1=X(e.a), x2=X(e.b);
+    svg.appendChild(el('rect',{x:x1,y:M.t-24,width:x2-x1,height:H-M.t-M.b+24,fill:e.c,opacity:.05}));
+    svg.appendChild(el('line',{x1:x1,y1:M.t-24,x2:x1,y2:axis,stroke:e.c,'stroke-opacity':.28}));
+    svg.appendChild(el('text',{x:(x1+x2)/2,y:M.t-30,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;fill:'+e.c}, e.n));
+  });
+
+  svg.appendChild(el('line',{x1:M.l,y1:axis,x2:W-M.r,y2:axis,stroke:'rgba(0,0,0,.18)'}));
+  for(var y=1880;y<=2030;y+=10){
+    var x=X(y);
+    svg.appendChild(el('line',{x1:x,y1:axis,x2:x,y2:axis+4,stroke:'rgba(0,0,0,.16)'}));
+    if(y%20===0) svg.appendChild(el('text',{x:x,y:axis+17,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, String(y)));
+  }
+
+  var lanes=[0,1,2,3], lastX=[-99,-99,-99,-99];
+  TIMELINE.forEach(function(ev){
+    var x=X(ev.y);
+    var lane=0;
+    for(var i=0;i<lanes.length;i++){ if(x-lastX[i]>58){ lane=i; break; } lane=(i===lanes.length-1)?i:lane; }
+    lastX[lane]=x;
+    var ly=M.t-6+lane*22;
+    var era=ERAS.filter(function(e){ return ev.y>=e.a && ev.y<e.b; })[0] || ERAS[3];
+    var on = TL.sel===ev;
+
+    svg.appendChild(el('line',{x1:x,y1:ly+4,x2:x,y2:axis,stroke:era.c,'stroke-opacity':on?.7:.24,'stroke-width':on?1.4:0.8}));
+    var g=el('g',{style:'cursor:pointer',tabindex:'0',role:'button','aria-label':ev.y+', '+ev.n+'. '+ev.w});
+    g.appendChild(el('circle',{cx:x,cy:axis,r:12,fill:'transparent'}));
+    g.appendChild(el('circle',{cx:x,cy:axis,r:on?5.5:3.6,fill:on?era.c:'#fff',stroke:era.c,'stroke-width':1.6}));
+    g.appendChild(el('text',{x:x,y:ly,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:'+(on?era.c:'#8a8a8f')}, String(ev.y)));
+    g.appendChild(el('title',null, ev.y+' \u2014 '+ev.n));
+    function pick(){ TL.sel=ev; showEvent(ev, era); renderTimeline(); }
+    g.addEventListener('click', pick);
+    g.addEventListener('focus', pick);
+    g.addEventListener('keydown', function(e2){ if(e2.key==='Enter'||e2.key===' '){ e2.preventDefault(); pick(); } });
+    svg.appendChild(g);
+  });
+
+  $('timeTable').innerHTML='<table class="dtable"><caption>Every event on the timeline, with the regime it belongs to and its consequence.</caption>'+
+    '<thead><tr><th class="n">Year</th><th>Event</th><th>What happened</th><th>Why it still matters</th></tr></thead><tbody>'+
+    TIMELINE.map(function(ev){
+      var era=ERAS.filter(function(e){ return ev.y>=e.a && ev.y<e.b; })[0] || ERAS[3];
+      return '<tr><td class="n">'+ev.y+'</td><td>'+ev.n+'<br><span style="color:#8a8a8f;font-size:10px">'+era.n+'</span></td><td>'+ev.w+'</td><td>'+ev.so+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+var TL={sel:null};
+function showEvent(ev, era){
+  $('tlDetail').innerHTML='<div class="dt">'+ev.y+' &middot; '+ev.n+'</div>'+
+    '<div class="dm" style="color:'+era.c+'">'+era.n+'</div>'+
+    '<div class="drow"><div class="dk">What happened</div><div class="dv">'+ev.w+'</div></div>'+
+    '<div class="drow"><div class="dk">Consequence</div><div class="dv">'+ev.so+'</div></div>';
+}
+
+/* ============================================================
+   SUPPLIER CONCENTRATION
+   top1 = largest single supplier or country, top3 = three combined
+   choke = losing one supplier halts the segment
+   ============================================================ */
+var CONC = [
+  {n:'Solar wafers',              b:'country', top1:97, top3:97, who:'China',                choke:true,  note:'There is effectively no non-Chinese wafer industry at scale.'},
+  {n:'NdFeB magnets',             b:'country', top1:90, top3:90, who:'China',                choke:true,  note:'Mining is diversified. Separation and sintering are not, and that is the part that matters.'},
+  {n:'Polysilicon',               b:'country', top1:90, top3:90, who:'China',                choke:true,  note:'On a firm basis rather than a country basis, the top three producers are about 62%.'},
+  {n:'Uranium enrichment',        b:'firm',    top1:40, top3:85, who:'Rosatom, Orano, Urenco', choke:true, note:'Separative work capacity. Adding any is an 8 to 10 year, treaty-constrained project.'},
+  {n:'Heavy-duty gas turbines',   b:'firm',    top1:35, top3:90, who:'GE Vernova, Siemens Energy, Mitsubishi Power', choke:true, note:'Three suppliers worldwide, order books full into the early 2030s.'},
+  {n:'HVDC subsea cable',         b:'firm',    top1:35, top3:80, who:'Prysmian, Nexans, NKT', choke:true,  note:'Every offshore wind and interconnector project competes for the same factory slots.'},
+  {n:'Large power transformers',  b:'firm',    top1:12, top3:30, who:'Hitachi Energy, Siemens Energy, HD Hyundai', choke:true, note:'Fragmented on paper, but qualification and test-bay capacity make it behave like a concentrated market.'},
+  {n:'Cobalt refining',           b:'country', top1:72, top3:72, who:'China',                choke:false, note:'Being engineered around: LFP cathodes use no cobalt at all.'},
+  {n:'Lithium conversion',        b:'country', top1:65, top3:65, who:'China',                choke:false, note:'Battery-grade carbonate and hydroxide, as distinct from mining, which is Australian and Chilean.'},
+  {n:'Lithium-ion cells',         b:'firm',    top1:37, top3:65, who:'CATL, BYD, LG Energy Solution', choke:false, note:'Concentrated but genuinely competitive, and the cost curve reflects that.'},
+  {n:'Oilfield services',         b:'firm',    top1:30, top3:65, who:'SLB, Halliburton, Baker Hughes', choke:false, note:'Three firms hold the technical capability for most complex completions.'},
+  {n:'Wind turbines',             b:'firm',    top1:17, top3:42, who:'Goldwind, Vestas, Envision', choke:false, note:'The most competitive hardware segment in clean energy, and the least profitable.'},
+  {n:'Seaborne crude trading',    b:'firm',    top1:15, top3:35, who:'Vitol, Trafigura, Glencore', choke:false, note:'Least documented number on this chart. Private firms, minimal disclosure.'}
+];
+
+var SEGMENTS = [
+  'All','Producers','Traders','Shipping','Midstream','Services','Turbines','Nuclear','Nuclear fuel',
+  'Solar','Batteries','Grid equipment','Minerals','Builders','Operators','Buyers'
+];
+
+/* the value chain, as distinct from the industry segment */
+var SEG_ROLE = {
+  'Producers':'Extractors', 'Minerals':'Miners & refiners', 'Nuclear fuel':'Miners & refiners',
+  'Traders':'Traders', 'Shipping':'Shippers', 'Midstream':'Pipelines & terminals',
+  'Services':'Service providers', 'Turbines':'Fabricators', 'Nuclear':'Fabricators',
+  'Solar':'Fabricators', 'Batteries':'Fabricators', 'Grid equipment':'Fabricators',
+  'Builders':'Builders', 'Operators':'Operators', 'Buyers':'Buyers'
+};
+var ROLES = ['All','Extractors','Miners & refiners','Shippers','Pipelines & terminals','Traders',
+  'Fabricators','Builders','Service providers','Operators','Buyers'];
+var rosterAxis='segment';
+
+var PLAYERS = [
+  {n:'Saudi Aramco',        seg:'Producers', own:'state', s:'~10 Mb/d', w:'The largest producer and the holder of most of the world\u2019s genuine spare capacity, which is the instrument OPEC+ policy actually runs on.'},
+  {n:'ADNOC',               seg:'Producers', own:'state', s:'~4 Mb/d', w:'Expanding capacity while most majors shrink, and buying chemicals and gas assets abroad.'},
+  {n:'QatarEnergy',         seg:'Producers', own:'state', s:'~77 Mtpa LNG', w:'North Field expansion will keep it the lowest-cost large LNG supplier into the 2030s.'},
+  {n:'PetroChina & Sinopec',seg:'Producers', own:'state', s:'refining >7 Mb/d', w:'The demand side of the oil market as much as the supply side. Chinese runs set the marginal call on crude.'},
+  {n:'Gazprom & Rosneft',   own:'state', seg:'Producers', s:'~10 Mb/d, 400+ bcm', w:'Lost the European pipeline market in 2022 and is still reorganizing around Asian buyers and a shadow fleet.'},
+  {n:'ExxonMobil',          seg:'Producers', own:'listed', s:'~4.3 Mboe/d', w:'Guyana and the Permian, plus the largest corporate carbon-capture ambition among the majors.'},
+  {n:'Chevron',             seg:'Producers', own:'listed', s:'~3.3 Mboe/d', w:'Permian and Kazakhstan, and the acquirer of Hess\u2019s Guyana stake after a two-year arbitration.'},
+  {n:'Shell',               seg:'Producers', own:'listed', s:'largest LNG trader', w:'Pivoted back toward LNG and away from power retail. Its trading arm is a major reason its earnings are less volatile than its peers\u2019.'},
+  {n:'TotalEnergies',       seg:'Producers', own:'listed', s:'~2.5 Mboe/d', w:'The major that went furthest into electricity and renewables while keeping an LNG growth engine.'},
+  {n:'BP',                  seg:'Producers', own:'listed', s:'~2.3 Mboe/d', w:'Announced the most aggressive transition strategy of the majors in 2020, then reversed much of it. A useful case study in what capital markets reward.'},
+
+  {n:'Vitol',        seg:'Traders', own:'private', s:'~7 Mb/d traded', w:'The largest independent oil trader. Physical optionality plus storage and shipping is the business, not price forecasting.'},
+  {n:'Trafigura',    seg:'Traders', own:'private', s:'~7 Mb/d traded', w:'Oil and metals. Increasingly a financier of production it does not own, which is how trading firms became lenders of last resort.'},
+  {n:'Glencore',     seg:'Traders', own:'listed', s:'trading + mining', w:'The only large trader that is also a top-tier miner, which makes it the single most important private actor in cobalt and thermal coal simultaneously.'},
+  {n:'Mercuria & Gunvor', seg:'Traders', own:'private', s:'multi-Mb/d', w:'The second tier by size, and both have moved substantially into power and gas as the volatility migrated there.'},
+
+  {n:'SLB',          seg:'Services', own:'listed', s:'largest by revenue', w:'The technical capability behind most complex completions. When SLB says a basin is not economic, it usually is not.'},
+  {n:'Halliburton',  seg:'Services', own:'listed', s:'pressure pumping leader', w:'The firm most exposed to North American shale activity, which makes its guidance a leading indicator for US supply.'},
+  {n:'Baker Hughes', seg:'Services', own:'listed', s:'equipment + LNG', w:'Supplies the compression and turbomachinery for LNG trains, so its order book is a forward read on liquefaction capacity.'},
+
+  {n:'GE Vernova',      seg:'Turbines', own:'listed', s:'gas + wind + grid', w:'One of three heavy-duty gas turbine makers, a top wind OEM, and a major grid equipment supplier. Unusually exposed to all three.'},
+  {n:'Siemens Energy',  seg:'Turbines', own:'listed', s:'gas + grid + wind', w:'Grid and gas businesses are strong enough that they carried the company through a severe offshore wind quality failure.'},
+  {n:'Mitsubishi Power',seg:'Turbines', own:'listed', s:'gas turbines', w:'The third gas turbine supplier, and the most advanced on hydrogen co-firing.'},
+  {n:'Vestas',          seg:'Turbines', own:'listed', s:'~15% of wind', w:'The largest Western wind OEM and a demonstration that market leadership in turbines does not produce reliable margins.'},
+  {n:'Goldwind, Envision, Mingyang', seg:'Turbines', own:'listed', s:'majority of global volume', w:'Chinese OEMs now install more capacity than everyone else combined and are moving into export markets and offshore.'},
+
+  {n:'Westinghouse',    seg:'Nuclear', own:'private', s:'AP1000', w:'Owned by Brookfield and Cameco. The AP1000 is the reference Western large reactor, and Vogtle proved it can be built and what that costs.'},
+  {n:'EDF & Framatome', seg:'Nuclear', own:'state', s:'largest fleet operator', w:'Operates the largest reactor fleet in one country and is the only Western vendor with an integrated fuel cycle.'},
+  {n:'Rosatom',         seg:'Nuclear', own:'state', s:'~40% of enrichment', w:'The most vertically integrated nuclear enterprise in the world, and the reason enrichment is a geopolitical exposure rather than a commodity.'},
+  {n:'KHNP',            seg:'Nuclear', own:'state', s:'APR1400', w:'Delivered Barakah roughly on schedule and budget, which is the strongest existing evidence that serial construction works.'},
+  {n:'CNNC & CGN',      seg:'Nuclear', own:'state', s:'most units under construction', w:'China is building more reactors than the rest of the world combined, at costs Western programmes cannot currently match.'},
+  {n:'NuScale, X-energy, TerraPower, Oklo', seg:'Nuclear', own:'listed', s:'pre-commercial', w:'The SMR field. None has an operating commercial unit, and the first-of-a-kind cost will decide whether the category is real.'},
+
+  {n:'LONGi',   seg:'Solar', own:'listed', s:'wafers + modules', w:'Set the industry standard for monocrystalline wafers and then discovered what happens to margins when everyone copies you.'},
+  {n:'Jinko, Trina, JA Solar', seg:'Solar', own:'listed', s:'top module makers', w:'Between them a large majority of world module shipments, all currently selling near or below cash cost.'},
+  {n:'Tongwei & GCL',  seg:'Solar', own:'listed', s:'polysilicon', w:'The upstream chokepoint. Polysilicon capacity decisions set the module price two years later.'},
+  {n:'First Solar',    seg:'Solar', own:'listed', s:'thin film', w:'The only large non-silicon, non-Chinese module maker, which makes it the entire Western supply hedge.'},
+
+  {n:'CATL',    seg:'Batteries', own:'listed', s:'~37% of cells', w:'The largest battery maker and increasingly a licensor of chemistry and process to Western manufacturers who cannot match it.'},
+  {n:'BYD',     seg:'Batteries', own:'listed', s:'cells + vehicles', w:'Vertically integrated from cathode to car, which is why its cost structure is difficult for anyone to replicate.'},
+  {n:'LG Energy Solution, SK On, Samsung SDI, Panasonic', seg:'Batteries', own:'listed', s:'the non-Chinese tier', w:'Korean and Japanese cell makers, structurally higher cost, sustained by domestic content rules rather than economics.'},
+
+  {n:'Hitachi Energy',  seg:'Grid equipment', own:'listed', s:'HVDC + transformers', w:'The former ABB power grids business. Probably the single most supply-constrained firm in the energy transition.'},
+  {n:'Schneider Electric', seg:'Grid equipment', own:'listed', s:'distribution + DC', w:'Low-voltage and data centre electrical infrastructure, which puts it directly in the AI capital cycle.'},
+  {n:'ABB & Eaton',     seg:'Grid equipment', own:'listed', s:'switchgear, drives', w:'Motors, drives and switchgear. The unglamorous half of electrification and a large share of its efficiency gains.'},
+  {n:'Prysmian, Nexans, NKT', seg:'Grid equipment', own:'listed', s:'~80% of subsea cable', w:'Three firms whose factory expansion schedule effectively sets the global pace of offshore wind and interconnection.'},
+
+  {n:'BHP & Rio Tinto', seg:'Minerals', own:'listed', s:'iron, copper', w:'Copper growth projects here matter more to the transition than most clean energy announcements do.'},
+  {n:'Codelco',         seg:'Minerals', own:'state', s:'largest copper', w:'Chilean state copper, with declining grades and a capital programme that the market watches closely.'},
+  {n:'Albemarle & SQM', seg:'Minerals', own:'listed', s:'lithium', w:'The Western lithium majors, both painfully exposed to a price that fell roughly 80% from its peak.'},
+  {n:'MP Materials & Lynas', seg:'Minerals', own:'listed', s:'rare earths', w:'The entire non-Chinese rare-earth industry, at a scale that is small relative to the problem it is meant to solve.'},
+
+  {n:'Bechtel & Fluor', seg:'Builders', own:'private', s:'LNG, nuclear', w:'US engineering and construction. On megaprojects the contractor\u2019s balance sheet is often the real risk, not the technology.'},
+  {n:'Saipem & Technip Energies', seg:'Builders', own:'listed', s:'offshore, LNG', w:'European offshore and liquefaction contractors, and the holders of much of the world\u2019s subsea installation capability.'},
+  {n:'PowerChina & Energy China', seg:'Builders', own:'state', s:'largest by volume', w:'Build more generation and transmission than any other organizations on earth, mostly outside Western coverage.'},
+
+  {n:'State Grid Corporation of China', seg:'Operators', own:'state', s:'>1bn people served', w:'The largest utility in the world, and the only builder of continental-scale ultra-high-voltage DC.'},
+  {n:'PJM Interconnection', seg:'Operators', own:'nonprofit', s:'~155 GW peak', w:'The largest competitive electricity market in the world, and currently the epicentre of the data centre interconnection fight.'},
+  {n:'ERCOT',           seg:'Operators', own:'nonprofit', s:'~90% of Texas load', w:'Energy-only market, no capacity payment, no synchronous neighbours. The most interesting natural experiment in grid design.'},
+  {n:'ENTSO-E members', seg:'Operators', own:'mixed', s:'~1,000 GW', w:'Forty-plus transmission operators holding one synchronous frequency across a continent by agreement rather than by ownership.'},
+
+  {n:'Microsoft, Google, Amazon, Meta', seg:'Buyers', own:'listed', s:'~$400B/yr capex', w:'The new load, and now the largest corporate buyers of clean power in history. Each is individually worth several times the entire listed US utility sector.'},
+
+  {n:'Frontline', seg:'Shipping', own:'listed', s:'~80 tankers', w:'One of the largest listed crude tanker fleets. Tanker earnings are a pure play on tonne-miles, so they rise when trade routes get longer, which is why sanctions and canal closures are good for shipowners.'},
+  {n:'Mitsui O.S.K. & NYK', seg:'Shipping', own:'listed', s:'~1,600 vessels combined', w:'Japanese shipping houses that carry a large share of the world\u2019s LNG on long-term charters tied to specific liquefaction trains.'},
+  {n:'Nakilat', seg:'Shipping', own:'listed', s:'~70 LNG carriers', w:'Qatar\u2019s shipping arm, effectively the dedicated fleet for the largest LNG export project on earth. Vertical integration of a molecule and its hull.'},
+  {n:'Cosco Shipping Energy', seg:'Shipping', own:'state', s:'~160 tankers', w:'China\u2019s state tanker fleet, and a recurring subject of sanctions designation because of Iranian and Russian trades.'},
+  {n:'Sovcomflot & the shadow fleet', seg:'Shipping', own:'state', s:'600\u20131,000+ hulls', w:'Russia\u2019s state fleet plus an opaque flotilla of ageing, often uninsured tankers assembled after 2022. The largest single change in maritime oil logistics in decades, and the reason the Danish Straits are now an enforcement question.'},
+  {n:'Euronav / CMB.TECH & DHT', seg:'Shipping', own:'listed', s:'VLCC specialists', w:'Very large crude carriers at roughly 2 million barrels a hull. These are the vessels that become floating storage when the forward curve steepens enough.'},
+
+  {n:'Enbridge', seg:'Midstream', own:'listed', s:'~3 Mb/d liquids', w:'Moves more crude into the United States than any other company, most of it Canadian. A toll road with a regulated return rather than a commodity bet.'},
+  {n:'TC Energy', seg:'Midstream', own:'listed', s:'~25% of NA gas', w:'The continental gas network, plus the Keystone system. Its cancelled XL expansion is the most litigated infrastructure project in North America.'},
+  {n:'Kinder Morgan & Williams', seg:'Midstream', own:'listed', s:'~40% of US gas moved', w:'Between them they touch a large share of American natural gas, which makes them the physical bottleneck for LNG export growth and for gas-fired data centre load.'},
+  {n:'Energy Transfer', seg:'Midstream', own:'listed', s:'~200,000 km of pipe', w:'Aggressively acquisitive, and the operator behind Dakota Access. A useful case study in how midstream returns are earned from contracted volume, not price.'},
+  {n:'Transneft', seg:'Midstream', own:'state', s:'~80% of Russian crude', w:'The state pipeline monopoly, and therefore the entity that physically decides where Russian oil can go. Druzhba and ESPO are both its systems.'},
+  {n:'Snam & Gasunie', seg:'Midstream', own:'listed', s:'European gas networks', w:'The Italian and Dutch network operators, now the parties deciding whether European gas infrastructure gets repurposed for hydrogen or stranded.'},
+
+  {n:'Kazatomprom', seg:'Nuclear fuel', own:'state', s:'~40% of mine supply', w:'The swing producer of the uranium market, at roughly $15\u201325 a pound all-in sustaining cost. When it cuts guidance to support price, the whole term market reprices.'},
+  {n:'Cameco', seg:'Nuclear fuel', own:'listed', s:'Cigar Lake, McArthur River', w:'The largest Western producer, mining the highest-grade uranium on earth, and a co-owner of Westinghouse. Effectively the West\u2019s integrated nuclear fuel champion.'},
+  {n:'Orano', seg:'Nuclear fuel', own:'state', s:'conversion, enrichment, recycling', w:'France\u2019s fuel cycle company: the only Western firm covering conversion, enrichment and reprocessing, and now expanding enrichment capacity on US soil.'},
+  {n:'Centrus Energy', seg:'Nuclear fuel', own:'listed', s:'only US HALEU licence', w:'The single licensed American producer of high-assay low-enriched uranium, which every advanced reactor design needs. A monopoly created by the absence of anyone else.'},
+  {n:'NexGen & Denison', seg:'Nuclear fuel', own:'listed', s:'undeveloped Athabasca', w:'Development-stage deposits that only work at sustained high prices. The market\u2019s test of whether term contracts near $90 a pound are enough to build new mines.'},
+
+  {n:'Caterpillar & Komatsu', seg:'Services', own:'listed', s:'mining and haulage fleet', w:'Almost every tonne of coal, copper and lithium in the world is moved by one of these two companies\u2019 machines, which also makes them a large diesel demand centre now being electrified.'},
+  {n:'Constellation & Vistra', seg:'Buyers', own:'listed', s:'nuclear fleets', w:'Sit on the other side of those contracts. Existing nuclear became the scarcest asset in the power sector almost overnight.'}
+];
+
+var DESK = [
+  {n:'EIA Weekly Petroleum Status Report', cad:'Weekly', free:true, q:'US crude and product stocks, runs, and implied demand. The highest-frequency real signal in oil.', org:'US EIA'},
+  {n:'Gridstatus.io / ISO dashboards', cad:'Real time', free:true, q:'What each US market is actually dispatching, and where prices are negative. The fastest way to see curtailment.', org:'Various ISOs'},
+  {n:'ENTSO-E Transparency Platform', cad:'Hourly', free:true, q:'European generation by fuel, cross-border flows, and outages, at hourly resolution across 35 countries.', org:'ENTSO-E'},
+  {n:'ERCOT dashboards and CDR', cad:'Real time + seasonal', free:true, q:'Texas load, fuel mix, and the Capacity, Demand and Reserves report that frames every adequacy argument.', org:'ERCOT'},
+  {n:'Ember Electricity Data Explorer', cad:'Monthly', free:true, q:'Country-level generation by source, cleaned and comparable. The best free substitute for paid power datasets.', org:'Ember'},
+  {n:'IEA Oil Market Report & Gas Report', cad:'Monthly', free:false, q:'Supply, demand and stock balances with revisions. The reference the market argues with.', org:'IEA'},
+  {n:'EIA Short-Term Energy Outlook', cad:'Monthly', free:true, q:'US supply, demand and price projections 18 months out, with the model published alongside.', org:'US EIA'},
+  {n:'FERC eLibrary and orders', cad:'Continuous', free:true, q:'What is actually being decided about interconnection, transmission planning and cost allocation.', org:'FERC'},
+  {n:'EIA-860 and EIA-923', cad:'Annual + monthly', free:true, q:'Every US generating unit, its capacity, fuel, age and monthly output. The ground truth for anything about the US fleet.', org:'US EIA'},
+  {n:'NERC Long-Term Reliability Assessment', cad:'Annual', free:true, q:'Where reserve margins are projected to fall short, by region, with the assumptions stated.', org:'NERC'},
+  {n:'Energy Institute Statistical Review', cad:'Annual, June', free:true, q:'The consistent long-run global series for production, consumption and generation. The backbone of this page.', org:'Energy Institute'},
+  {n:'IEA World Energy Outlook', cad:'Annual, October', free:false, q:'Scenario framing, and the source most policy arguments are conducted in.', org:'IEA'},
+  {n:'USGS Mineral Commodity Summaries', cad:'Annual, January', free:true, q:'Production and reserves by country for every critical mineral, with the definitions spelled out.', org:'USGS'},
+  {n:'IRENA Renewable Capacity Statistics', cad:'Annual, March', free:true, q:'Installed renewable capacity by country and technology, on a consistent basis back to 2000.', org:'IRENA'},
+  {n:'Lazard LCOE+ and BNEF surveys', cad:'Annual', free:true, q:'The cost ranges that the model on this page is calibrated against.', org:'Lazard, BNEF'},
+  {n:'Company quarterly filings', cad:'Quarterly', free:true, q:'Order books and lead times. The transformer and turbine constraint appears here months before it appears in analysis.', org:'SEC EDGAR and equivalents'}
+];
+
+/* ============================================================
+   RENDERERS
+   ============================================================ */
+function renderConc(){
+  var svg=$('conc'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(620, Math.min(1180, host.clientWidth-6)), rowH=31, padL=196, padR=150;
+  var H=CONC.length*rowH+24;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  function sc(v){ return (W-padL-padR)*v/100; }
+  [0,25,50,75,100].forEach(function(g){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:4,x2:x,y2:H-18,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-5,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, g+'%'));
+  });
+  CONC.forEach(function(c,i){
+    var y=8+i*rowH;
+    svg.appendChild(el('text',{x:padL-8,y:y+13,'text-anchor':'end',
+      style:'font-size:11.5px;fill:#1d1d1f'}, c.n));
+    svg.appendChild(el('text',{x:padL-8,y:y+22,'text-anchor':'end',
+      style:'font-family:JetBrains Mono,monospace;font-size:8px;fill:#8a8a8f'}, 'by '+c.b));
+    var wide=Math.max(c.top1,c.top3);
+    var r3=el('rect',{x:padL,y:y+3,width:Math.max(1,sc(wide)),height:14,rx:2,fill:'#0071e3',opacity:.22});
+    r3.appendChild(el('title',null,c.n+' \u2014 top three combined about '+wide+'%: '+c.who+'. '+c.note));
+    svg.appendChild(r3);
+    var r1=el('rect',{x:padL,y:y+3,width:Math.max(1,sc(c.top1)),height:14,rx:2,fill:'#0071e3',opacity:.88});
+    r1.appendChild(el('title',null,c.n+' \u2014 largest single supplier about '+c.top1+'%: '+c.who));
+    svg.appendChild(r1);
+    var lx=padL+sc(wide)+7;
+    if(c.choke){
+      svg.appendChild(el('circle',{cx:lx+4,cy:y+10,r:3.4,fill:'#bd2b28'}));
+      svg.appendChild(el('text',{x:lx+13,y:y+14,style:'font-size:10px;fill:#bd2b28'},'single point of failure'));
+    } else {
+      svg.appendChild(el('text',{x:lx,y:y+14,style:'font-size:10px;fill:#8a8a8f'},'competitive'));
+    }
+  });
+  $('concTable').innerHTML='<table class="dtable"><caption>Supplier concentration by segment. Approximate shares assembled from trade data and company disclosure.</caption>'+
+    '<thead><tr><th>Segment</th><th>Basis</th><th class="n">Largest</th><th class="n">Top three</th><th>Who</th><th>Note</th></tr></thead><tbody>'+
+    CONC.map(function(c){
+      return '<tr><td>'+c.n+(c.choke?' <span class="tag t-nuclear">choke</span>':'')+'</td><td>'+c.b+'</td><td class="n">'+c.top1+'%</td>'+
+        '<td class="n">'+Math.max(c.top1,c.top3)+'%</td><td>'+c.who+'</td><td>'+c.note+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+
+var OWN_TAG={state:'state-owned', listed:'listed', private:'private', nonprofit:'nonprofit', mixed:'mixed'};
+var segFilter='All';
+
+function renderSegBar(){
+  var bar=$('segBar'); if(!bar) return;
+  bar.innerHTML='';
+  var axis=document.createElement('div');
+  axis.className='seg';
+  axis.style.marginRight='6px';
+  [['segment','By segment'],['role','By role in the chain']].forEach(function(pair){
+    var b=document.createElement('button');
+    b.textContent=pair[1];
+    if(rosterAxis===pair[0]) b.className='on';
+    b.addEventListener('click', function(){
+      rosterAxis=pair[0]; segFilter='All'; renderSegBar(); renderRoster();
+    });
+    axis.appendChild(b);
+  });
+  bar.appendChild(axis);
+  (rosterAxis==='role'?ROLES:SEGMENTS).forEach(function(sg){
+    var b=document.createElement('button');
+    b.className='tbtn'+(sg===segFilter?' live':'');
+    b.textContent=sg;
+    b.setAttribute('aria-pressed', sg===segFilter?'true':'false');
+    b.addEventListener('click', function(){ segFilter=sg; renderSegBar(); renderRoster(); });
+    bar.appendChild(b);
+  });
+}
+
+function playerRole(p){ return SEG_ROLE[p.seg] || p.seg; }
+function renderRoster(){
+  var host=$('roster'); if(!host) return;
+  var key = rosterAxis==='role' ? playerRole : function(p){ return p.seg; };
+  var rows=PLAYERS.filter(function(p){ return segFilter==='All' || key(p)===segFilter; });
+  var byseg={};
+  rows.forEach(function(p){ var k=key(p); (byseg[k]=byseg[k]||[]).push(p); });
+  var html='';
+  var groupOrder=(rosterAxis==='role'?ROLES:SEGMENTS).filter(function(g){ return g!=='All' && byseg[g]; });
+  groupOrder.forEach(function(sg){
+    html+='<div style="font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;'+
+      'text-transform:uppercase;color:var(--blue);margin:16px 0 6px">'+sg+'</div>';
+    html+='<table class="dtable" style="margin-top:0"><thead><tr><th style="width:24%">Firm</th>'+
+      '<th style="width:11%">Ownership</th><th style="width:14%">Scale</th><th>Why it matters</th></tr></thead><tbody>';
+    byseg[sg].forEach(function(p){
+      html+='<tr><td><strong>'+p.n+'</strong></td><td>'+OWN_TAG[p.own]+'</td><td class="mono" style="font-size:10.5px">'+p.s+'</td><td>'+p.w+'</td></tr>';
+    });
+    html+='</tbody></table>';
+  });
+  host.innerHTML='<div class="cap" style="margin:0 0 4px">'+rows.length+' of '+PLAYERS.length+
+    ' entries shown. Scale figures are approximate and mixed in units on purpose: the comparable quantity differs by segment. <span class="v-est">est</span></div>'+html;
+}
+
+function renderDesk(){
+  var host=$('deskList'); if(!host) return;
+  var freeOnly=$('deskFree') ? $('deskFree').checked : true;
+  var rows=DESK.filter(function(d){ return !freeOnly || d.free; });
+  var html='<table class="dtable"><thead><tr><th style="width:24%">Source</th><th style="width:13%">Cadence</th>'+
+    '<th style="width:13%">Publisher</th><th>The question it answers</th></tr></thead><tbody>';
+  rows.forEach(function(d){
+    html+='<tr><td><strong>'+d.n+'</strong>'+(d.free?'':' <span class="tag t-loss">paid</span>')+
+      '</td><td class="mono" style="font-size:10.5px">'+d.cad+'</td><td>'+d.org+'</td><td>'+d.q+'</td></tr>';
+  });
+  html+='</tbody></table>';
+  host.innerHTML=html;
+}
+
+/* ============================================================
+   COAL BY REGION
+   ============================================================ */
+var COAL = [
+  {n:'China',                 pct:56, dir:'up',   note:'More than the rest of the world combined. Power sector alone is about a third of global use.'},
+  {n:'India',                 pct:13, dir:'up',   note:'The fastest-growing large consumer, up roughly 45% over the past decade.'},
+  {n:'Rest of Asia-Pacific',  pct:14, dir:'up',   note:'Indonesia, Vietnam, Japan, Korea. Indonesian nickel smelting for batteries is part of this growth.'},
+  {n:'United States',         pct:6,  dir:'down', note:'Down about 4% in 2024, though gas prices and data centre load produced a temporary reversal.'},
+  {n:'European Union',        pct:3,  dir:'down', note:'Down about 11% in 2024, the fastest structural decline of any major bloc.'},
+  {n:'Rest of world',         pct:8,  dir:'flat', note:'Russia, Africa, Latin America, Turkey. Broadly flat in aggregate.'}
+];
+
+/* ============================================================
+   CHINA'S SHARE OF THE WORLD
+   ============================================================ */
+var CHINA = [
+{n:'Solar wafers',              pct:97, k:'mfg',    note:'There is effectively no non-Chinese wafer industry at scale.'},
+  {n:'Polysilicon',               pct:90, k:'mfg',    note:'The upstream chokepoint of the entire solar industry.'},
+  {n:'NdFeB magnets',             pct:90, k:'mfg',    note:'Separation and sintering, not mining, which is diversified.'},
+  {n:'Solar cells & modules',     pct:85, k:'mfg',    note:'Plus most of the equipment that makes them.'},
+  {n:'Battery cells',             pct:75, k:'mfg',    note:'CATL and BYD alone are more than half the world market.'},
+  {n:'Cobalt refining',           pct:72, k:'mfg',    note:'Refining, from ore mined mostly in the DR Congo.'},
+  {n:'Lithium conversion',        pct:65, k:'mfg',    note:'Battery-grade chemicals, from Australian and Chilean feedstock.'},
+  {n:'Electric vehicle sales',    pct:65, k:'deploy', note:'Both the largest market and the largest exporter.'},
+  {n:'Coal consumption',          pct:56, k:'use',    note:'A record 166 EJ globally in 2025; China is over half of it.'},
+  {n:'New solar installed',       pct:55, k:'deploy', note:'More added in some single years than the entire US fleet.'},
+  {n:'Crude steel',               pct:53, k:'use',    note:'Which is why Chinese property demand is a global emissions variable.'},
+  {n:'Coal production',           pct:52, k:'use',    note:'52.4% of world output in 2025, and rising 1.7% that year.'},
+  {n:'Reactors under construction',pct:48,k:'deploy', note:'Roughly half of everything being built worldwide.'},
+  {n:'CO\u2082 emissions',        pct:32, k:'use',    note:'About a third of world energy emissions, and roughly half of coal emissions.'},
+  {n:'Electricity generation',    pct:32, k:'use',    note:'10,087 TWh in 2024 against a world total of 31,256 TWh.'},
+  {n:'Population',                pct:17, k:'ref',    note:'The reference line. Every bar above it is disproportionate; every bar below it is not.'}
+];
+var CHINA_COLOR={mfg:'#0071e3', use:'#b65f00', deploy:'#1f8f4e', ref:'#8a8a8f'};
+var CHINA_LABEL={mfg:'manufacturing', use:'consumption & emissions', deploy:'deployment', ref:'reference'};
+
+/* ============================================================
+   COST OF CAPITAL BY OWNER
+   ============================================================ */
+var OWNERS = [
+  {n:'Public / direct pay',        r:3.0,  note:'Municipal utility, cooperative or state entity using tax-exempt debt and, since 2022, direct payment of credits instead of tax equity.'},
+  {n:'Regulated rate base',        r:4.5,  note:'Approved return on capital with near-certain revenue recovery. The cheapest way to build anything capital-heavy, which is why it produces the cheapest nuclear.'},
+  {n:'Contracted, 20-year PPA',    r:6.5,  note:'Independent developer with an investment-grade offtaker, supporting 70 to 80% project debt.'},
+  {n:'Contracted, short or weak',  r:8.5,  note:'Shorter tenor or a weaker counterparty. The same plant, several dollars a megawatt-hour more expensive.'},
+  {n:'Merchant / uncontracted',    r:11.0, note:'Full exposure to market price. Where the returns are, and where the failures are.'},
+  {n:'Frontier / high-rate market',r:15.0, note:'Emerging market currency and offtaker risk. The reason identical solar hardware yields very different electricity prices by country.'}
+];
+
+/* ============================================================
+   PERMITTING DURATIONS  (months, typical)
+   ============================================================ */
+var PERMITS = [
+  {n:'Battery storage, co-located',   dev:9,  queue:12, build:9,  note:'The quickest of all, which is a substantial part of why it wins.'},
+{n:'Solar, private land, ERCOT',    dev:12, queue:12, build:12, note:'The fastest large generation build available in the developed world, largely because siting is a private land transaction and the queue is single-jurisdiction.'},
+  {n:'Interstate gas pipeline',       dev:24, queue:0,  build:18, note:'FERC section 7(c) certificate, which carries federal eminent domain. No electricity equivalent exists.'},
+  {n:'Onshore wind',                  dev:24, queue:18, build:12, note:'Local siting opposition is the dominant variable, and it is a county-level process.'},
+  {n:'Solar, federal land',           dev:36, queue:18, build:12, note:'Adds full federal environmental review and land management authorisation.'},
+  {n:'Data centre and substation',    dev:12, queue:36, build:24, note:'The building is fast. The interconnection is not, which is why siting now follows available grid capacity.'},
+  {n:'LNG export terminal',           dev:36, queue:0,  build:48, note:'Natural Gas Act section 3 authorisation plus a Department of Energy export decision, then a four-year construction programme.'},
+  {n:'Offshore wind',                 dev:60, queue:24, build:36, note:'Federal lease, construction and operations plan, and a vessel schedule that is itself the constraint.'},
+  {n:'Interstate transmission',       dev:96, queue:0,  build:36, note:'Sited state by state with no federal backstop that has survived contact with the courts. The longest pole in the entire system.'},
+  {n:'Nuclear, new build',            dev:60, queue:0,  build:96, note:'Nuclear Regulatory Commission licensing then a first-of-a-kind construction programme. Serial construction shortens the second half, not the first.'}
+];
+
+/* ============================================================
+   RENDERERS
+   ============================================================ */
+function renderCoal(){
+  var svg=$('coalSplit'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(560, Math.min(1180, host.clientWidth-6)), rowH=27, padL=176, padR=170;
+  var H=COAL.length*rowH+22;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var max=60;
+  function sc(v){ return (W-padL-padR)*v/max; }
+  [0,20,40,60].forEach(function(g){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:4,x2:x,y2:H-16,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, g+'%'));
+  });
+  var DIR={up:{c:'#b65f00',t:'rising'}, down:{c:'#1f8f4e',t:'falling'}, flat:{c:'#8a8a8f',t:'flat'}};
+  COAL.forEach(function(c,i){
+    var y=8+i*rowH, d=DIR[c.dir];
+    svg.appendChild(el('text',{x:padL-8,y:y+13,'text-anchor':'end',style:'font-size:11.5px;fill:#1d1d1f'}, c.n));
+    var r=el('rect',{x:padL,y:y+3,width:Math.max(1,sc(c.pct)),height:14,rx:2,fill:d.c,opacity:.85});
+    r.appendChild(el('title',null,c.n+' \u2014 about '+c.pct+'% of world coal consumption, '+d.t+'. '+c.note));
+    svg.appendChild(r);
+    svg.appendChild(el('text',{x:padL+sc(c.pct)+6,y:y+14,
+      style:'font-family:JetBrains Mono,monospace;font-size:10.5px;fill:#1d1d1f'}, c.pct+'%'));
+    svg.appendChild(el('text',{x:padL+sc(c.pct)+42,y:y+14,style:'font-size:10px;fill:'+d.c}, d.t));
+  });
+  $('coalTable').innerHTML='<table class="dtable"><caption>Coal consumption by region, approximate share of the world total, with the direction of travel.</caption>'+
+    '<thead><tr><th>Region</th><th class="n">Share</th><th>Trend</th><th>Note</th></tr></thead><tbody>'+
+    COAL.map(function(c){ return '<tr><td>'+c.n+'</td><td class="n">'+c.pct+'%</td><td>'+DIR[c.dir].t+'</td><td>'+c.note+'</td></tr>'; }).join('')+
+    '</tbody></table>';
+}
+
+function renderChina(){
+  var svg=$('chinaShare'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(560, Math.min(1180, host.clientWidth-6)), rowH=24, padL=196, padR=120;
+  var H=CHINA.length*rowH+26;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  function sc(v){ return (W-padL-padR)*v/100; }
+  [0,25,50,75,100].forEach(function(g){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:4,x2:x,y2:H-18,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-5,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, g+'%'));
+  });
+  var popX=padL+sc(17);
+  svg.appendChild(el('line',{x1:popX,y1:4,x2:popX,y2:H-18,stroke:'#8a8a8f','stroke-dasharray':'3 3'}));
+  CHINA.forEach(function(c,i){
+    var y=8+i*rowH, col=CHINA_COLOR[c.k];
+    svg.appendChild(el('text',{x:padL-8,y:y+12,'text-anchor':'end',
+      style:'font-size:11px;fill:'+(c.k==='ref'?'#8a8a8f':'#1d1d1f')}, c.n));
+    var r=el('rect',{x:padL,y:y+2,width:Math.max(1,sc(c.pct)),height:13,rx:2,fill:col,
+      opacity:c.k==='ref'?.35:.85});
+    r.appendChild(el('title',null,c.n+' \u2014 about '+c.pct+'% ('+CHINA_LABEL[c.k]+'). '+c.note));
+    svg.appendChild(r);
+    svg.appendChild(el('text',{x:padL+sc(c.pct)+6,y:y+13,
+      style:'font-family:JetBrains Mono,monospace;font-size:10px;fill:#1d1d1f'}, c.pct+'%'));
+  });
+  svg.appendChild(el('text',{x:popX+4,y:H-22,style:'font-size:9.5px;fill:#8a8a8f'},'share of world population'));
+  $('chinaTable').innerHTML='<table class="dtable"><caption>China\u2019s approximate share of world totals. Population is the reference line.</caption>'+
+    '<thead><tr><th>Measure</th><th>Category</th><th class="n">Share</th><th>Note</th></tr></thead><tbody>'+
+    CHINA.map(function(c){ return '<tr><td>'+c.n+'</td><td>'+CHINA_LABEL[c.k]+'</td><td class="n">'+c.pct+'%</td><td>'+c.note+'</td></tr>'; }).join('')+
+    '</tbody></table>';
+}
+
+function renderWacc(){
+  var svg=$('wacc'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(600, Math.min(1180, host.clientWidth-6)), rowH=30, padL=190, padR=76;
+  var H=OWNERS.length*rowH+30;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+
+  var base=lcoeParams();
+  var shown=['nuclear','offshore','solar','ccgt'];
+  var COLS={nuclear:'#bd2b28', offshore:'#0071e3', solar:'#c99700', ccgt:'#b65f00'};
+  var rows=OWNERS.map(function(o){
+    var p={};
+    for(var k in base) p[k]=base[k];
+    p.disc=o.r/100;
+    var vals={};
+    shown.forEach(function(id){
+      var t=TECHS.filter(function(x){return x.id===id;})[0];
+      vals[id]=lcoe(t,p,'base').total;
+    });
+    return {o:o, vals:vals};
+  });
+  var max=0;
+  rows.forEach(function(r){ shown.forEach(function(id){ max=Math.max(max,r.vals[id]); }); });
+  max=Math.ceil(max/25)*25;
+  function sc(v){ return (W-padL-padR)*v/max; }
+
+  for(var g=0; g<=max; g+=50){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:16,x2:x,y2:H-16,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, '$'+g));
+  }
+  var lx=padL;
+  shown.forEach(function(id){
+    var t=TECHS.filter(function(x){return x.id===id;})[0];
+    svg.appendChild(el('circle',{cx:lx+4,cy:9,r:3.4,fill:COLS[id]}));
+    var lab=el('text',{x:lx+12,y:12,style:'font-size:9.5px;fill:#5a5a5f'}, t.n);
+    svg.appendChild(lab);
+    lx += 24 + t.n.length*5.4;
+  });
+
+  rows.forEach(function(r,i){
+    var y=22+i*rowH;
+    svg.appendChild(el('text',{x:padL-8,y:y+11,'text-anchor':'end',style:'font-size:11px;fill:#1d1d1f'}, r.o.n));
+    svg.appendChild(el('text',{x:padL-8,y:y+22,'text-anchor':'end',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, r.o.r.toFixed(1)+'% real'));
+    shown.forEach(function(id,j){
+      var x=padL+sc(r.vals[id]);
+      var c=el('circle',{cx:x,cy:y+12,r:4.4,fill:COLS[id],opacity:.9});
+      c.appendChild(el('title',null, r.o.n+' at '+r.o.r.toFixed(1)+'%: '+
+        TECHS.filter(function(t){return t.id===id;})[0].n+' $'+r.vals[id].toFixed(0)+'/MWh. '+r.o.note));
+      svg.appendChild(c);
+    });
+    var lo=Math.min.apply(null, shown.map(function(id){return r.vals[id];}));
+    var hi=Math.max.apply(null, shown.map(function(id){return r.vals[id];}));
+    svg.appendChild(el('line',{x1:padL+sc(lo),y1:y+12,x2:padL+sc(hi),y2:y+12,
+      stroke:'rgba(0,0,0,.18)','stroke-width':1}));
+  });
+
+  var nuc=rows.map(function(r){ return r.vals.nuclear; });
+  var swing=(Math.max.apply(null,nuc)/Math.min.apply(null,nuc));
+  $('waccTable').innerHTML='<table class="dtable"><caption>Levelized cost in dollars per megawatt-hour under six financing regimes, at current cost-model settings. '+
+    'Nuclear varies by a factor of '+swing.toFixed(1)+' across the range with no engineering change.</caption>'+
+    '<thead><tr><th>Owner</th><th class="n">Real discount rate</th>'+
+    shown.map(function(id){ return '<th class="n">'+TECHS.filter(function(t){return t.id===id;})[0].n+'</th>'; }).join('')+
+    '<th>Note</th></tr></thead><tbody>'+
+    rows.map(function(r){
+      return '<tr><td>'+r.o.n+'</td><td class="n">'+r.o.r.toFixed(1)+'%</td>'+
+        shown.map(function(id){ return '<td class="n">$'+r.vals[id].toFixed(0)+'</td>'; }).join('')+
+        '<td>'+r.o.note+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+
+function renderPermits(){
+  var svg=$('permitChart'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(600, Math.min(1180, host.clientWidth-6)), rowH=27, padL=210, padR=84;
+  var H=PERMITS.length*rowH+30;
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var max=140;
+  function sc(v){ return (W-padL-padR)*v/max; }
+  [0,24,48,72,96,120].forEach(function(g){
+    var x=padL+sc(g);
+    svg.appendChild(el('line',{x1:x,y1:16,x2:x,y2:H-16,stroke:'rgba(0,0,0,.07)'}));
+    svg.appendChild(el('text',{x:x,y:H-4,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:9px;fill:#8a8a8f'}, g?(g/12)+' yr':'0'));
+  });
+  var KEY=[['Development, siting & review','#0071e3'],['Interconnection queue','#c99700'],['Construction','#a6adb7']];
+  var lx=padL;
+  KEY.forEach(function(k){
+    svg.appendChild(el('rect',{x:lx,y:5,width:11,height:8,rx:2,fill:k[1],opacity:.85}));
+    svg.appendChild(el('text',{x:lx+15,y:12,style:'font-size:9.5px;fill:#5a5a5f'},k[0]));
+    lx += 26 + k[0].length*5.2;
+  });
+
+  PERMITS.forEach(function(p,i){
+    var y=22+i*rowH, x=padL;
+    svg.appendChild(el('text',{x:padL-8,y:y+13,'text-anchor':'end',style:'font-size:11px;fill:#1d1d1f'}, p.n));
+    [['dev','#0071e3'],['queue','#c99700'],['build','#a6adb7']].forEach(function(seg){
+      var v=p[seg[0]];
+      if(!v) return;
+      var r=el('rect',{x:x,y:y+3,width:Math.max(1,sc(v)),height:14,rx:2,fill:seg[1],opacity:.85});
+      r.appendChild(el('title',null,p.n+' \u2014 '+seg[0]+': about '+v+' months. '+p.note));
+      svg.appendChild(r);
+      x+=sc(v);
+    });
+    var total=p.dev+p.queue+p.build;
+    svg.appendChild(el('text',{x:x+6,y:y+14,
+      style:'font-family:JetBrains Mono,monospace;font-size:10px;fill:#1d1d1f'}, (total/12).toFixed(1)+' yr'));
+  });
+  $('permitTable').innerHTML='<table class="dtable"><caption>Typical duration in months from development decision to commercial operation. US-centric, and typical rather than best or worst case.</caption>'+
+    '<thead><tr><th>Project</th><th class="n">Review</th><th class="n">Queue</th><th class="n">Build</th><th class="n">Total</th><th>Note</th></tr></thead><tbody>'+
+    PERMITS.map(function(p){
+      return '<tr><td>'+p.n+'</td><td class="n">'+p.dev+'</td><td class="n">'+(p.queue||'\u2014')+'</td><td class="n">'+p.build+
+        '</td><td class="n">'+((p.dev+p.queue+p.build)/12).toFixed(1)+' yr</td><td>'+p.note+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+
+/* ============================================================
+   PHYSICS: RELATIONSHIP WEB
+   ============================================================ */
+var PHYS_NODES = [
+  {id:'m',  n:'Mass',            u:'kg',        x:0.06, y:0.20, base:true},
+  {id:'l',  n:'Length',          u:'m',         x:0.06, y:0.50, base:true},
+  {id:'t',  n:'Time',            u:'s',         x:0.06, y:0.80, base:true},
+  {id:'v',  n:'Velocity',        u:'m/s',       x:0.26, y:0.66},
+  {id:'a',  n:'Acceleration',    u:'m/s\u00B2', x:0.26, y:0.86},
+  {id:'p',  n:'Momentum',        u:'kg\u00B7m/s', x:0.44, y:0.86},
+  {id:'F',  n:'Force',           u:'N',         x:0.26, y:0.34},
+  {id:'E',  n:'Energy / work',   u:'J',         x:0.50, y:0.34, hero:true},
+  {id:'P',  n:'Power',           u:'W',         x:0.72, y:0.20, hero:true},
+  {id:'S',  n:'Action',          u:'J\u00B7s',  x:0.72, y:0.52},
+  {id:'T',  n:'Temperature',     u:'K',         x:0.50, y:0.08},
+  {id:'G',  n:'Spacetime curvature', u:'m\u207B\u00B2', x:0.90, y:0.72}
+];
+var PHYS_EDGES = [
+  {a:'l', b:'v', eq:'v = dx/dt', note:'Rate of change of position. Divide a length by a time.'},
+  {a:'t', b:'v', eq:'v = dx/dt', note:'The same definition, from the other input.'},
+  {a:'v', b:'a', eq:'a = dv/dt', note:'Rate of change of velocity. Earth surface gravity is 9.81 m/s\u00B2.'},
+  {a:'m', b:'F', eq:'F = ma', note:'Newton\u2019s second law. One newton accelerates one kilogram at one metre per second squared.'},
+  {a:'a', b:'F', eq:'F = ma', note:'Force is the product of the two, which is why the newton is a derived unit.'},
+  {a:'m', b:'p', eq:'p = mv', note:'Momentum. Conserved because the laws are the same everywhere in space.'},
+  {a:'F', b:'E', eq:'W = F\u00B7d', note:'Work is force through distance. Lifting 1 kg by 1 m against gravity takes 9.81 J.'},
+  {a:'m', b:'E', eq:'E = mc\u00B2', note:'Rest energy. 1 kg = 8.99\u00D710\u00B9\u2076 J, about 21.5 megatonnes of TNT.'},
+  {a:'v', b:'E', eq:'E = \u00BDmv\u00B2', note:'Kinetic energy. A 1,500 kg car at 100 km/h holds 579 kJ, which is what the brakes must turn into heat.'},
+  {a:'E', b:'P', eq:'P = dE/dt', note:'Power is the rate of energy transfer. One watt is one joule per second.'},
+  {a:'t', b:'P', eq:'P = dE/dt', note:'Divide energy by time. A kilowatt-hour is a power multiplied back by a time: 3.6 MJ.'},
+  {a:'E', b:'S', eq:'S = \u222BL dt', note:'Action, energy integrated over time. Quantum mechanics has a smallest unit of it: \u0127 = 1.055\u00D710\u207B\u00B3\u2074 J\u00B7s.'},
+  {a:'E', b:'T', eq:'E \u2248 k_B T', note:'Temperature is energy per degree of freedom. k_B = 1.381\u00D710\u207B\u00B2\u00B3 J/K, so room temperature is about 26 meV.'},
+  {a:'T', b:'P', eq:'\u03B7 = 1 \u2212 T_c/T_h', note:'Carnot. Two temperatures set the maximum fraction of heat that can become work, which is why thermal plants reject most of their fuel.'},
+  {a:'E', b:'G', eq:'G\u1D55\u1D5B = 8\u03C0G/c\u2074 \u00B7 T\u1D55\u1D5B', note:'Einstein\u2019s field equations. Energy, momentum, pressure and flux together curve spacetime. Energy is the source term of gravity.'},
+  {a:'p', b:'E', eq:'E\u00B2 = (pc)\u00B2 + (mc\u00B2)\u00B2', note:'Energy and momentum are components of one four-vector, so energy is frame-dependent. Invariant mass is what all observers agree on.'}
+];
+
+function renderPhysWeb(){
+  var svg=$('physWeb'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(640, Math.min(1180, host.clientWidth-6)), H=380;
+  var M={l:74,r:96,t:26,b:26};
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  function X(f){ return M.l+(W-M.l-M.r)*f; }
+  function Y(f){ return M.t+(H-M.t-M.b)*f; }
+  var byId={}; PHYS_NODES.forEach(function(n){ byId[n.id]=n; });
+
+  PHYS_EDGES.forEach(function(e){
+    var a=byId[e.a], b=byId[e.b];
+    var x1=X(a.x), y1=Y(a.y), x2=X(b.x), y2=Y(b.y);
+    var mx=(x1+x2)/2, my=(y1+y2)/2;
+    var g=el('g',{style:'cursor:help',tabindex:'0',role:'button','aria-label':e.eq+'. '+e.note});
+    g.appendChild(el('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:'rgba(0,113,227,.30)','stroke-width':10,opacity:0}));
+    g.appendChild(el('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:'rgba(0,0,0,.16)','stroke-width':1}));
+    var t=el('text',{x:mx,y:my-3,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#5a5a5f'}, e.eq);
+    g.appendChild(t);
+    g.appendChild(el('title',null, e.eq+' \u2014 '+e.note));
+    svg.appendChild(g);
+  });
+
+  PHYS_NODES.forEach(function(n){
+    var x=X(n.x), y=Y(n.y);
+    var w=Math.max(58, n.n.length*6.1+16), h=n.hero?30:25;
+    var g=el('g');
+    g.appendChild(el('rect',{x:x-w/2,y:y-h/2,width:w,height:h,rx:6,
+      fill:n.hero?'rgba(0,113,227,.12)':(n.base?'rgba(0,0,0,.05)':'#fff'),
+      stroke:n.hero?'#0071e3':'rgba(0,0,0,.16)','stroke-width':n.hero?1.4:1}));
+    g.appendChild(el('text',{x:x,y:y-1,'text-anchor':'middle',
+      style:'font-size:10.5px;font-weight:'+(n.hero?'600':'400')+';fill:#1d1d1f'}, n.n));
+    g.appendChild(el('text',{x:x,y:y+9,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8px;fill:#8a8a8f'}, n.u));
+    svg.appendChild(g);
+  });
+  svg.appendChild(el('text',{x:M.l-64,y:Y(0.02),
+    style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#8a8a8f'},'BASE'));
+
+  $('physTable').innerHTML='<table class="dtable"><caption>Every relation in the diagram, with a worked number.</caption>'+
+    '<thead><tr><th>From</th><th>To</th><th>Relation</th><th>Note</th></tr></thead><tbody>'+
+    PHYS_EDGES.map(function(e){
+      return '<tr><td>'+byId[e.a].n+'</td><td>'+byId[e.b].n+'</td><td class="mono">'+e.eq+'</td><td>'+e.note+'</td></tr>';
+    }).join('')+'</tbody></table>';
+}
+
+/* ============================================================
+   ENERGY UNIT CONVERTER
+   ============================================================ */
+var C_LIGHT=299792458, H_PLANCK=6.62607015e-34;
+var UNITS = [
+  {id:'J',    n:'joule',                 j:1},
+  {id:'kJ',   n:'kilojoule',             j:1e3},
+  {id:'MJ',   n:'megajoule',             j:1e6},
+  {id:'GJ',   n:'gigajoule',             j:1e9},
+  {id:'EJ',   n:'exajoule',              j:1e18},
+  {id:'kWh',  n:'kilowatt-hour',         j:3.6e6},
+  {id:'MWh',  n:'megawatt-hour',         j:3.6e9},
+  {id:'TWh',  n:'terawatt-hour',         j:3.6e15},
+  {id:'kcal', n:'kilocalorie (food cal)',j:4184},
+  {id:'BTU',  n:'British thermal unit',  j:1055.05585262},
+  {id:'MMBtu',n:'million BTU',           j:1.05505585262e9},
+  {id:'eV',   n:'electronvolt',          j:1.602176634e-19},
+  {id:'boe',  n:'barrel of oil equivalent', j:6.1178632e9, approx:true},
+  {id:'tce',  n:'tonne of coal equivalent', j:29.3076e9, approx:true},
+  {id:'tTNT', n:'tonne of TNT',          j:4.184e9},
+  {id:'MtTNT',n:'megatonne of TNT',      j:4.184e15},
+  {id:'kg',   n:'kilogram of mass (E/c\u00B2)', j:C_LIGHT*C_LIGHT},
+  {id:'phot', n:'photons at 550 nm',     j:H_PLANCK*C_LIGHT/550e-9}
+];
+var REFS = [
+  {n:'Seconds of sunlight on Earth',     j:1.7355e17, fmt:'time'},
+  {n:'Share of world annual energy',     j:620e18,    fmt:'pct'},
+  {n:'Share of a person\u2019s daily food', j:8.4e6,   fmt:'pct'},
+  {n:'Hiroshima-scale devices',          j:6.3e13,    fmt:'num'},
+  {n:'Litres of gasoline',               j:34.2e6,    fmt:'num'},
+  {n:'Fully charged EV batteries (75 kWh)', j:2.7e8,   fmt:'num'}
+];
+
+function sig(x, d){
+  if(!isFinite(x)) return '\u2014';
+  if(x===0) return '0';
+  var abs=Math.abs(x);
+  if(abs>=1e6 || abs<1e-3) return x.toExponential(d==null?3:d).replace('e+','\u00D710^').replace('e-','\u00D710^\u2212');
+  return x.toLocaleString('en-US',{maximumSignificantDigits:d==null?4:d});
+}
+function fmtTime(s){
+  if(s<1) return sig(s*1000)+' ms';
+  if(s<90) return sig(s)+' s';
+  if(s<5400) return sig(s/60)+' min';
+  if(s<172800) return sig(s/3600)+' hours';
+  if(s<3.15e7) return sig(s/86400)+' days';
+  return sig(s/3.1557e7)+' years';
+}
+function renderConverter(){
+  var sel=$('eUnit'); if(!sel) return;
+  if(!sel.options.length){
+    UNITS.forEach(function(u){
+      var o=document.createElement('option');
+      o.value=u.id; o.textContent=u.id;
+      sel.appendChild(o);
+    });
+    sel.value='EJ';
+    $('eVal').value='620';
+  }
+  var v=parseFloat($('eVal').value);
+  var from=UNITS.filter(function(u){return u.id===sel.value;})[0];
+  if(!isFinite(v) || !from){ $('eOut').innerHTML='<div class="cap">Enter a number.</div>'; return; }
+  var joules=v*from.j;
+  var rows=UNITS.map(function(u){
+    return '<tr><td>'+u.n+(u.approx?' <span class="tag t-loss">approx</span>':'')+'</td>'+
+      '<td class="n">'+sig(joules/u.j)+'</td><td class="mono" style="font-size:9.5px;color:var(--text-3)">'+u.id+'</td></tr>';
+  }).join('');
+  var refs=REFS.map(function(r){
+    var x=joules/r.j, out;
+    if(r.fmt==='time') out=fmtTime(x);
+    else if(r.fmt==='pct') out=(x*100<0.001? sig(x*100)+'%' : (x*100).toFixed(x*100<1?4:2)+'%');
+    else out=sig(x);
+    return '<tr><td>'+r.n+'</td><td class="n">'+out+'</td><td></td></tr>';
+  }).join('');
+  $('eOut').innerHTML='<table class="dtable" style="margin-top:0"><caption>'+sig(joules)+
+    ' joules, expressed every way this page needs it.</caption><tbody>'+rows+
+    '<tr><th colspan="3" style="padding-top:10px">For perspective</th></tr>'+refs+'</tbody></table>';
+}
+
+/* ============================================================
+   SOLAR BUDGET
+   ============================================================ */
+var SOLAR = {
+  constant:1361,            // W/m2 at 1 AU, solar constant
+  sunOutput:3.828e26,       // W
+  earthRadius:6.371e6,      // m
+  albedo:0.30,
+  landArea:1.489e8,         // km2
+  cropland:1.57e7,          // km2
+  sunSurface:6.29e7         // W/m2 at the photosphere
+};
+function solarBudget(o){
+  var discArea=Math.PI*Math.pow(SOLAR.earthRadius,2);          // m2
+  var intercepted=SOLAR.constant*discArea;                      // W
+  var absorbed=intercepted*(1-SOLAR.albedo);
+  var annual=intercepted*3.1557e7;                              // J/yr
+  var fracOfSun=intercepted/SOLAR.sunOutput;
+  var demandJ=o.demandEJ*1e18;
+  var demandW=demandJ/3.1557e7;
+  var secondsOfSun=demandJ/intercepted;
+  // land: average irradiance from insolation, then module efficiency, then packing
+  var avgIrr=o.insol*1000/24;                                   // W/m2 average
+  var perM2=avgIrr*(o.eff/100)/o.pack;                          // W per m2 of land
+  var areaM2=demandW/perM2;
+  var areaKm2=areaM2/1e6;
+  return {
+    discArea:discArea, intercepted:intercepted, absorbed:absorbed, annual:annual,
+    fracOfSun:fracOfSun, demandW:demandW, secondsOfSun:secondsOfSun,
+    shareOfBudget:demandJ/annual, perM2:perM2, areaKm2:areaKm2,
+    shareOfLand:areaKm2/SOLAR.landArea, shareOfCropland:areaKm2/SOLAR.cropland
+  };
+}
+var COUNTRIES=[
+  {n:'Nigeria',a:923768},{n:'Egypt',a:1001450},{n:'Mongolia',a:1564110},
+  {n:'Iran',a:1648195},{n:'Argentina',a:2780400},{n:'India',a:3287263},
+  {n:'Australia',a:7692024},{n:'the Sahara',a:9200000}
+];
+var solarDemand=620;
+function renderSolar(){
+  if(!$('sOut')) return;
+  var o={insol:+$('sInsol').value, eff:+$('sEff').value, pack:+$('sPack').value, demandEJ:solarDemand};
+  $('oInsol').textContent=o.insol.toFixed(1);
+  $('oEff').textContent=o.eff.toFixed(0)+'%';
+  $('oPack').textContent=o.pack.toFixed(1)+'\u00D7';
+  var r=solarBudget(o);
+  var closest=COUNTRIES.reduce(function(best,c){
+    return Math.abs(c.a-r.areaKm2)<Math.abs(best.a-r.areaKm2)?c:best;
+  }, COUNTRIES[0]);
+  $('sOut').innerHTML=
+    '<div class="g2" style="gap:10px">'+
+    card('Sun\u2019s output reaching Earth', (r.fracOfSun*1e9).toFixed(2)+' parts per billion',
+      'Earth is a '+sig(r.discArea/1e6,3)+' km\u00B2 disc at 150 million km. Everything else streams past.')+
+    card('Power intercepted', sig(r.intercepted/1e15,3)+' PW',
+      'About '+sig(r.annual/1e18/1e6,3)+' million EJ a year, of which 30% reflects straight back.')+
+    card('Time to receive a year of demand', fmtTime(r.secondsOfSun),
+      'Earth intercepts humanity\u2019s entire annual energy use, '+solarDemand+' EJ, in that long.')+
+    card('Demand as a share of the budget', (r.shareOfBudget*100).toFixed(4)+'%',
+      'Scarcity of energy is not the problem. Capture, conversion, storage and transmission are.')+
+    card('Land needed at these settings', sig(r.areaKm2,3)+' km\u00B2',
+      'About the area of '+closest.n+', at '+r.perM2.toFixed(1)+' W per square metre of land, averaged over the year.')+
+    card('As a share of land', (r.shareOfLand*100).toFixed(2)+'% of land area',
+      'Equivalent to '+(r.shareOfCropland*100).toFixed(1)+'% of the world\u2019s cropland. Rooftops, deserts and existing rights of way are all in that budget.')+
+    '</div>';
+}
+
+function renderSolarChain(){
+  var svg=$('solarChain'); if(!svg) return;
+  clear(svg);
+  var host=svg.parentNode;
+  var W=Math.max(620, Math.min(1180, host.clientWidth-6)), H=250;
+  var M={l:220,r:90,t:16,b:34};
+  svg.setAttribute('width',W); svg.setAttribute('height',H);
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var steps=[
+    {n:'Sun\u2019s photosphere',        v:6.29e7, note:'63 megawatts per square metre at the surface of the star.'},
+    {n:'At Earth\u2019s orbit',         v:1361,   note:'The solar constant. Diluted by the square of 150 million km.'},
+    {n:'Top of atmosphere, averaged',   v:340,    note:'Divide by four: a sphere has four times the area of its shadow disc.'},
+    {n:'Absorbed at surface',           v:163,    note:'After 30% albedo and atmospheric absorption.'},
+    {n:'Good site, annual average',     v:208,    note:'A tilted panel in a sunny latitude beats the global average.'},
+    {n:'Electricity from a module',     v:44,     note:'At 21% efficiency. The Shockley-Queisser limit is about 33% for one junction.'},
+    {n:'Per square metre of land',      v:15,     note:'After spacing, roads and inverters. This is the number that sets land area.'}
+  ];
+  var lo=1, hi=8;
+  function X(v){ return M.l+(W-M.l-M.r)*(Math.log(v)/Math.LN10-lo)/(hi-lo); }
+  var rowH=(H-M.t-M.b)/steps.length;
+  [1,10,100,1e3,1e4,1e5,1e6,1e7,1e8].forEach(function(g){
+    var x=X(g); if(x<M.l-2) return;
+    svg.appendChild(el('line',{x1:x,y1:M.t,x2:x,y2:H-M.b,stroke:'rgba(0,0,0,.06)'}));
+    svg.appendChild(el('text',{x:x,y:H-M.b+14,'text-anchor':'middle',
+      style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#8a8a8f'},
+      g>=1e6?(g/1e6)+'M':g>=1e3?(g/1e3)+'k':String(g)));
+  });
+  svg.appendChild(el('text',{x:W-M.r,y:H-M.b+28,'text-anchor':'end',
+    style:'font-family:JetBrains Mono,monospace;font-size:8.5px;fill:#8a8a8f'},'watts per square metre, log scale'));
+  steps.forEach(function(s,i){
+    var y=M.t+rowH*i+rowH/2;
+    svg.appendChild(el('text',{x:M.l-10,y:y+3,'text-anchor':'end',style:'font-size:11px;fill:#1d1d1f'}, s.n));
+    var r=el('rect',{x:M.l,y:y-7,width:Math.max(1.5,X(s.v)-M.l),height:14,rx:2,
+      fill:i<4?'#c99700':'#0071e3',opacity:.8});
+    r.appendChild(el('title',null,s.n+': '+sig(s.v,3)+' W/m\u00B2. '+s.note));
+    svg.appendChild(r);
+    svg.appendChild(el('text',{x:X(s.v)+6,y:y+4,
+      style:'font-family:JetBrains Mono,monospace;font-size:10px;fill:#1d1d1f'}, sig(s.v,3)));
+  });
+}
+
+/* ============================================================
+   NEW GLOBE LAYERS: PIPELINES AND NUCLEAR PLANTS
+   ============================================================ */
+var PIPES = [
+  {n:'Druzhba', k:'oil', pts:[[52.3,54.9],[38.0,53.4],[29.2,52.05],[19.7,52.55],[14.28,53.06]],
+   m:'~4 Mb/d design, 4,000 km, the longest oil pipeline built', d:[['Built','1964, to move Soviet crude into the Eastern bloc'],['Status','Northern branch to Poland and Germany largely idle since 2022; southern branch still supplies Hungary and Slovakia'],['Point','A pipeline is a relationship you cannot easily exit']]},
+  {n:'Nord Stream 1', k:'gas', pts:[[28.75,60.7],[22.0,58.5],[18.0,55.5],[13.68,54.14]],
+   m:'55 bcm/yr, 1,224 km subsea', d:[['Built','2011, Vyborg to Lubmin'],['Status','Sabotaged September 2022 and not repaired'],['Consequence','The single largest energy supply disruption in modern European history']]},
+  {n:'Yamal\u2013Europe', k:'gas', pts:[[34.96,57.04],[30.0,55.5],[27.5,53.9],[20.0,52.6],[14.55,52.35]],
+   m:'33 bcm/yr through Belarus and Poland', d:[['Status','Flows effectively ended in 2022'],['Note','Poland had already declined to renew transit terms before the invasion']]},
+  {n:'TurkStream', k:'gas', pts:[[37.35,44.9],[35.0,43.0],[28.1,41.6],[26.5,41.5]],
+   m:'31.5 bcm/yr under the Black Sea', d:[['Status','Operating, and now the main surviving Russian route to southeastern Europe'],['Design','Deliberately routed to avoid Ukrainian transit']]},
+  {n:'Power of Siberia', k:'gas', pts:[[111.5,60.5],[120.0,55.0],[127.5,50.3],[125.3,43.9],[121.5,31.2]],
+   m:'38 bcm/yr to China, expanding', d:[['Built','2019'],['Significance','Russia\u2019s pivot east, at a price Beijing has never disclosed'],['Limit','Not connected to the fields that used to serve Europe']]},
+  {n:'West\u2013East Gas Pipeline', k:'gas', pts:[[84.2,41.0],[95.0,39.5],[108.9,34.3],[115.0,32.5],[121.47,31.23]],
+   m:'~4,000 km, Tarim Basin to Shanghai', d:[['Built','2004, with second and third lines since'],['Purpose','Coal displacement in eastern cities'],['Scale','One of several such systems; China builds these as national infrastructure programmes']]},
+  {n:'ESPO', k:'oil', pts:[[98.0,55.9],[110.0,55.0],[123.9,54.0],[132.6,42.9]],
+   m:'~1.6 Mb/d to the Pacific', d:[['Route','Taishet to Kozmino, with a spur to Daqing'],['Effect','Created a seaborne Russian crude grade for Asian buyers'],['Since 2022','The mechanism by which Russian barrels were redirected east']]},
+  {n:'Trans-Alaska (TAPS)', k:'oil', pts:[[-148.5,70.3],[-148.0,67.0],[-147.7,64.8],[-146.35,61.13]],
+   m:'1,288 km, 800 mm, above permafrost', d:[['Built','1977 after the 1973 oil shock'],['Engineering','Elevated on heat-pipe supports so the hot oil does not thaw the ground it stands on'],['Now','Throughput a quarter of its peak, and minimum flow is itself an engineering problem']]},
+  {n:'Keystone system', k:'oil', pts:[[-111.3,52.65],[-104.0,46.0],[-97.0,40.0],[-96.35,35.98],[-93.9,29.9]],
+   m:'Alberta oil sands to the US Gulf Coast', d:[['Note','The Keystone XL expansion was cancelled in 2021 after a decade of litigation'],['Point','The most politically contested pipeline in North America, and the base system runs regardless']]},
+  {n:'Colonial', k:'oil', pts:[[-95.4,29.75],[-90.0,31.5],[-84.4,33.75],[-79.0,36.5],[-74.24,40.62]],
+   m:'~2.5 Mb/d of refined products, Houston to New Jersey', d:[['Significance','The largest refined product line in the US'],['May 2021','A ransomware attack shut it for six days and emptied filling stations across the Southeast'],['Lesson','The cyber exposure of energy is mostly in the business systems, not the control systems']]},
+  {n:'Southern Gas Corridor', k:'gas', pts:[[49.87,40.4],[45.0,40.2],[41.28,39.9],[32.0,39.5],[26.0,40.9],[18.35,40.28]],
+   m:'16 bcm/yr, Caspian to Italy', d:[['Chain','South Caucasus Pipeline, then TANAP across Turkey, then TAP under the Adriatic'],['Purpose','The EU\u2019s only new non-Russian pipeline corridor of the last two decades'],['Scale','Small next to what Nord Stream carried']]},
+  {n:'Medgaz', k:'gas', pts:[[-1.38,35.3],[-2.0,36.0],[-2.46,36.83]],
+   m:'~10 bcm/yr, Algeria to Spain direct', d:[['Note','Bypasses Morocco, which is the point'],['Context','Algerian gas became materially more important to Europe after 2022']]},
+  {n:'Trans Mountain', k:'oil', pts:[[-113.5,53.5],[-118.0,52.0],[-122.95,49.25]],
+   m:'890 kb/d after the 2024 expansion', d:[['Cost','About C$34B, roughly five times the original estimate'],['Owner','The Canadian federal government, which bought it to ensure completion'],['Effect','Gave Alberta crude its first real tidewater access to Asia']]}
+];
+
+var NUKES = [
+  {n:'Kashiwazaki-Kariwa', ll:[138.6,37.43], mw:7965, c:'Japan', note:'The largest nuclear station ever built. Idled after 2011; partial restart under way.'},
+  {n:'Bruce', ll:[-81.6,44.32], mw:6550, c:'Canada', note:'The largest operating station in the world, and a CANDU fleet that refuels without shutting down.'},
+  {n:'Kori & Shin-Kori', ll:[129.29,35.32], mw:6800, c:'South Korea', note:'The densest concentration of reactors anywhere, and the reference for serial construction economics.'},
+  {n:'Hanul', ll:[129.38,37.09], mw:6189, c:'South Korea', note:'Korean APR1400s, the design exported to the UAE.'},
+  {n:'Tianwan', ll:[119.46,34.69], mw:6400, c:'China', note:'Russian VVERs alongside Chinese designs at one site, which is unusual and deliberate.'},
+  {n:'Zaporizhzhia', ll:[34.58,47.51], mw:5700, c:'Ukraine', note:'The largest in Europe. Under military occupation since March 2022 with all six units shut down.'},
+  {n:'Barakah', ll:[52.19,23.97], mw:5600, c:'UAE', note:'Four Korean units delivered roughly on schedule and budget. The strongest evidence that serial construction works.'},
+  {n:'Gravelines', ll:[2.13,51.01], mw:5460, c:'France', note:'Six units cooled by the North Sea, feeding the French export machine.'},
+  {n:'Paluel', ll:[0.63,49.86], mw:5320, c:'France', note:'Part of a fleet of 56 reactors built in about 20 years, still the fastest decarbonization in history.'},
+  {n:'Flamanville', ll:[-1.88,49.54], mw:5000, c:'France', note:'Home of the EPR that took 17 years and roughly four times its budget.'},
+  {n:'Vogtle', ll:[-81.76,33.14], mw:4536, c:'USA', note:'Units 3 and 4 are the only new US reactors this century: seven years late, more than double the estimate, and now running.'},
+  {n:'Akkuyu', ll:[33.54,36.14], mw:4800, c:'Turkey', note:'Rosatom build-own-operate, which exports a financing model as much as a reactor.'},
+  {n:'Palo Verde', ll:[-112.86,33.39], mw:3937, c:'USA', note:'The largest US station, in the Arizona desert, cooled entirely with treated municipal wastewater.'},
+  {n:'Olkiluoto', ll:[21.48,61.24], mw:3760, c:'Finland', note:'OL3 arrived 14 years late. Onkalo, next door, is the only licensed deep geological repository on earth.'},
+  {n:'Taishan', ll:[112.99,21.92], mw:3500, c:'China', note:'The first EPRs anywhere to operate, finished while the European ones were still being built.'},
+  {n:'Hinkley Point C', ll:[-3.13,51.21], mw:3260, c:'UK', note:'Under construction at a strike price that indexed its way past almost everything else on the system.'},
+  {n:'Kudankulam', ll:[77.71,8.17], mw:2000, c:'India', note:'Russian VVERs, expanding to six units, alongside India\u2019s indigenous heavy-water programme.'},
+  {n:'Rooppur', ll:[89.05,24.06], mw:2400, c:'Bangladesh', note:'A first reactor for a country of 170 million, financed and built by Rosatom.'},
+  {n:'Angra', ll:[-44.46,-23.01], mw:1884, c:'Brazil', note:'Two units running and a third that has been under construction, on and off, since 1984.'},
+  {n:'Koeberg', ll:[18.43,-33.68], mw:1860, c:'South Africa', note:'The only nuclear station on the African continent, recently granted a 20-year life extension.'},
+  {n:'Laguna Verde', ll:[-96.41,19.72], mw:1552, c:'Mexico', note:'Two boiling water reactors, and the only nuclear generation in Latin America outside Brazil and Argentina.'},
+  {n:'Bushehr', ll:[52.23,28.83], mw:915, c:'Iran', note:'A civilian station whose existence is inseparable from the enrichment dispute around it.'},
+  {n:'Crane (Three Mile Island)', ll:[-76.72,40.15], mw:835, c:'USA', note:'Unit 1 is being restarted to serve a data centre power agreement. Unit 2 partially melted down in 1979.'},
+  {n:'Fukushima Daiichi', ll:[141.03,37.42], mw:0, c:'Japan', note:'Destroyed by tsunami in March 2011. Decommissioning runs to the 2050s and reshaped nuclear policy worldwide.'},
+  {n:'Chornobyl', ll:[30.1,51.39], mw:0, c:'Ukraine', note:'Unit 4 exploded in April 1986. The confinement structure over it is designed to last a century.'}
+];
 
 /* ============================================================
    LCOE RENDER
@@ -2951,9 +4739,27 @@ function init(){
   toggleBlock('btnGlobeTable','globeTable','Browse as list','Hide the list');
   toggleBlock('btnLcoeTable','lcoeTable','Show as table','Hide the table');
   toggleBlock('btnDurTable','durTable','Show as table','Hide the table');
+  toggleBlock('btnCustodyTable','custodyTable','Show as table','Hide the table');
+  toggleBlock('btnCapTable','capTable','Show as table','Hide the table');
+  toggleBlock('btnTimeTable','timeTable','Show as table','Hide the table');
+  toggleBlock('btnConcTable','concTable','Show as table','Hide the table');
+  toggleBlock('btnCoalTable','coalTable','Show as table','Hide the table');
+  toggleBlock('btnChinaTable','chinaTable','Show as table','Hide the table');
+  toggleBlock('btnWaccTable','waccTable','Show as table','Hide the table');
+  toggleBlock('btnPermitTable','permitTable','Show as table','Hide the table');
+  toggleBlock('btnPhysTable','physTable','Show as table','Hide the table');
+  ['eVal','eUnit'].forEach(function(id){
+    $(id).addEventListener('input', renderConverter);
+    $(id).addEventListener('change', renderConverter);
+  });
+  ['sInsol','sEff','sPack'].forEach(function(id){ $(id).addEventListener('input', renderSolar); });
+  $('sDemPrim').addEventListener('click', function(){ solarDemand=620; this.classList.add('on'); $('sDemFinal').classList.remove('on'); renderSolar(); });
+  $('sDemFinal').addEventListener('click', function(){ solarDemand=300; this.classList.add('on'); $('sDemPrim').classList.remove('on'); renderSolar(); });
+  $('deskFree').addEventListener('change', renderDesk);
 
   // globe layers
-  [['lyCable','cable'],['lyRefinery','refinery'],['lyMine','mine'],['lyChoke','choke']].forEach(function(pair){
+  [['lyCable','cable'],['lyRefinery','refinery'],['lyMine','mine'],['lyChoke','choke'],
+   ['lyPipe','pipe'],['lyNuke','nuke']].forEach(function(pair){
     $(pair[0]).addEventListener('change', function(){ GL.layers[pair[1]]=this.checked; drawGlobe(); });
   });
   $('btnSpin').addEventListener('click', function(){ GL.spin=!GL.spin; setSpinButton(); });
@@ -2964,7 +4770,7 @@ function init(){
     $(pair[0]).addEventListener('input', function(){
       state.p[pair[1]]=+this.value;
       if(state.region!=='custom'){ state.region='custom'; $('selRegion').value='custom'; }
-      renderLcoe(); renderMix(); pushState();
+      renderLcoe(); renderMix(); renderWacc(); pushState();
     });
   });
   $('cIdc').addEventListener('change', function(){ state.p.idc=this.checked; renderLcoe(); pushState(); });
@@ -2973,7 +4779,7 @@ function init(){
     state.region=this.value;
     var r=REGIONS[state.region];
     if(r){ state.p.disc=r.disc; state.p.gas=r.gas; state.p.coal=r.coal; state.p.carbon=r.carbon; state.p.solarCapex=r.solar; }
-    syncLcoeInputs(); renderLcoe(); renderMix(); pushState();
+    syncLcoeInputs(); renderLcoe(); renderMix(); renderWacc(); pushState();
   });
   $('btnBase').addEventListener('click', function(){ state.range=false; this.classList.add('on'); $('btnRange').classList.remove('on'); renderLcoe(); pushState(); });
   $('btnRange').addEventListener('click', function(){ state.range=true; this.classList.add('on'); $('btnBase').classList.remove('on'); renderLcoe(); pushState(); });
@@ -3107,7 +4913,12 @@ function init(){
   $('selRegion').value=state.region;
   renderSankey();
   initGlobe(); setSpinButton();
-  renderLcoe(); renderMix(); renderDuration(); renderSourceList();
+  renderLcoe(); renderMix(); renderDuration();
+  renderCustody(); renderCaps(); renderTimeline();
+  renderConc(); renderSegBar(); renderRoster(); renderDesk();
+  renderCoal(); renderChina(); renderWacc(); renderPermits();
+  renderPhysWeb(); renderConverter(); renderSolar(); renderSolarChain();
+  renderSourceList();
   setLevel(state.level);
   $('ladderTable').innerHTML=ladderTable();
 
@@ -3116,6 +4927,10 @@ function init(){
     clearTimeout(rt);
     rt=setTimeout(function(){
       renderSankey(); renderLcoe(); renderLadder(); renderDuration();
+      renderCustody(); renderCaps(); renderTimeline(); renderConc();
+      renderCoal(); renderChina(); renderWacc(); renderPermits();
+      renderPhysWeb(); renderSolarChain();
+  renderPhysWeb(); renderConverter(); renderSolar(); renderSolarChain();
       if(GL.ok){
         var host=GL.svg.parentNode;
         GL.size=Math.max(320, Math.min(600, host.clientWidth));
@@ -3156,6 +4971,11 @@ if(typeof module!=='undefined' && module.exports){
     lcoe:lcoe, crf:crf, TECHS:TECHS, REGIONS:REGIONS, gridMix:gridMix, MIX_TECH:MIX_TECH, MIX_KEYS:MIX_KEYS,
     storageHours:storageHours, curtailment:curtailment, SOURCES:SOURCES, ENTITIES:ENTITIES,
     DURATION:DURATION, encodeState:encodeState, decodeState:decodeState, state:state,
+    CUSTODY:CUSTODY, CAPS:CAPS, TIMELINE:TIMELINE, ERAS:ERAS, OWN_COLOR:OWN_COLOR,
+    CONC:CONC, PLAYERS:PLAYERS, SEGMENTS:SEGMENTS, DESK:DESK,
+    COAL:COAL, CHINA:CHINA, OWNERS:OWNERS, PERMITS:PERMITS, lcoeParams:lcoeParams,
+    PHYS_NODES:PHYS_NODES, PHYS_EDGES:PHYS_EDGES, UNITS:UNITS, REFS:REFS,
+    SOLAR:SOLAR, solarBudget:solarBudget, PIPES:PIPES, NUKES:NUKES,
     PLACES:(typeof PLACES!=='undefined'?PLACES:[]), CABLES:(typeof CABLES!=='undefined'?CABLES:[])};
 } else if(document.readyState==='loading'){
   document.addEventListener('DOMContentLoaded', init);
